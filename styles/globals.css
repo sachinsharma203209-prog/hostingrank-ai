@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-text-body font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-headline text-text-heading;
+  }
+
+  ::selection {
+    @apply bg-primary-container text-on-primary-container;
+  }
+}
+
+@layer components {
+  /* --- Stitch design-system utilities --- */
+
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(0, 74, 198, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 74, 198, 0.05) 1px, transparent 1px);
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .metric-strip {
+    background-color: #f8fafc;
+  }
+
+  .metric-strip-bg {
+    background: linear-gradient(135deg, #f7f9fb 0%, #eceef0 100%);
+  }
+
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  }
+
+  .card-hover {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+  }
+
+  .gradient-text {
+    background: linear-gradient(to right, #004ac6, #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .affiliate-cta {
+    background: linear-gradient(to right, #f97316, #ea580c);
+  }
+
+  .affiliate-cta-135 {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .container-max {
+    @apply max-w-container-max mx-auto px-margin-mobile md:px-gutter;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ring-offset-background;
+  }
+}
+
+/* MDX / article typography tuned to the design system */
+@layer utilities {
+  .prose-hosting {
+    @apply prose prose-slate max-w-none text-text-body;
+  }
+  .prose-hosting :where(h1, h2, h3, h4) {
+    @apply text-text-heading font-headline scroll-mt-28;
+  }
+  .prose-hosting :where(h2) {
+    @apply text-headline-lg-mobile md:text-headline-lg mt-12 mb-6 pb-2 border-b border-border-subtle;
+  }
+  .prose-hosting :where(h3) {
+    @apply text-headline-md mt-8 mb-4;
+  }
+  .prose-hosting :where(p, ul, ol, li, blockquote) {
+    @apply text-body-md leading-7;
+  }
+  .prose-hosting :where(strong) {
+    @apply text-text-heading font-semibold;
+  }
+  .prose-hosting :where(a) {
+    @apply text-primary font-medium hover:underline;
+  }
+  .prose-hosting :where(table) {
+    @apply text-body-md;
+  }
+  .prose-hosting :where(pre) {
+    @apply bg-surface-container-high border border-border-subtle rounded-lg text-sm;
+  }
+}

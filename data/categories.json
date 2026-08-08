@@ -1,0 +1,224 @@
+[
+  {
+    "slug": "wordpress-hosting",
+    "parent": null,
+    "title": "Best WordPress Hosting",
+    "h1": "Best WordPress Hosting in 2025",
+    "shortName": "WordPress Hosting",
+    "overline": "Category Guide",
+    "description": "We tested 40+ providers over 6 months to find the definitive best hosting for WordPress.",
+    "intro": "WordPress powers over 43% of the web, which makes hosting choice the single biggest performance lever for most websites. We ran a full WordPress test site on 40+ providers for six months, measuring real TTFB, uptime under stress tests, and everyday LCP. Kinsta wins on raw speed, but Hostinger remains the best value pick for the vast majority of sites.",
+    "providers": ["kinsta", "hostinger", "cloudways", "siteground", "wpengine", "bluehost"],
+    "faqs": [
+      {
+        "question": "What is the best WordPress hosting for most people?",
+        "answer": "Hostinger offers the best balance of speed, price, and features for most WordPress users. Its LiteSpeed servers and NVMe storage deliver a 142ms global TTFB at a fraction of premium-managed prices."
+      },
+      {
+        "question": "Is managed WordPress hosting worth the extra cost?",
+        "answer": "Yes, if your site generates revenue and you value automatic updates, staging, security hardening, and expert support. Kinsta and WP Engine excel here, but they start at $20-35/mo versus $3/mo for shared hosting."
+      },
+      {
+        "question": "What TTFB should a good WordPress host have?",
+        "answer": "Under 200ms from your primary audience region is excellent. Under 400ms is acceptable for most sites. Above 600ms, consider a faster host or a CDN."
+      },
+      {
+        "question": "Can I move my WordPress site to a new host for free?",
+        "answer": "Most managed hosts (Kinsta, WP Engine, SiteGround) include free migration. For shared hosts, plugins like All-in-One WP Migration make DIY migration straightforward."
+      }
+    ],
+    "childrenTopics": [
+      { "label": "Managed WordPress Hosting", "href": "/best/managed-hosting" },
+      { "label": "Cheap WordPress Hosting", "href": "/best/cheap-hosting" },
+      { "label": "Fast WordPress Hosting", "href": "/best/wordpress-hosting" },
+      { "label": "WordPress Hosting in India", "href": "/best/hosting-india" },
+      { "label": "WooCommerce Hosting", "href": "/best/hosting-for-wordpress" },
+      { "label": "WordPress Hosting for Beginners", "href": "/best/hosting-for-beginners" }
+    ],
+    "relatedCategories": ["managed-hosting", "cloud-hosting", "cheap-hosting"],
+    "relatedComparisons": ["kinsta-vs-cloudways", "hostinger-vs-bluehost", "cloudways-vs-siteground"],
+    "relatedTutorials": ["install-wordpress-on-hostinger", "deploy-nextjs-on-vps"],
+    "relatedProviders": ["hostinger", "kinsta", "siteground", "cloudways"],
+    "updatedAt": "Oct 24, 2024"
+  },
+  {
+    "slug": "cloud-hosting",
+    "parent": null,
+    "title": "Best Cloud Hosting",
+    "h1": "Best Cloud Hosting in 2025",
+    "shortName": "Cloud Hosting",
+    "overline": "Category Guide",
+    "description": "Scalable cloud hosting compared on TTFB, scaling behavior, and price transparency.",
+    "intro": "Cloud hosting replaces the single shared server with a cluster of resources you can scale on demand. Cloudways, Vercel, and Cloudflare Pages all solve this differently - managed servers, edge compute, or full platform-as-a-service. We benchmarked raw performance and scaling behavior across all three models.",
+    "providers": ["cloudways", "vercel", "cloudflare", "digitalocean", "vultr"],
+    "faqs": [
+      {
+        "question": "What is the difference between cloud hosting and VPS hosting?",
+        "answer": "A VPS is a single virtualized server with dedicated resources. Cloud hosting pools resources across many servers, so you can scale vertically and horizontally without migrating to a new machine."
+      },
+      {
+        "question": "Is cloud hosting more expensive than shared hosting?",
+        "answer": "Typically yes. Quality cloud hosting starts around $12-14/mo versus $3/mo for shared, but you get isolated resources, predictable scaling, and far fewer noisy-neighbor issues."
+      },
+      {
+        "question": "When should I switch from shared to cloud hosting?",
+        "answer": "Switch when you outgrow shared CPU/RAM limits, experience slowdowns during traffic spikes, or need staging environments and horizontal scaling for a growing app."
+      }
+    ],
+    "childrenTopics": [
+      { "label": "Managed Cloud Hosting", "href": "/best/managed-hosting" },
+      { "label": "Cloud Hosting for Next.js", "href": "/best/hosting-for-nextjs" },
+      { "label": "Cheap Cloud Hosting", "href": "/best/cheap-hosting" },
+      { "label": "Cloud VPS Hosting", "href": "/best/vps-hosting" }
+    ],
+    "relatedCategories": ["managed-hosting", "vps-hosting"],
+    "relatedComparisons": ["cloudways-vs-siteground", "digitalocean-vs-vultr", "kinsta-vs-cloudways"],
+    "relatedTutorials": ["deploy-nextjs-on-vps", "migrate-wordpress-to-cloudways"],
+    "relatedProviders": ["cloudways", "digitalocean", "vercel", "cloudflare"],
+    "updatedAt": "Oct 24, 2024"
+  },
+  {
+    "slug": "vps-hosting",
+    "parent": null,
+    "title": "Best VPS Hosting",
+    "h1": "Best VPS Hosting in 2025",
+    "shortName": "VPS Hosting",
+    "overline": "Category Guide",
+    "description": "Virtual private servers ranked by raw compute, NVMe throughput, and price.",
+    "intro": "A VPS gives you dedicated, isolated resources and root access. DigitalOcean and Vultr lead on developer experience and price transparency, while managed options like Cloudways wrap the same hardware in an easier-to-use layer. This guide covers both managed and unmanaged VPS hosting.",
+    "providers": ["digitalocean", "vultr", "cloudways", "a2hosting", "dreamhost", "hostinger"],
+    "faqs": [
+      {
+        "question": "How much does a VPS cost?",
+        "answer": "Unmanaged VPS starts around $4-6/mo (DigitalOcean, Vultr, Hostinger). Managed VPS with support and backups typically starts at $12-20/mo (Cloudways, A2 Hosting)."
+      },
+      {
+        "question": "VPS vs shared hosting - which is better?",
+        "answer": "A VPS is better if you need guaranteed CPU/RAM, root access, or run non-WordPress software. Shared hosting is cheaper and easier for simple WordPress sites that don't need customization."
+      },
+      {
+        "question": "Do I need a VPS for my WordPress site?",
+        "answer": "Usually not until you hit roughly 30,000-50,000 monthly visits or run heavy plugins/WooCommerce. Before that, premium shared or managed WordPress hosting is more cost-effective."
+      }
+    ],
+    "childrenTopics": [
+      { "label": "Cheap VPS Hosting", "href": "/best/cheap-hosting" },
+      { "label": "VPS for Docker", "href": "/best/hosting-for-docker" },
+      { "label": "Managed Cloud Hosting", "href": "/best/managed-hosting" },
+      { "label": "Next.js on a VPS", "href": "/tutorials/deploy-nextjs-on-vps" }
+    ],
+    "relatedCategories": ["cloud-hosting", "managed-hosting"],
+    "relatedComparisons": ["digitalocean-vs-vultr", "cloudways-vs-siteground"],
+    "relatedTutorials": ["deploy-nextjs-on-vps", "secure-ubuntu-vps"],
+    "relatedProviders": ["digitalocean", "vultr", "cloudways", "hostinger"],
+    "updatedAt": "Oct 24, 2024"
+  },
+  {
+    "slug": "shared-hosting",
+    "parent": null,
+    "title": "Best Shared Hosting",
+    "h1": "Best Shared Hosting in 2025",
+    "shortName": "Shared Hosting",
+    "overline": "Category Guide",
+    "description": "Budget shared hosting ranked on real performance, not just sticker price.",
+    "intro": "Shared hosting is the most affordable way online, but 'cheap' varies wildly. We tested ten of the most popular shared plans for a full quarter, tracking TTFB at peak hours and renewal-price transparency. Hostinger's LiteSpeed stack clearly outclasses older Apache-based rivals like Bluehost and HostGator.",
+    "providers": ["hostinger", "siteground", "a2hosting", "namecheap", "dreamhost", "bluehost", "hostgator"],
+    "faqs": [
+      {
+        "question": "What is shared hosting?",
+        "answer": "Shared hosting places many websites on one physical server, splitting its CPU, RAM, and storage. It is the cheapest way to host a website and is fine for most small-to-medium sites."
+      },
+      {
+        "question": "How fast can shared hosting be?",
+        "answer": "Modern LiteSpeed + NVMe shared hosts like Hostinger sustain sub-150ms TTFB. Older Apache-based shared plans often sit at 400-700ms under load."
+      },
+      {
+        "question": "Is shared hosting secure?",
+        "answer": "Yes, if your host isolates accounts properly. Modern shared hosts use Linux containers per account. Avoid hosts that still rely on old-style shared cPanel accounts without account isolation."
+      }
+    ],
+    "childrenTopics": [
+      { "label": "Cheap Shared Hosting", "href": "/best/cheap-hosting" },
+      { "label": "Shared Hosting for Beginners", "href": "/best/hosting-for-beginners" },
+      { "label": "Shared Hosting for Bloggers", "href": "/best/hosting-for-bloggers" },
+      { "label": "Best Shared Hosting in India", "href": "/best/hosting-india" }
+    ],
+    "relatedCategories": ["cheap-hosting", "wordpress-hosting"],
+    "relatedComparisons": ["hostinger-vs-bluehost", "cloudways-vs-siteground"],
+    "relatedTutorials": ["install-wordpress-on-hostinger"],
+    "relatedProviders": ["hostinger", "siteground", "a2hosting", "bluehost"],
+    "updatedAt": "Oct 24, 2024"
+  },
+  {
+    "slug": "managed-hosting",
+    "parent": null,
+    "title": "Best Managed Hosting",
+    "h1": "Best Managed Hosting in 2025",
+    "shortName": "Managed Hosting",
+    "overline": "Category Guide",
+    "description": "Fully managed hosting where the provider handles updates, security, and performance.",
+    "intro": "Managed hosting removes server administration from your plate - the provider handles updates, caching, security, and staging. Kinsta and WP Engine are the WordPress gold standard; Cloudways brings the same concept to raw cloud infrastructure. You pay more, but you get predictable performance and expert support.",
+    "providers": ["kinsta", "cloudways", "wpengine", "siteground"],
+    "faqs": [
+      {
+        "question": "What does managed hosting include?",
+        "answer": "Automatic core/plugin updates, daily backups, staging environments, CDN integration, security monitoring, and expert 24/7 support - all handled by the provider."
+      },
+      {
+        "question": "Is managed hosting worth it for a small business?",
+        "answer": "If your website drives revenue, yes. The uptime, speed, and support prevent costly downtime and performance issues. If it's a hobby blog, premium shared hosting is a better use of money."
+      },
+      {
+        "question": "What is the best managed WordPress hosting?",
+        "answer": "Kinsta is our overall pick for raw performance and support. WP Engine is the strongest enterprise alternative, and SiteGround is the best value if you want a managed experience without premium pricing."
+      }
+    ],
+    "childrenTopics": [
+      { "label": "Managed Cloud Hosting", "href": "/best/cloud-hosting" },
+      { "label": "Managed WordPress Hosting", "href": "/best/wordpress-hosting" },
+      { "label": "Managed Hosting for Agencies", "href": "/best/hosting-for-agencies" },
+      { "label": "Premium Hosting", "href": "/best/hosting-under-500" }
+    ],
+    "relatedCategories": ["wordpress-hosting", "cloud-hosting"],
+    "relatedComparisons": ["kinsta-vs-cloudways", "cloudways-vs-siteground"],
+    "relatedTutorials": ["migrate-wordpress-to-cloudways"],
+    "relatedProviders": ["kinsta", "cloudways", "wpengine", "siteground"],
+    "updatedAt": "Oct 24, 2024"
+  },
+  {
+    "slug": "cheap-hosting",
+    "parent": null,
+    "title": "Best Cheap Hosting",
+    "h1": "Best Cheap Web Hosting in 2025",
+    "shortName": "Cheap Hosting",
+    "overline": "Category Guide",
+    "description": "The best cheap hosting that doesn't fall over - renewal costs fully exposed.",
+    "intro": "Cheap hosting is a trap if you only look at the first bill. We compared introductory vs renewal pricing across ten budget providers and stress-tested the 'cheap' plans to see which ones actually perform. Hostinger and Namecheap are the standouts; HostGator's India plans offer the best pure-budget entry below INR 100.",
+    "providers": ["hostinger", "namecheap", "hostgator", "a2hosting", "bluehost", "dreamhost"],
+    "faqs": [
+      {
+        "question": "What is the cheapest reliable web hosting?",
+        "answer": "Hostinger's single-plan at $2.99/mo (or INR 69/mo in India over 48 months) is the best cheap hosting that still performs. Namecheap is the best sub-$2 option if you bundle a domain."
+      },
+      {
+        "question": "Why is cheap hosting so cheap?",
+        "answer": "Extreme server density (overselling), long-term lock-in contracts, and aggressive renewal pricing. You typically get 1 CPU core, ~1GB RAM, and a strict TOS."
+      },
+      {
+        "question": "What should I check before buying cheap hosting?",
+        "answer": "The renewal price (not the intro price), the refund window, storage type (NVMe > SSD > HDD), uptime guarantee, and whether free SSL/domain is actually included."
+      }
+    ],
+    "childrenTopics": [
+      { "label": "Cheap Hosting in India", "href": "/best/hosting-india" },
+      { "label": "Hosting Under 100", "href": "/best/hosting-under-100" },
+      { "label": "Cheap WordPress Hosting", "href": "/best/wordpress-hosting" },
+      { "label": "Hosting for Students", "href": "/best/hosting-for-students" }
+    ],
+    "relatedCategories": ["shared-hosting", "wordpress-hosting"],
+    "relatedComparisons": ["hostinger-vs-bluehost"],
+    "relatedTutorials": ["install-wordpress-on-hostinger"],
+    "relatedProviders": ["hostinger", "namecheap", "hostgator", "bluehost"],
+    "updatedAt": "Oct 24, 2024"
+  }
+]

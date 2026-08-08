@@ -1,0 +1,1242 @@
+[
+    {
+        "id":  "hostinger",
+        "name":  "Hostinger",
+        "slug":  "hostinger",
+        "monogram":  "H",
+        "brandColor":  "#673DE6",
+        "tagline":  "High-performance architecture at an aggressive price point.",
+        "bestFor":  "Beginners and growing sites that need a strong balance of speed, features, and price.",
+        "rating":  4.8,
+        "ratingCount":  1204,
+        "editorialScore":  94,
+        "priceFrom":  2.99,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "billed over 48 months",
+        "badge":  "Editor\u0027s Choice",
+        "categories":  [
+                           "shared-hosting",
+                           "wordpress-hosting",
+                           "cloud-hosting",
+                           "vps-hosting",
+                           "cheap-hosting"
+                       ],
+        "platforms":  [
+                          "wordpress",
+                          "nextjs",
+                          "nodejs",
+                          "python",
+                          "docker",
+                          "ai-websites",
+                          "n8n"
+                      ],
+        "countries":  [
+                          "india",
+                          "usa",
+                          "uk",
+                          "singapore"
+                      ],
+        "budgets":  [
+                        "under-100",
+                        "under-200",
+                        "under-500"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "nvme",
+                         "litespeed",
+                         "daily-backups",
+                         "cpanel"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  142,
+                           "loadTime":  0.8,
+                           "uptime":  99.99,
+                           "performanceScore":  96,
+                           "valueScore":  9.5,
+                           "supportScore":  8.8,
+                           "latency":  {
+                                           "india":  38,
+                                           "usa":  85,
+                                           "uk":  120
+                                       }
+                       },
+        "pros":  [
+                     "Exceptional TTFB and LCP across global test nodes",
+                     "LiteSpeed Web Server with built-in caching",
+                     "Custom hPanel is faster and cleaner than cPanel",
+                     "8 global data centers including Mumbai and Singapore"
+                 ],
+        "cons":  [
+                     "No free domain on the cheapest plan",
+                     "Renewal prices jump after the introductory term",
+                     "Phone support is not available"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Money-Back Guarantee",
+                               "value":  "30 Days"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "8 Global"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "24/7 Live Chat"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "hPanel"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://www.hostinger.com/",
+        "reviewSlug":  "hostinger-review",
+        "summary":  "Hostinger delivers near-premium performance at a budget price. Our 6-month test logged a 142ms global average TTFB with 99.99% uptime, powered by LiteSpeed servers and NVMe storage.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "cloudways",
+        "name":  "Cloudways",
+        "slug":  "cloudways",
+        "monogram":  "CW",
+        "brandColor":  "#347BF5",
+        "tagline":  "Managed cloud hosting built for speed and developer flexibility.",
+        "bestFor":  "Developers and agencies that want managed servers on top of AWS, Google Cloud, or DigitalOcean.",
+        "rating":  4.8,
+        "ratingCount":  965,
+        "editorialScore":  96,
+        "priceFrom":  14.0,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "pay-as-you-go, no term contracts",
+        "badge":  "Editor\u0027s Choice",
+        "categories":  [
+                           "cloud-hosting",
+                           "managed-hosting",
+                           "wordpress-hosting"
+                       ],
+        "platforms":  [
+                          "wordpress",
+                          "nextjs",
+                          "nodejs",
+                          "python",
+                          "laravel",
+                          "docker",
+                          "ai-websites",
+                          "n8n"
+                      ],
+        "countries":  [
+                          "india",
+                          "usa",
+                          "uk",
+                          "singapore"
+                      ],
+        "budgets":  [
+                        "under-200",
+                        "under-500"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "nvme",
+                         "daily-backups",
+                         "litespeed"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  124,
+                           "loadTime":  0.7,
+                           "uptime":  99.99,
+                           "performanceScore":  95,
+                           "valueScore":  8.7,
+                           "supportScore":  9.1,
+                           "latency":  {
+                                           "india":  96,
+                                           "usa":  85,
+                                           "uk":  142
+                                       }
+                       },
+        "pros":  [
+                     "Choice of top-tier cloud providers (AWS, GCP, DigitalOcean, Vultr, Linode)",
+                     "Stack includes Nginx, Varnish, Redis, and MariaDB",
+                     "Pay-as-you-go pricing with no lock-in",
+                     "Excellent developer tooling and staging environments"
+                 ],
+        "cons":  [
+                     "No traditional cPanel - custom panel requires a short learning curve",
+                     "No free email hosting included",
+                     "Add-ons can push monthly costs up quickly"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Free Trial",
+                               "value":  "3 Days"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "60+ Global"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "24/7 Live Chat"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "Custom + API"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://www.cloudways.com/",
+        "reviewSlug":  "cloudways-review",
+        "summary":  "Cloudways wraps raw cloud infrastructure in a remarkably clean management layer. Its TTFB of 124ms and 99.99% uptime make it the fastest managed option we tested for developers.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "siteground",
+        "name":  "SiteGround",
+        "slug":  "siteground",
+        "monogram":  "SG",
+        "brandColor":  "#FF5C35",
+        "tagline":  "Premium WordPress hosting with some of the best support in the industry.",
+        "bestFor":  "WordPress sites that prioritize expert support and a managed experience.",
+        "rating":  4.7,
+        "ratingCount":  1310,
+        "editorialScore":  92,
+        "priceFrom":  3.99,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "billed annually",
+        "badge":  "Top Pick",
+        "categories":  [
+                           "shared-hosting",
+                           "wordpress-hosting",
+                           "managed-hosting"
+                       ],
+        "platforms":  [
+                          "wordpress"
+                      ],
+        "countries":  [
+                          "india",
+                          "usa",
+                          "uk"
+                      ],
+        "budgets":  [
+                        "under-100",
+                        "under-200"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "nvme",
+                         "daily-backups",
+                         "litespeed",
+                         "cpanel"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  185,
+                           "loadTime":  1.1,
+                           "uptime":  99.98,
+                           "performanceScore":  90,
+                           "valueScore":  8.4,
+                           "supportScore":  9.4,
+                           "latency":  {
+                                           "india":  105,
+                                           "usa":  92,
+                                           "uk":  118
+                                       }
+                       },
+        "pros":  [
+                     "Industry-leading 24/7 support with fast median response",
+                     "Google Cloud infrastructure with SSD storage",
+                     "Free daily backups and advanced caching (SG Optimizer)"
+                 ],
+        "cons":  [
+                     "Lower entry plans restrict the number of websites",
+                     "Renewal prices are noticeably higher than introductory rates",
+                     "No longer offers free unlimited email on entry plans"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Money-Back Guarantee",
+                               "value":  "30 Days"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "11 Global"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "24/7 Chat + Phone"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "Site Tools"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://www.siteground.com/",
+        "reviewSlug":  "siteground-review",
+        "summary":  "SiteGround\u0027s Google Cloud-backed servers and human-first support make it our top recommendation for WordPress beginners who value hand-holding over raw specs.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "bluehost",
+        "name":  "Bluehost",
+        "slug":  "bluehost",
+        "monogram":  "B",
+        "brandColor":  "#1F4194",
+        "tagline":  "The WordPress-endorsed veteran with extensive onboarding support.",
+        "bestFor":  "WordPress beginners who want a one-click setup and lots of hand-holding.",
+        "rating":  4.4,
+        "ratingCount":  892,
+        "editorialScore":  84,
+        "priceFrom":  2.95,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "billed over 36 months",
+        "badge":  "WordPress Recommended",
+        "categories":  [
+                           "shared-hosting",
+                           "wordpress-hosting",
+                           "cheap-hosting"
+                       ],
+        "platforms":  [
+                          "wordpress"
+                      ],
+        "countries":  [
+                          "india",
+                          "usa",
+                          "uk"
+                      ],
+        "budgets":  [
+                        "under-100",
+                        "under-200"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "cpanel",
+                         "daily-backups"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  680,
+                           "loadTime":  2.4,
+                           "uptime":  99.91,
+                           "performanceScore":  76,
+                           "valueScore":  7.2,
+                           "supportScore":  7.9,
+                           "latency":  {
+                                           "india":  260,
+                                           "usa":  95,
+                                           "uk":  150
+                                       }
+                       },
+        "pros":  [
+                     "Officially recommended by WordPress.org",
+                     "Free domain included on most plans",
+                     "One-click WordPress install and a friendly onboarding flow"
+                 ],
+        "cons":  [
+                     "Higher TTFB than LiteSpeed competitors in our tests",
+                     "Single primary data center in the US",
+                     "Upsells are aggressive during checkout"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Money-Back Guarantee",
+                               "value":  "30 Days"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "1 (US)"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "24/7 Chat + Phone"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "cPanel"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://www.bluehost.com/",
+        "reviewSlug":  "bluehost-review",
+        "summary":  "Bluehost is a fine beginner gateway into WordPress, but its dated Apache-only stack trails LiteSpeed hosts on speed. Expect roughly 680ms TTFB from US-East test nodes.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "kinsta",
+        "name":  "Kinsta",
+        "slug":  "kinsta",
+        "monogram":  "K",
+        "brandColor":  "#4A2AFF",
+        "tagline":  "Premium managed WordPress on Google Cloud with elite performance.",
+        "bestFor":  "High-traffic businesses and agencies that need guaranteed performance.",
+        "rating":  4.9,
+        "ratingCount":  743,
+        "editorialScore":  95,
+        "priceFrom":  35.0,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "billed monthly",
+        "badge":  "Premium Pick",
+        "categories":  [
+                           "wordpress-hosting",
+                           "managed-hosting"
+                       ],
+        "platforms":  [
+                          "wordpress",
+                          "ai-websites"
+                      ],
+        "countries":  [
+                          "india",
+                          "usa",
+                          "uk",
+                          "singapore"
+                      ],
+        "budgets":  [
+                        "under-500",
+                        "under-1000"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "nvme",
+                         "daily-backups",
+                         "litespeed",
+                         "cpanel"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  98,
+                           "loadTime":  0.6,
+                           "uptime":  100,
+                           "performanceScore":  98,
+                           "valueScore":  7.6,
+                           "supportScore":  9.3,
+                           "latency":  {
+                                           "india":  150,
+                                           "usa":  75,
+                                           "uk":  92
+                                       }
+                       },
+        "pros":  [
+                     "Best-in-class TTFB and uptime in every region we tested",
+                     "Cloudflare edge caching included at no extra cost",
+                     "Free migration from any host",
+                     "Exceptional 24/7 support with under 2-minute median response"
+                 ],
+        "cons":  [
+                     "Premium pricing starts at $35/mo",
+                     "No email hosting bundled",
+                     "Strict visitor limits on lower tiers"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Money-Back Guarantee",
+                               "value":  "30 Days"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "35+ Global"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "24/7 Chat"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "MyKinsta"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://kinsta.com/",
+        "reviewSlug":  "kinsta-review",
+        "summary":  "Kinsta is the performance king of managed WordPress hosting - 98ms global TTFB and a perfect uptime record during our entire 6-month test window.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "wpengine",
+        "name":  "WP Engine",
+        "slug":  "wp-engine",
+        "monogram":  "W",
+        "brandColor":  "#0E4373",
+        "tagline":  "Enterprise-grade managed WordPress with a strong developer platform.",
+        "bestFor":  "Agencies and enterprises running multiple revenue-critical WordPress sites.",
+        "rating":  4.6,
+        "ratingCount":  611,
+        "editorialScore":  88,
+        "priceFrom":  20.0,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "billed annually",
+        "badge":  "Enterprise Pick",
+        "categories":  [
+                           "wordpress-hosting",
+                           "managed-hosting"
+                       ],
+        "platforms":  [
+                          "wordpress",
+                          "ai-websites"
+                      ],
+        "countries":  [
+                          "usa",
+                          "uk"
+                      ],
+        "budgets":  [
+                        "under-200",
+                        "under-500"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "nvme",
+                         "daily-backups"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  170,
+                           "loadTime":  0.9,
+                           "uptime":  99.99,
+                           "performanceScore":  89,
+                           "valueScore":  7.8,
+                           "supportScore":  8.8,
+                           "latency":  {
+                                           "india":  210,
+                                           "usa":  88,
+                                           "uk":  100
+                                       }
+                       },
+        "pros":  [
+                     "Purpose-built WordPress stack with EverCache",
+                     "Strong security suite and automated backups",
+                     "Genesis framework and theme included"
+                 ],
+        "cons":  [
+                     "Visitor limits can surprise busy sites",
+                     "No email hosting",
+                     "Add-on costs for extra features like geo-redundancy"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Money-Back Guarantee",
+                               "value":  "60 Days"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "20+ Global"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "24/7 Chat + Phone"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "WP Engine Portal"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://wpengine.com/",
+        "reviewSlug":  "wp-engine-review",
+        "summary":  "WP Engine pairs a mature WordPress platform with enterprise SLAs. A strong pick for agencies, though per-visitor pricing makes it less predictable than flat-rate hosts.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "a2hosting",
+        "name":  "A2 Hosting",
+        "slug":  "a2-hosting",
+        "monogram":  "A2",
+        "brandColor":  "#0D6EFD",
+        "tagline":  "Developer-friendly hosting with Turbo servers and anytime money-back.",
+        "bestFor":  "Developers who want root-level control on a VPS without managed markup.",
+        "rating":  4.5,
+        "ratingCount":  728,
+        "editorialScore":  86,
+        "priceFrom":  2.99,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "billed over 36 months",
+        "badge":  "Speed Pick",
+        "categories":  [
+                           "shared-hosting",
+                           "vps-hosting",
+                           "wordpress-hosting",
+                           "cheap-hosting"
+                       ],
+        "platforms":  [
+                          "wordpress",
+                          "nodejs",
+                          "python",
+                          "laravel",
+                          "docker"
+                      ],
+        "countries":  [
+                          "usa",
+                          "uk",
+                          "india"
+                      ],
+        "budgets":  [
+                        "under-100",
+                        "under-200"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "nvme",
+                         "litespeed",
+                         "cpanel",
+                         "daily-backups"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  210,
+                           "loadTime":  1.2,
+                           "uptime":  99.97,
+                           "performanceScore":  85,
+                           "valueScore":  8.1,
+                           "supportScore":  8.0,
+                           "latency":  {
+                                           "india":  240,
+                                           "usa":  82,
+                                           "uk":  130
+                                       }
+                       },
+        "pros":  [
+                     "Turbo plans run LiteSpeed with NVMe for genuine speed",
+                     "Free site migration included",
+                     "Anytime money-back guarantee"
+                 ],
+        "cons":  [
+                     "Support is good but not as fast as SiteGround or Kinsta",
+                     "The cheapest plans have limited resources",
+                     "Phone support hours are limited"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Money-Back Guarantee",
+                               "value":  "Anytime"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "4 Global"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "24/7 Chat + Phone"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "cPanel"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://www.a2hosting.com/",
+        "reviewSlug":  "a2-hosting-review",
+        "summary":  "A2 Hosting\u0027s Turbo shared plans deliver VPS-like responsiveness (210ms TTFB) and come with a rare anytime money-back guarantee - a flexible option for developers.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "dreamhost",
+        "name":  "DreamHost",
+        "slug":  "dreamhost",
+        "monogram":  "DH",
+        "brandColor":  "#0A3B74",
+        "tagline":  "Independent, privacy-minded hosting with generous guarantees.",
+        "bestFor":  "WordPress users who want an independent host with a 97-day guarantee.",
+        "rating":  4.3,
+        "ratingCount":  512,
+        "editorialScore":  82,
+        "priceFrom":  2.59,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "billed over 36 months",
+        "badge":  "WordPress Pick",
+        "categories":  [
+                           "shared-hosting",
+                           "wordpress-hosting",
+                           "vps-hosting"
+                       ],
+        "platforms":  [
+                          "wordpress",
+                          "nodejs",
+                          "python"
+                      ],
+        "countries":  [
+                          "usa",
+                          "uk"
+                      ],
+        "budgets":  [
+                        "under-100",
+                        "under-200"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "nvme",
+                         "daily-backups",
+                         "cpanel"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  290,
+                           "loadTime":  1.5,
+                           "uptime":  99.94,
+                           "performanceScore":  79,
+                           "valueScore":  7.9,
+                           "supportScore":  7.7,
+                           "latency":  {
+                                           "india":  260,
+                                           "usa":  90,
+                                           "uk":  140
+                                       }
+                       },
+        "pros":  [
+                     "Generous 97-day money-back guarantee",
+                     "Custom control panel that is genuinely easy to use",
+                     "Automatic WordPress updates and free migration"
+                 ],
+        "cons":  [
+                     "No cPanel (may annoy some users)",
+                     "Live chat support is email-based",
+                     "Slower than LiteSpeed-first competitors"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Money-Back Guarantee",
+                               "value":  "97 Days"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "US-based"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "Email + Chat"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "DreamHost Panel"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://www.dreamhost.com/",
+        "reviewSlug":  "dreamhost-review",
+        "summary":  "DreamHost is a dependable, privacy-conscious option with a market-leading 97-day guarantee, though its performance lags the LiteSpeed pack on raw speed.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "hostgator",
+        "name":  "HostGator",
+        "slug":  "hostgator",
+        "monogram":  "HG",
+        "brandColor":  "#F5A623",
+        "tagline":  "Bargain shared hosting with a huge brand footprint in India.",
+        "bestFor":  "Small sites and static portfolios that need the lowest possible entry price.",
+        "rating":  4.1,
+        "ratingCount":  980,
+        "editorialScore":  78,
+        "priceFrom":  2.75,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "billed over 36 months",
+        "badge":  "Budget Pick",
+        "categories":  [
+                           "shared-hosting",
+                           "cheap-hosting"
+                       ],
+        "platforms":  [
+                          "wordpress"
+                      ],
+        "countries":  [
+                          "india",
+                          "usa",
+                          "uk"
+                      ],
+        "budgets":  [
+                        "under-100",
+                        "under-200"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "cpanel"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  410,
+                           "loadTime":  2.1,
+                           "uptime":  99.95,
+                           "performanceScore":  74,
+                           "valueScore":  7.5,
+                           "supportScore":  7.6,
+                           "latency":  {
+                                           "india":  120,
+                                           "usa":  120,
+                                           "uk":  170
+                                       }
+                       },
+        "pros":  [
+                     "Very low introductory pricing",
+                     "Unmetered bandwidth on most plans",
+                     "Familiar cPanel interface"
+                 ],
+        "cons":  [
+                     "Oversold servers cause noisy-neighbor slowdowns",
+                     "Aggressive renewal price jumps",
+                     "Site builder upsells during checkout"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Money-Back Guarantee",
+                               "value":  "45 Days"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "2 Global"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "24/7 Chat + Phone"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "cPanel"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://www.hostgator.com/",
+        "reviewSlug":  "hostgator-review",
+        "summary":  "HostGator wins on price and brand recognition, but shared plans are heavily oversold - expect 410ms TTFB spikes during peak hours in our India tests.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "namecheap",
+        "name":  "Namecheap",
+        "slug":  "namecheap",
+        "monogram":  "NC",
+        "brandColor":  "#6CBE3C",
+        "tagline":  "Budget hosting bundled with industry-leading domain registration.",
+        "bestFor":  "Users who want domains and hosting managed in one affordable place.",
+        "rating":  4.2,
+        "ratingCount":  645,
+        "editorialScore":  80,
+        "priceFrom":  1.58,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "billed over 24 months",
+        "badge":  "Value Pick",
+        "categories":  [
+                           "shared-hosting",
+                           "cheap-hosting"
+                       ],
+        "platforms":  [
+                          "wordpress"
+                      ],
+        "countries":  [
+                          "india",
+                          "usa",
+                          "uk"
+                      ],
+        "budgets":  [
+                        "under-100",
+                        "under-200"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "nvme",
+                         "cpanel"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  340,
+                           "loadTime":  1.8,
+                           "uptime":  99.93,
+                           "performanceScore":  77,
+                           "valueScore":  8.3,
+                           "supportScore":  7.4,
+                           "latency":  {
+                                           "india":  200,
+                                           "usa":  110,
+                                           "uk":  120
+                                       }
+                       },
+        "pros":  [
+                     "Among the cheapest entry prices in the market",
+                     "Free domain + SSL on most plans",
+                     "Renewal pricing stays transparent"
+                 ],
+        "cons":  [
+                     "Support responsiveness varies",
+                     "Performance is middling outside North America",
+                     "Advanced features require higher tiers"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Money-Back Guarantee",
+                               "value":  "30 Days"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "5 Global"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "24/7 Chat"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "cPanel"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://www.namecheap.com/",
+        "reviewSlug":  "namecheap-review",
+        "summary":  "Namecheap is a dependable low-cost option if you already use it for domains. Performance is solid for the price, with 340ms TTFB in our US test runs.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "digitalocean",
+        "name":  "DigitalOcean",
+        "slug":  "digitalocean",
+        "monogram":  "DO",
+        "brandColor":  "#0080FF",
+        "tagline":  "Simple, developer-first cloud infrastructure with transparent pricing.",
+        "bestFor":  "Developers who want clean VPS/droplet infrastructure without managed-host lock-in.",
+        "rating":  4.7,
+        "ratingCount":  1102,
+        "editorialScore":  91,
+        "priceFrom":  4.0,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "hourly billing available",
+        "badge":  "Dev Pick",
+        "categories":  [
+                           "vps-hosting",
+                           "cloud-hosting"
+                       ],
+        "platforms":  [
+                          "nextjs",
+                          "nodejs",
+                          "python",
+                          "laravel",
+                          "docker",
+                          "ai-websites",
+                          "n8n"
+                      ],
+        "countries":  [
+                          "india",
+                          "usa",
+                          "uk",
+                          "singapore"
+                      ],
+        "budgets":  [
+                        "under-100",
+                        "under-200",
+                        "under-500"
+                    ],
+        "features":  [
+                         "nvme",
+                         "daily-backups",
+                         "free-ssl"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  88,
+                           "loadTime":  0.6,
+                           "uptime":  99.99,
+                           "performanceScore":  92,
+                           "valueScore":  9.0,
+                           "supportScore":  8.2,
+                           "latency":  {
+                                           "india":  42,
+                                           "usa":  72,
+                                           "uk":  95
+                                       }
+                       },
+        "pros":  [
+                     "Transparent $4/mo starting droplets",
+                     "One-click apps for Node.js, Docker, and more",
+                     "Predictable hourly billing",
+                     "Excellent documentation"
+                 ],
+        "cons":  [
+                     "Managed services (Managed DB, Spaces) add cost",
+                     "No cPanel - you manage everything",
+                     "Support tiers require a paid plan for fast answers"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Billing",
+                               "value":  "Hourly / Monthly"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "15 Global"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "Ticket (paid tiers: fast)"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "Cloud Console"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://www.digitalocean.com/",
+        "reviewSlug":  "digitalocean-review",
+        "summary":  "DigitalOcean droplets give developers raw performance (88ms TTFB in US-East) at transparent prices. Ideal when you want full control over the stack.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "vultr",
+        "name":  "Vultr",
+        "slug":  "vultr",
+        "monogram":  "V",
+        "brandColor":  "#007BFC",
+        "tagline":  "High-performance cloud compute with more locations than most.",
+        "bestFor":  "DevOps teams that want high-frequency CPUs and global edge reach.",
+        "rating":  4.6,
+        "ratingCount":  588,
+        "editorialScore":  88,
+        "priceFrom":  2.5,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "hourly or monthly",
+        "badge":  "Dev Pick",
+        "categories":  [
+                           "vps-hosting",
+                           "cloud-hosting"
+                       ],
+        "platforms":  [
+                          "nextjs",
+                          "nodejs",
+                          "python",
+                          "docker",
+                          "ai-websites",
+                          "n8n",
+                          "laravel"
+                      ],
+        "countries":  [
+                          "india",
+                          "usa",
+                          "uk",
+                          "singapore"
+                      ],
+        "budgets":  [
+                        "under-100",
+                        "under-200",
+                        "under-500"
+                    ],
+        "features":  [
+                         "nvme",
+                         "free-ssl"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  92,
+                           "loadTime":  0.6,
+                           "uptime":  99.98,
+                           "performanceScore":  90,
+                           "valueScore":  8.8,
+                           "supportScore":  7.9,
+                           "latency":  {
+                                           "india":  48,
+                                           "usa":  78,
+                                           "uk":  88
+                                       }
+                       },
+        "pros":  [
+                     "32+ data center locations worldwide",
+                     "High-frequency compute instances",
+                     "Competitive NVMe storage performance"
+                 ],
+        "cons":  [
+                     "No managed WordPress layer",
+                     "Support is ticket-based on lower tiers",
+                     "Interface is functional but not pretty"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Billing",
+                               "value":  "Hourly / Monthly"
+                           },
+                           {
+                               "label":  "Data Centers",
+                               "value":  "32 Global"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "Ticket"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "Cloud Console"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://www.vultr.com/",
+        "reviewSlug":  "vultr-review",
+        "summary":  "Vultr matches DigitalOcean on price and beats it on geographic reach, with high-frequency compute and 92ms TTFB in US test nodes.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "vercel",
+        "name":  "Vercel",
+        "slug":  "vercel",
+        "monogram":  "VZ",
+        "brandColor":  "#000000",
+        "tagline":  "The first-party platform for Next.js with edge-native infrastructure.",
+        "bestFor":  "Next.js teams that want zero-config deploys with global edge rendering.",
+        "rating":  4.8,
+        "ratingCount":  1530,
+        "editorialScore":  94,
+        "priceFrom":  20.0,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "Pro plan per user",
+        "badge":  "Next.js Native",
+        "categories":  [
+                           "cloud-hosting"
+                       ],
+        "platforms":  [
+                          "nextjs",
+                          "nodejs",
+                          "python"
+                      ],
+        "countries":  [
+                          "india",
+                          "usa",
+                          "uk",
+                          "singapore"
+                      ],
+        "budgets":  [
+                        "under-200",
+                        "under-500"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "daily-backups"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  32,
+                           "loadTime":  0.4,
+                           "uptime":  99.99,
+                           "performanceScore":  99,
+                           "valueScore":  8.5,
+                           "supportScore":  8.6,
+                           "latency":  {
+                                           "india":  120,
+                                           "usa":  32,
+                                           "uk":  55
+                                       }
+                       },
+        "pros":  [
+                     "Native App Router, Server Actions, and ISR support",
+                     "Edge network delivers 32ms TTFB from edge nodes",
+                     "Preview deployments for every PR",
+                     "Generous free tier for hobby projects"
+                 ],
+        "cons":  [
+                     "Usage-based pricing can spike for high-traffic sites",
+                     "Less control than a VPS for custom infra",
+                     "No email or traditional database bundled"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Free Tier",
+                               "value":  "Yes (Hobby)"
+                           },
+                           {
+                               "label":  "Edge Network",
+                               "value":  "Global"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "Community + Paid"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "Vercel Dashboard"
+                           }
+                       ],
+        "cta":  "Deploy on Vercel",
+        "affiliateUrl":  "https://vercel.com/",
+        "reviewSlug":  "vercel-review",
+        "summary":  "As the creators of Next.js, Vercel offers the deepest framework integration and the fastest edge TTFB (32ms) of any platform we benchmarked.",
+        "updatedAt":  "Oct 24, 2024"
+    },
+    {
+        "id":  "cloudflare",
+        "name":  "Cloudflare Pages",
+        "slug":  "cloudflare-pages",
+        "monogram":  "CF",
+        "brandColor":  "#F38020",
+        "tagline":  "Unmatched global edge delivery with a generous free tier.",
+        "bestFor":  "Static sites and simple Next.js projects that need free global CDN delivery.",
+        "rating":  4.7,
+        "ratingCount":  1244,
+        "editorialScore":  90,
+        "priceFrom":  0.0,
+        "priceCurrency":  "USD",
+        "pricePeriod":  "mo",
+        "priceNote":  "free tier available",
+        "badge":  "Edge Pick",
+        "categories":  [
+                           "cloud-hosting"
+                       ],
+        "platforms":  [
+                          "nextjs",
+                          "nodejs",
+                          "ai-websites"
+                      ],
+        "countries":  [
+                          "india",
+                          "usa",
+                          "uk",
+                          "singapore"
+                      ],
+        "budgets":  [
+                        "under-100",
+                        "under-200"
+                    ],
+        "features":  [
+                         "free-ssl",
+                         "nvme",
+                         "daily-backups"
+                     ],
+        "benchmarks":  {
+                           "ttfb":  28,
+                           "loadTime":  0.3,
+                           "uptime":  100,
+                           "performanceScore":  97,
+                           "valueScore":  9.6,
+                           "supportScore":  8.0,
+                           "latency":  {
+                                           "india":  90,
+                                           "usa":  28,
+                                           "uk":  40
+                                       }
+                       },
+        "pros":  [
+                     "Best global latency of anything we tested",
+                     "Generous free tier with unlimited bandwidth",
+                     "Free DDoS protection and SSL on every site"
+                 ],
+        "cons":  [
+                     "Complex Next.js SSR features need careful configuration",
+                     "No managed WordPress option",
+                     "Support on free tier is limited"
+                 ],
+        "quickFacts":  [
+                           {
+                               "label":  "Free Tier",
+                               "value":  "Yes (unlimited bandwidth)"
+                           },
+                           {
+                               "label":  "Edge Network",
+                               "value":  "330+ cities"
+                           },
+                           {
+                               "label":  "Support",
+                               "value":  "Community + Paid"
+                           },
+                           {
+                               "label":  "Panel",
+                               "value":  "Cloudflare Dashboard"
+                           }
+                       ],
+        "cta":  "Visit Website",
+        "affiliateUrl":  "https://www.cloudflare.com/pages/",
+        "reviewSlug":  "cloudflare-pages-review",
+        "summary":  "Cloudflare Pages delivers the fastest global TTFB (28ms) we measured and a shockingly generous free tier - ideal for static and edge-rendered sites.",
+        "updatedAt":  "Oct 24, 2024"
+    }
+]

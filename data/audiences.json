@@ -1,0 +1,123 @@
+[
+  {
+    "slug": "beginners",
+    "name": "Beginners",
+    "title": "Best Hosting for Beginners",
+    "description": "Beginner-friendly hosting with guided setup, one-click WordPress, and helpful support.",
+    "whyThisAudience": "Beginners need three things: a control panel that isn't intimidating, one-click WordPress installation, and support that answers in plain language. Advanced features like staging environments are noise at this stage.",
+    "topProviders": [
+      { "providerId": "hostinger", "reason": "hPanel is the most beginner-friendly control panel we tested. One-click WordPress install and 1-3 min chat responses." },
+      { "providerId": "bluehost", "reason": "Official WordPress.org recommended partner with guided onboarding. Great if you want hand-holding." },
+      { "providerId": "siteground", "reason": "Best-in-class support and clear tutorials, though a steeper learning curve than hPanel." }
+    ],
+    "avoidAdvice": "Avoid unmanaged VPS hosting (DigitalOcean, Vultr) until you can SSH into a server confidently.",
+    "recommendedCategories": ["shared-hosting", "cheap-hosting", "wordpress-hosting"],
+    "relatedTutorials": ["install-wordpress-on-hostinger", "move-wordpress-to-new-host", "setup-email-ssl"],
+    "faqs": [
+      {
+        "question": "Which host is easiest for a complete beginner?",
+        "answer": "Hostinger's hPanel is the easiest control panel on the market. If you'd rather have human guidance at every step, Bluehost's onboarding is more guided."
+      },
+      {
+        "question": "Do I need to learn code?",
+        "answer": "No. One-click WordPress installs mean you'll never touch a command line. At most you'll edit a theme's settings."
+      }
+    ]
+  },
+  {
+    "slug": "bloggers",
+    "name": "Bloggers & Content Sites",
+    "title": "Best Hosting for Bloggers",
+    "description": "Reliable, fast, and affordable hosting optimized for WordPress content sites.",
+    "whyThisAudience": "Bloggers prioritize price, uptime, and page speed (which affects ad revenue and SEO). NVMe storage, LiteSpeed, and a free CDN matter more than enterprise features.",
+    "topProviders": [
+      { "providerId": "hostinger", "reason": "₹149/mo Premium Web with NVMe + LiteSpeed is the best price-to-performance for blogs." },
+      { "providerId": "dreamhost", "reason": "WordPress.org recommended, transparent pricing, and unlimited traffic at a fair renewal rate." },
+      { "providerId": "cloudways", "reason": "When your blog grows past shared hosting, Cloudways' 2GB VPS plan scales with you." }
+    ],
+    "avoidAdvice": "Avoid locking into 4-year contracts on entry plans; your traffic will outgrow them.",
+    "recommendedCategories": ["wordpress-hosting", "cheap-hosting"],
+    "relatedTutorials": ["speed-up-wordpress", "install-wordpress-on-hostinger"],
+    "faqs": [
+      {
+        "question": "What's the best hosting for a WordPress blog in 2024?",
+        "answer": "Hostinger Premium Web (₹149/mo) for affordability or Cloudways for scale. Both beat shared entry tiers on NVMe performance."
+      },
+      {
+        "question": "How much traffic can a ₹149/mo plan handle?",
+        "answer": "Comfortably 20,000-50,000 pageviews/month. Beyond that, you'll want a 2GB VPS with object caching."
+      }
+    ]
+  },
+  {
+    "slug": "agencies",
+    "name": "Web Agencies",
+    "title": "Best Hosting for Agencies",
+    "description": "Multi-site management, white-label client sites, and reseller-grade resources.",
+    "whyThisAudience": "Agencies need to manage dozens of client sites from one dashboard, clone sites quickly, bill clients separately, and guarantee performance. White-label control panels and client billing are must-haves.",
+    "topProviders": [
+      { "providerId": "cloudways", "reason": "Manage unlimited servers and sites from one dashboard. Ideal for agencies on a budget." },
+      { "providerId": "kinsta", "reason": "Best-in-class multi-site management, white-label tools, and site cloning. Premium price." },
+      { "providerId": "wpengine", "reason": "Mature agency program with staging, SSL, and enterprise-grade support." }
+    ],
+    "avoidAdvice": "Avoid consumer shared plans - you need isolation between client sites and a real backup story.",
+    "recommendedCategories": ["managed-hosting", "cloud-hosting", "vps-hosting"],
+    "relatedTutorials": ["migrate-wordpress-to-cloudways", "secure-ubuntu-vps"],
+    "faqs": [
+      {
+        "question": "Can I white-label the control panel for clients?",
+        "answer": "Yes - Kinsta and Cloudways both support white-labeling the dashboard so clients see your brand, not the host's."
+      },
+      {
+        "question": "Do agencies need a dedicated server?",
+        "answer": "Not usually. Managed cloud hosting (Kinsta, Cloudways, WP Engine) isolates each client site and scales without a dedicated server."
+      }
+    ]
+  },
+  {
+    "slug": "startups",
+    "name": "Startups & SaaS",
+    "title": "Best Hosting for Startups",
+    "description": "Flexible cloud infrastructure that scales with product growth.",
+    "whyThisAudience": "Startups need infra that scales vertically and horizontally, deploys fast (CI/CD, preview deploys), and offers predictable pricing. VPS and app platforms beat shared hosting for anything beyond a marketing site.",
+    "topProviders": [
+      { "providerId": "digitalocean", "reason": "Predictable per-hour pricing, snapshots, load balancers, and a massive tutorial library." },
+      { "providerId": "vultr", "reason": "Better price-to-performance than DigitalOcean at the low end, with 32 global locations." },
+      { "providerId": "vercel", "reason": "Zero-config deploys and preview URLs for Next.js/React startups. Unbeatable DX." }
+    ],
+    "avoidAdvice": "Avoid long-term contracts - you need the flexibility to scale infra monthly.",
+    "recommendedCategories": ["cloud-hosting", "vps-hosting"],
+    "relatedTutorials": ["deploy-nextjs-on-vps", "secure-ubuntu-vps"],
+    "faqs": [
+      {
+        "question": "Should a SaaS start with managed or unmanaged VPS?",
+        "answer": "Start with managed (Vercel/Cloudways) to ship fast, move to unmanaged VPS (DigitalOcean/Vultr) once costs justify the ops time."
+      },
+      {
+        "question": "What about container hosting?",
+        "answer": "DigitalOcean App Platform and Vultr Kubernetes handle containers if you're beyond basic droplets. Both integrate with GitHub for auto-deploys."
+      }
+    ]
+  },
+  {
+    "slug": "students",
+    "name": "Students & Developers",
+    "title": "Best Hosting for Students",
+    "description": "Affordable VPS and dev sandbox hosting for learning and side projects.",
+    "whyThisAudience": "Students need cheap VPS for learning (Docker, Node, Linux) and a place to deploy projects. Free-tier platforms plus ₹100-400/mo VPS cover almost every use case.",
+    "topProviders": [
+      { "providerId": "vultr", "reason": "₹400/mo 2GB VPS with 32 locations - the best student VPS value." },
+      { "providerId": "vercel", "reason": "Free Hobby tier for Next.js projects with generous limits. Perfect for student portfolios." },
+      { "providerId": "hostinger", "reason": "If you want cheap shared hosting for learning WordPress, ₹69/mo entry plans work fine as a sandbox." }
+    ],
+    "avoidAdvice": "Use free tiers (Vercel, Cloudflare) before paying for anything. Spend money only on learning opportunities a free tier can't provide.",
+    "recommendedCategories": ["vps-hosting", "cloud-hosting"],
+    "relatedTutorials": ["deploy-nextjs-on-vps", "secure-ubuntu-vps"],
+    "faqs": [
+      {
+        "question": "Is there free hosting for students?",
+        "answer": "Vercel Hobby (Next.js) and Cloudflare Pages are free with generous limits. GitHub Student Pack adds free credits for DigitalOcean and other services."
+      }
+    ]
+  }
+]

@@ -1,0 +1,120 @@
+---
+title: "Deploy Next.js on a VPS (Docker + Nginx + PM2)"
+description: "Deploy a Next.js app to a DigitalOcean or Vultr VPS with Docker and Nginx reverse proxy, including HTTPS via Caddy and zero-downtime deploys."
+datePublished: "2026-02-18"
+dateModified: "2026-07-15"
+readingTime: "12 min read"
+tags: [nextjs, vps, docker, nginx, deployment]
+categories: [vps-hosting, cloud-hosting]
+comparisons: [digitalocean-vs-vultr]
+steps:
+  - title: "Provision a VPS"
+    text: "Create a 2GB droplet or Vultr instance with Ubuntu 24.04. Set up an SSH key and skip the root password."
+  - title: "Secure the server"
+    text: "Create a sudo user, disable root password login, and configure UFW to allow only SSH, HTTP, and HTTPS."
+  - title: "Install Docker and Docker Compose"
+    text: "Install Docker Engine and the compose plugin, then add your user to the docker group."
+  - title: "Containerize Next.js"
+    text: "Use a multi-stage Dockerfile that builds the app with Next.js standalone output and serves it with a minimal runtime image."
+  - title: "Run behind a reverse proxy"
+    text: "Use a docker-compose.yml with Nginx (or Caddy) proxying to the Next.js container on port 3000."
+  - title: "Add HTTPS automatically"
+    text: "Caddy auto-provisions and renews Let's Encrypt certificates. Point a DNS A record at your server IP and visit your domain."
+  - title: "Deploy with zero downtime"
+    text: "Pull the new image and run docker compose up -d. The health check ensures old containers keep serving until the new one is ready."
+---
+
+## Why run Next.js on a VPS?
+
+Platforms like Vercel are the fastest way to ship, but a VPS gives you **full control, predictable pricing, and room to grow** past free-tier limits. A 2GB DigitalOcean or Vultr instance (~₹400-900/mo) comfortably runs a production Next.js app.
+
+In our benchmarks, Vultr and DigitalOcean both deliver a **global TTFB around 150-250ms** for a cached Next.js static route — comparable to managed platforms at a fraction of the cost.
+
+## What you'll need
+
+- A VPS (2GB RAM minimum, Ubuntu 24.04) — see our [DigitalOcean vs Vultr](/comparisons/digitalocean-vs-vultr) guide
+- A domain name
+- Node.js 18+ on your local machine
+- A Docker Hub or GHCR account (optional, for registry deploys)
+
+## The Dockerfile
+
+```dockerfile
+FROM node:20-alpine AS deps
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN npm run build
+
+FROM node:20-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+EXPOSE 3000
+CMD ["node", "server.js"]
+```
+
+Make sure `output: "standalone"` is set in your `next.config.js`.
+
+## docker-compose.yml
+
+```yaml
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+```
+
+The app binds to localhost only — the reverse proxy is the only public entry point.
+
+## One command with Caddy
+
+```yaml
+# caddy/Caddyfile
+example.com {
+    reverse_proxy web:3000
+}
+```
+
+```yaml
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    expose:
+      - "3000"
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+volumes:
+  caddy_data:
+```
+
+Run `docker compose up -d --build` and Caddy issues the SSL certificate automatically on first request.
+
+## Zero-downtime deploys
+
+1. Build and push your image.
+2. On the server: `docker compose pull && docker compose up -d`.
+3. Compose restarts only the changed container; the healthcheck gate keeps traffic flowing.
+
+## Next steps
+
+- Add fail2ban and set up automatic `apt` security updates.
+- Use a managed Postgres or a separate container for your database.
+- Follow our [hardening guide](/tutorials/secure-ubuntu-vps) before going to production.

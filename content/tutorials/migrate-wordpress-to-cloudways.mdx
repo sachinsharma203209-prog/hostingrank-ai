@@ -1,0 +1,63 @@
+---
+title: "Migrate WordPress to Cloudways in 20 Minutes"
+description: "Move WordPress to Cloudways on DigitalOcean or Vultr: launch a server, install WordPress, import files and DB, and update DNS."
+datePublished: "2026-06-01"
+dateModified: "2026-07-05"
+readingTime: "7 min read"
+tags: [wordpress, cloudways, migration, vps]
+categories: [cloud-hosting, managed-hosting]
+comparisons: [cloudways-vs-siteground, kinsta-vs-cloudways]
+steps:
+  - title: "Launch a Cloudways server"
+    text: "Create a server on your preferred provider (DigitalOcean, Vultr, AWS) with enough RAM for your traffic."
+  - title: "Install WordPress from the marketplace"
+    text: "Use Cloudways' one-click WordPress installer with your app name and admin credentials."
+  - title: "Import your files and database"
+    text: "Upload a backup archive to public_html and import your SQL dump using the Cloudways Database Manager."
+  - title: "Point DNS at your app"
+    text: "Add your domain in Cloudways, update the A record at your registrar, and apply a free SSL certificate."
+  - title: "Verify and enable caching"
+    text: "Confirm HTTPS and functionality, then enable Varnish and Redis from the Cloudways dashboard."
+---
+
+## Why Cloudways?
+
+Cloudways is managed VPS hosting: you get a cloud server's performance with a dashboard that handles SSH, Redis, Varnish, and SSL for you. Migration is the fastest of any managed host we've tested — the whole move fits in ~20 minutes.
+
+## 1. Launch the server
+
+In the Cloudways console:
+
+1. **Servers → Launch Server**.
+2. Pick a provider (DigitalOcean and Vultr are the best price-to-performance; our [DigitalOcean vs Vultr](/comparisons/digitalocean-vs-vultr) comparison covers the choice).
+3. Pick RAM (2GB is the sensible starting point for most WordPress sites).
+4. Choose a region close to your audience.
+
+## 2. Install WordPress
+
+From **Applications → Add Application**, pick WordPress. Set the app name, admin email, and username. Cloudways provisions the app with MariaDB and PHP ready.
+
+## 3. Import content
+
+Use the built-in **Site Backup** or manual method:
+
+1. Upload your archive to `public_html` via **Application → Public IP → File Manager** (or SFTP).
+2. Extract it, then import the `.sql` into a new database through **Database Manager → Import**.
+3. Update `wp-config.php` with the new DB name, user, and host (Cloudways shows these in the dashboard).
+
+## 4. DNS + SSL
+
+1. **Application → Domain Management → Add Domain**, type your domain.
+2. At your registrar, change the **A record** to your server's public IP.
+3. Wait for propagation (1-24h), then **Application → SSL** and auto-install a free Let's Encrypt certificate.
+
+## 5. Flip on caching
+
+Once live:
+
+- Enable **Varnish** (full-page cache) and **Redis** (object cache) from the dashboard — Cloudways versions are tested and safe with most plugins.
+- Install the Cloudways WordPress plugin for cache purging after updates.
+
+## When to skip Cloudways
+
+If you're comfortable with SSH and want the absolute lowest cost, a raw VPS is cheaper. If you want the very best managed WordPress experience and don't mind paying more, compare [Kinsta vs Cloudways](/comparisons/kinsta-vs-cloudways) or [Cloudways vs SiteGround](/comparisons/cloudways-vs-siteground) before deciding.

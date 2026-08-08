@@ -1,0 +1,59 @@
+---
+title: "Move WordPress to a New Host Without Downtime"
+description: "Migrate WordPress to a new host in four safe steps: full backup, server-side transfer or migration plugin, DNS cutover, and post-move checks."
+datePublished: "2026-05-02"
+dateModified: "2026-07-10"
+readingTime: "8 min read"
+tags: [wordpress, migration, backup, dns]
+categories: [wordpress-hosting, managed-hosting]
+comparisons: [hostinger-vs-bluehost]
+steps:
+  - title: "Take a full backup"
+    text: "Export a complete backup: files, database, wp-config.php, and .htaccess. Store it off-server."
+  - title: "Stage the site on the new host"
+    text: "Install WordPress on the new host and restore your files and database, or use a migration plugin."
+  - title: "Switch DNS"
+    text: "Point your domain's nameservers or A record at the new host. Keep the old host running during propagation."
+  - title: "Verify and finalize"
+    text: "Confirm HTTPS, emails, plugins, and forms work after propagation, then cancel the old plan."
+---
+
+## The golden rule of migration
+
+**Never delete anything on the old host until DNS has fully propagated and you've tested the new one.** Downtime happens when people rush the cutover.
+
+## Step 1 - Full backup
+
+From cPanel or hPanel:
+
+1. **Files**: full `public_html` backup (including `.htaccess` and `wp-config.php`).
+2. **Database**: export a `.sql` dump with phpMyAdmin.
+3. Store the archive locally and in object storage — a backup on the same server isn't a backup.
+
+## Step 2 - Restore on the new host
+
+The easy path is a migration plugin (Hostinger, Cloudways, and SiteGround all ship one):
+
+- Install WordPress on the new host, then run the host's migration tool.
+- For a manual move, upload the archive, restore files to the document root, create a database, import the `.sql`, and update `wp-config.php` credentials.
+
+## Step 3 - DNS cutover
+
+- Nameserver swap: update at your registrar to the new host's nameservers.
+- A-record swap: point `@` and `www` at the new server IP.
+
+Propagation takes 1-24 hours (usually 1-4). **Both hosts running in parallel** means visitors keep getting the old site until DNS flips — zero downtime.
+
+## Step 4 - Verify before you cancel
+
+Once propagation completes:
+
+- Padlock + valid SSL on the new host
+- All media and pages load
+- Contact forms and WooCommerce payments work
+- Email still routes (check MX records)
+- Search console shows the new server in crawl logs
+
+Then cancel the old plan and delete old backups.
+
+Comparing moving *to* a host? Read [Hostinger vs Bluehost](/comparisons/hostinger-vs-bluehost) or [migrate to Cloudways](/tutorials/migrate-wordpress-to-cloudways) for the managed route.

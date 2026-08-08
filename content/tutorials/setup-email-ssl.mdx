@@ -1,0 +1,63 @@
+---
+title: "Set Up a Professional Email & SSL on Your Domain"
+description: "Create a custom email address (you@yourdomain.com) and enforce HTTPS. Covers cPanel/hPanel mailboxes, MX records, and auto-SSL."
+datePublished: "2026-06-20"
+dateModified: "2026-07-22"
+readingTime: "6 min read"
+tags: [email, ssl, dns, setup]
+categories: [shared-hosting, wordpress-hosting]
+steps:
+  - title: "Create an email mailbox"
+    text: "Open your host's control panel and add a mailbox for your domain under Email Accounts."
+  - title: "Configure the mail client"
+    text: "Set up IMAP/SMTP in Outlook or Apple Mail using your host's server settings."
+  - title: "Set MX and SPF records"
+    text: "Point your domain's MX records at your host's mail servers and add SPF to prevent spoofing."
+  - title: "Install and force SSL"
+    text: "Provision the free Let's Encrypt certificate and enable a permanent redirect from HTTP to HTTPS."
+---
+
+## Why a custom email address
+
+`you@yourdomain.com` builds trust and gets your email delivered (free Gmail addresses get filtered more aggressively by spam engines). Most hosting plans include **unlimited or 5+ mailboxes** — using them beats paying for Google Workspace when you only need a few addresses.
+
+## 1. Create a mailbox
+
+In cPanel or hPanel:
+
+1. Open **Email → Email Accounts**.
+2. Add the address (e.g. `hello@yourdomain.com`), set a strong password, and set a quota.
+3. The mailbox is live immediately. No DNS change needed if you host both the site and email at the same provider.
+
+## 2. Configure your mail client
+
+Use the provider's IMAP/SMTP settings (usually listed in their docs):
+
+- **IMAP**: `imap.yourhost.com` port 993 SSL
+- **SMTP**: `smtp.yourhost.com` port 465 SSL
+
+Your host's exact hostname is in the control panel. Test-send to a second address to confirm both directions work.
+
+## 3. MX and SPF
+
+If you host email separately (e.g. Google Workspace), point MX records at the email provider. Regardless, add an SPF record:
+
+```text
+TXT  v=spf1 include:yourhost.com ~all
+```
+
+This tells receiving servers which servers are allowed to send for your domain, drastically reducing spoofing and spam-flagging.
+
+## 4. SSL everywhere
+
+- **Provision**: control panel → **SSL/TLS** → auto-install Let's Encrypt for your domain and subdomains.
+- **Force HTTPS**: your host's SSL page usually has a "Force HTTPS" toggle that writes the `.htaccess` redirect for you.
+- **Verify**: open `https://yourdomain.com` and confirm the padlock, then run `https://www.yourdomain.com`.
+
+## Email security check
+
+- Add **DKIM** and **DMARC** if your host supports one-click enable — this is what big inboxes use to trust you.
+- Never reuse the mailbox password.
+- Set up a forwarder to your personal inbox so you never miss mail.
+
+Need a host that makes this painless? Our [best shared hosting](/best/shared-hosting) and [best WordPress hosting](/best/wordpress-hosting) rankings cover where email + SSL "just works".

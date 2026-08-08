@@ -1,0 +1,210 @@
+[
+  {
+    "slug": "hosting-under-100",
+    "amount": 100,
+    "currency": "INR",
+    "symbol": "₹",
+    "title": "Best Hosting Under ₹100",
+    "h1": "Best Web Hosting Under ₹100 / Month",
+    "shortName": "Hosting Under ₹100",
+    "overline": "Budget Guide",
+    "description": "The best budget hosting under ₹100/month with renewal costs fully exposed.",
+    "intro": "We tested 14 budget providers to find the sweet spot between extreme affordability and technical reliability. Hidden renewal fees are the real trap here - the advertised ₹69 Hostinger plan becomes ₹159/mo at renewal. Here's the raw data.",
+    "providers": ["hostinger", "hostgator", "bluehost"],
+    "renewalWarning": "Advertised prices require 36-48 month prepayment. Renewal rates run 76-151% higher.",
+    "tiers": [
+      { "providerId": "hostinger", "plan": "Single Web", "introPrice": "₹69/mo", "renewalPrice": "₹159/mo", "renewalJump": "+130%", "storage": "50GB (NVMe)", "uptime": "99.98%", "budget": true },
+      { "providerId": "hostgator", "plan": "Starter", "introPrice": "₹99/mo", "renewalPrice": "₹249/mo", "renewalJump": "+151%", "storage": "10GB (SSD)", "uptime": "99.95%", "budget": true },
+      { "providerId": "bluehost", "plan": "Basic", "introPrice": "₹169/mo", "renewalPrice": "₹299/mo", "renewalJump": "+76%", "storage": "50GB (SSD)", "uptime": "99.91%", "budget": false }
+    ],
+    "technicalTradeoffs": [
+      {
+        "title": "Resource Limits",
+        "text": "While advertised as 'unlimited bandwidth', you are strictly bound by CPU and RAM limits - often 1 Core / 768MB RAM in this tier."
+      },
+      {
+        "title": "Noisy Neighbors",
+        "text": "Shared environments at this price point mean another site's traffic spike can temporarily slow your TTFB."
+      },
+      {
+        "title": "The 48-Month Catch",
+        "text": "The advertised ₹69 price requires paying for 4 years upfront. Shorter terms push the price well over ₹100."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is a free domain included under ₹100?",
+        "answer": "Rarely on the lowest tier plans. Hostinger's Single Web (₹69) does not include a free domain, but their Premium Web (usually ~₹149) does. You'll typically need to purchase a domain separately."
+      },
+      {
+        "question": "What happens after the initial term expires?",
+        "answer": "You'll be billed at the standard renewal rate, typically 2x to 3x higher than the introductory offer. Always check the renewal price in our comparison table before committing to a 4-year plan."
+      },
+      {
+        "question": "Can I run WordPress under ₹100?",
+        "answer": "Yes - Hostinger's ₹69 plan handles WordPress fine for a static portfolio or dev sandbox. Don't run a busy WooCommerce store on it; you'll hit CPU limits quickly."
+      }
+    ],
+    "relatedCategories": ["cheap-hosting", "shared-hosting"],
+    "relatedComparisons": ["hostinger-vs-bluehost"],
+    "relatedTutorials": ["install-wordpress-on-hostinger"],
+    "relatedProviders": ["hostinger", "hostgator", "bluehost"],
+    "updatedAt": "Oct 24, 2024"
+  },
+  {
+    "slug": "hosting-under-200",
+    "amount": 200,
+    "currency": "INR",
+    "symbol": "₹",
+    "title": "Best Hosting Under ₹200",
+    "h1": "Best Web Hosting Under ₹200 / Month",
+    "shortName": "Hosting Under ₹200",
+    "overline": "Budget Guide",
+    "description": "The sweet spot for budget hosting under ₹200/month - a real performance jump over entry plans.",
+    "intro": "Crossing ₹200/month unlocks dramatically better hosting: 1-2 CPU cores, 2-4GB RAM, and genuine NVMe storage. This is our recommended budget tier for most small businesses and growing blogs in India.",
+    "providers": ["hostinger", "siteground", "namecheap", "a2hosting", "dreamhost"],
+    "renewalWarning": "At this tier, quality jumps significantly - prioritize providers with transparent renewal pricing.",
+    "tiers": [
+      { "providerId": "hostinger", "plan": "Premium Web", "introPrice": "₹149/mo", "renewalPrice": "₹299/mo", "renewalJump": "+100%", "storage": "100GB (NVMe)", "uptime": "99.99%", "budget": true },
+      { "providerId": "namecheap", "plan": "Stellar Plus", "introPrice": "₹165/mo", "renewalPrice": "₹331/mo", "renewalJump": "+100%", "storage": "Unmetered (SSD)", "uptime": "99.93%", "budget": true },
+      { "providerId": "a2hosting", "plan": "Startup Turbo", "introPrice": "₹179/mo", "renewalPrice": "₹449/mo", "renewalJump": "+151%", "storage": "100GB (NVMe)", "uptime": "99.97%", "budget": true }
+    ],
+    "technicalTradeoffs": [
+      {
+        "title": "Real NVMe Storage",
+        "text": "At this tier, NVMe drives replace SSDs - expect 5-10x faster disk I/O for WordPress and database workloads."
+      },
+      {
+        "title": "LiteSpeed Advantages",
+        "text": "Hostinger and A2's Turbo plans use LiteSpeed, which dramatically lowers TTFB and LCP for PHP sites."
+      },
+      {
+        "title": "Better Renewal Value",
+        "text": "Renewal jumps are still present, but the underlying plan is capable enough to justify staying long-term."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What's the best hosting under ₹200?",
+        "answer": "Hostinger's Premium Web plan at ₹149/mo is the best value. It includes 100GB NVMe storage, unlimited websites, free domain, and a free SSL."
+      },
+      {
+        "question": "Is ₹200/month enough for a business website?",
+        "answer": "Yes. At this tier you get 2+ CPU cores and enough RAM to comfortably run WordPress, WooCommerce (small catalogs), and moderate traffic."
+      },
+      {
+        "question": "Should I pay upfront for 4 years?",
+        "answer": "Only if you're confident you'll stay. The introductory price requires long-term prepayment; you lose flexibility if you outgrow the plan."
+      }
+    ],
+    "relatedCategories": ["cheap-hosting", "wordpress-hosting", "shared-hosting"],
+    "relatedComparisons": ["hostinger-vs-bluehost"],
+    "relatedTutorials": ["install-wordpress-on-hostinger"],
+    "relatedProviders": ["hostinger", "namecheap", "a2hosting", "siteground"],
+    "updatedAt": "Oct 24, 2024"
+  },
+  {
+    "slug": "hosting-under-500",
+    "amount": 500,
+    "currency": "INR",
+    "symbol": "₹",
+    "title": "Best Hosting Under ₹500",
+    "h1": "Best Web Hosting Under ₹500 / Month",
+    "shortName": "Hosting Under ₹500",
+    "overline": "Budget Guide",
+    "description": "Serious performance under ₹500/month - cloud VPS territory with real headroom.",
+    "intro": "₹500/month is where cloud VPS hosting becomes accessible in India. This tier delivers 2-4 vCPUs, 4-8GB RAM, and the performance headroom to run multiple sites, staging environments, and heavier WooCommerce stores.",
+    "providers": ["cloudways", "digitalocean", "vultr", "hostinger", "kinsta"],
+    "renewalWarning": "VPS pricing is transparent (no intro-vs-renewal games). Managed hosts bundle support and backups into the monthly price.",
+    "tiers": [
+      { "providerId": "cloudways", "plan": "DigitalOcean 2GB", "introPrice": "₹990/mo", "renewalPrice": "₹990/mo", "renewalJump": "0%", "storage": "50GB (NVMe)", "uptime": "99.99%", "budget": false },
+      { "providerId": "vultr", "plan": "Regular 2GB", "introPrice": "₹400/mo", "renewalPrice": "₹400/mo", "renewalJump": "0%", "storage": "55GB (NVMe)", "uptime": "99.98%", "budget": true },
+      { "providerId": "hostinger", "plan": "KVM 2 VPS", "introPrice": "₹449/mo", "renewalPrice": "₹549/mo", "renewalJump": "+22%", "storage": "50GB (NVMe)", "uptime": "99.99%", "budget": true }
+    ],
+    "technicalTradeoffs": [
+      {
+        "title": "True Dedicated Resources",
+        "text": "VPS hosting at this tier isolates your CPU and RAM - no noisy neighbors on shared servers."
+      },
+      {
+        "title": "Full Root Access",
+        "text": "Install any software stack: Docker, Node.js, Python, Nginx, or a custom firewall."
+      },
+      {
+        "title": "Managed vs Unmanaged",
+        "text": "Cloudways bundles managed support for ~₹590/mo extra. If you can admin a server, Vultr at ₹400/mo is unbeatable value."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What's the best VPS under ₹500?",
+        "answer": "Vultr's 2GB instance at ~₹400/mo is the best raw value. Hostinger's KVM 2 VPS adds a control panel at ₹449/mo. Cloudways exceeds ₹500 once you add managed support."
+      },
+      {
+        "question": "Can I host multiple websites on a VPS?",
+        "answer": "Yes. A 2GB VPS comfortably runs 5-10 low-to-medium traffic WordPress sites using Docker or Nginx virtual hosts."
+      },
+      {
+        "question": "Do I need managed hosting at this price?",
+        "answer": "Only if you don't want to handle updates, security, and backups yourself. Unmanaged VPS at ₹400/mo is a massive step up from shared hosting for the same price as a coffee."
+      }
+    ],
+    "relatedCategories": ["vps-hosting", "cloud-hosting", "managed-hosting"],
+    "relatedComparisons": ["digitalocean-vs-vultr", "cloudways-vs-siteground", "kinsta-vs-cloudways"],
+    "relatedTutorials": ["deploy-nextjs-on-vps", "secure-ubuntu-vps"],
+    "relatedProviders": ["vultr", "digitalocean", "hostinger", "cloudways"],
+    "updatedAt": "Oct 24, 2024"
+  },
+  {
+    "slug": "hosting-under-1000",
+    "amount": 1000,
+    "currency": "INR",
+    "symbol": "₹",
+    "title": "Best Hosting Under ₹1000",
+    "h1": "Best Web Hosting Under ₹1000 / Month",
+    "shortName": "Hosting Under ₹1000",
+    "overline": "Budget Guide",
+    "description": "Premium managed hosting and powerful VPS plans under ₹1000/month.",
+    "intro": "At ₹1,000/month you can afford premium managed WordPress hosting or a serious production VPS. Kinsta's entry plan, Cloudways on AWS, and high-end Vultr instances all fit in this budget - the choice comes down to managed convenience versus raw control.",
+    "providers": ["kinsta", "cloudways", "vultr", "digitalocean", "wpengine"],
+    "renewalWarning": "Managed hosts in this tier are month-to-month with transparent pricing - renewal surprises are rare.",
+    "tiers": [
+      { "providerId": "kinsta", "plan": "Starter", "introPrice": "₹2,914/mo", "renewalPrice": "₹2,914/mo", "renewalJump": "0%", "storage": "10GB (NVMe)", "uptime": "100%", "budget": false },
+      { "providerId": "cloudways", "plan": "AWS 2GB", "introPrice": "₹1,170/mo", "renewalPrice": "₹1,170/mo", "renewalJump": "0%", "storage": "20GB (SSD)", "uptime": "99.99%", "budget": true },
+      { "providerId": "digitalocean", "plan": "Premium 4GB", "introPrice": "₹960/mo", "renewalPrice": "₹960/mo", "renewalJump": "0%", "storage": "80GB (NVMe)", "uptime": "99.99%", "budget": true }
+    ],
+    "technicalTradeoffs": [
+      {
+        "title": "Managed WordPress Peak",
+        "text": "Kinsta's entry plan at ~₹2,900/mo (under budget if you only need one site) includes Cloudflare edge caching and premium support."
+      },
+      {
+        "title": "Production VPS Power",
+        "text": "A 4GB NVMe droplet or Vultr instance at ~₹960/mo runs production apps, databases, and staging environments comfortably."
+      },
+      {
+        "title": "Scaling Headroom",
+        "text": "This tier includes horizontal scaling paths - snapshots, load balancers, and managed databases become affordable."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What can I get for ₹1000/month?",
+        "answer": "A production-grade VPS (DigitalOcean/Vultr 4GB), Cloudways on AWS with managed support, or the entry tier of premium managed WordPress hosting."
+      },
+      {
+        "question": "Managed hosting or VPS at this price?",
+        "answer": "Choose managed (Kinsta/Cloudways) if your time is valuable and you want hands-off operations. Choose a VPS if you want full control and will admin the server yourself."
+      },
+      {
+        "question": "Is ₹1000/month overkill for a small site?",
+        "answer": "For a single small site, yes - ₹100-200/month shared hosting is enough. ₹1000/month makes sense for businesses, multiple sites, or applications with real traffic."
+      }
+    ],
+    "relatedCategories": ["managed-hosting", "vps-hosting", "cloud-hosting"],
+    "relatedComparisons": ["kinsta-vs-cloudways", "cloudways-vs-siteground", "digitalocean-vs-vultr"],
+    "relatedTutorials": ["deploy-nextjs-on-vps", "migrate-wordpress-to-cloudways"],
+    "relatedProviders": ["kinsta", "cloudways", "digitalocean", "vultr"],
+    "updatedAt": "Oct 24, 2024"
+  }
+]

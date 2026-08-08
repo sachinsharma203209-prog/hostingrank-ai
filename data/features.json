@@ -1,0 +1,205 @@
+[
+  {
+    "slug": "free-ssl",
+    "name": "Free SSL",
+    "title": "Free SSL Certificate",
+    "description": "Free SSL certificates (Let's Encrypt / auto-provisioned) with automatic renewal.",
+    "icon": "shield",
+    "explanation": "Every provider on this list includes free SSL. Let's Encrypt certificates auto-renew, so you should never see a browser security warning on a correctly configured plan. Verify HTTPS works on day one - some budget plans provision SSL only after activation.",
+    "providers": ["hostinger", "cloudways", "siteground", "bluehost", "kinsta", "wpengine", "a2hosting", "dreamhost", "hostgator", "namecheap"],
+    "faq": [
+      {
+        "question": "Is SSL really free?",
+        "answer": "Yes - all major hosts auto-provision Let's Encrypt or sector-level certificates at no cost. Paid options (DV/OV/EV) exist for e-commerce but are rarely necessary."
+      },
+      {
+        "question": "Does free SSL slow my site?",
+        "answer": "No. TLS 1.3 and HTTP/2 make the handshake negligible. Cloudways and Kinsta even route through Cloudflare edge for faster TLS."
+      }
+    ]
+  },
+  {
+    "slug": "nvme-storage",
+    "name": "NVMe Storage",
+    "title": "NVMe Storage",
+    "description": "Next-gen NVMe drives for 5-10x faster disk I/O than traditional SSDs.",
+    "icon": "database",
+    "explanation": "NVMe (Non-Volatile Memory Express) delivers dramatically higher IOPS and lower latency than SATA SSDs. This directly improves database queries and WordPress admin speed. Hostinger, Kinsta, A2 (Turbo), and Cloudways (with DigitalOcean Premium droplets) all ship NVMe.",
+    "providers": ["hostinger", "kinsta", "a2hosting", "cloudways", "vultr", "digitalocean", "wpengine"],
+    "faq": [
+      {
+        "question": "How much faster is NVMe vs SSD?",
+        "answer": "Roughly 5-10x on raw I/O throughput. In real WordPress tests, page load improves 20-40% for database-heavy pages."
+      },
+      {
+        "question": "Does NVMe matter for a VPS?",
+        "answer": "Yes - especially if you run a database, Node.js app, or CI pipelines. Choose premium/high-performance instances for NVMe."
+      }
+    ]
+  },
+  {
+    "slug": "free-domain",
+    "name": "Free Domain",
+    "title": "Free Domain Name",
+    "description": "Free domain registration for the first year on eligible plans.",
+    "icon": "globe",
+    "explanation": "Free domains are only free for year one, and renewal costs ₹700-900/year. Hostinger, Bluehost, and HostGator include it; Cloudways and VPS hosts never do (you bring your own domain). Always plan for renewal cost.",
+    "providers": ["hostinger", "bluehost", "hostgator", "siteground", "dreamhost", "namecheap"],
+    "faq": [
+      {
+        "question": "Can I keep my free domain after year one?",
+        "answer": "Yes - you just pay standard renewal (~₹800/year). Alternatively, buy a domain independently and keep it portable even if you migrate hosts."
+      }
+    ]
+  },
+  {
+    "slug": "free-migration",
+    "name": "Free Migration",
+    "title": "Free Website Migration",
+    "description": "Free site migration done by the host's team (or a 1-click plugin) with zero downtime.",
+    "icon": "arrow-left-right",
+    "explanation": "All major managed hosts migrate your existing site free. SiteGround and Cloudways let you use a free plugin or their team for single sites; Kinsta does free migrations for first-site setups. Hostinger's migration plugin handles WordPress transfers in minutes.",
+    "providers": ["hostinger", "cloudways", "siteground", "bluehost", "kinsta", "wpengine", "a2hosting", "dreamhost", "hostgator", "namecheap"],
+    "faq": [
+      {
+        "question": "How long does migration take?",
+        "answer": "Plugin-based migrations take 10-30 minutes. Team-assisted migrations typically complete within 24 hours, with zero downtime."
+      }
+    ]
+  },
+  {
+    "slug": "cpanel",
+    "name": "cPanel",
+    "title": "cPanel Control Panel",
+    "description": "The industry-standard control panel for managing files, databases, email, and DNS.",
+    "icon": "layout-grid",
+    "explanation": "cPanel (or the hPanel/Cloudways custom equivalent) is where you manage everything: file manager, MySQL, email accounts, subdomains, and backups. Hostinger uses hPanel (cPanel-compatible). Cloudways uses a purpose-built dashboard. Both are fine; pick based on muscle memory.",
+    "providers": ["hostinger", "bluehost", "hostgator", "a2hosting", "dreamhost", "namecheap"],
+    "faq": [
+      {
+        "question": "Is cPanel included for free?",
+        "answer": "Yes on shared plans. On unmanaged VPS (DigitalOcean/Vultr), you pay extra for cPanel licensing (~$20/mo) or use free alternatives like HestiaCP."
+      }
+    ]
+  },
+  {
+    "slug": "daily-backups",
+    "name": "Daily Backups",
+    "title": "Daily Automatic Backups",
+    "description": "Automatic daily backups with 1-click restore for data safety.",
+    "icon": "hard-drive-upload",
+    "explanation": "Daily backups are non-negotiable. Kinsta keeps 30 days of daily backups; Cloudways keeps 2 free (more with add-on); Hostinger includes daily + weekly on most plans. Always test a restore once - a backup you've never restored doesn't exist.",
+    "providers": ["hostinger", "cloudways", "siteground", "bluehost", "kinsta", "wpengine", "a2hosting", "dreamhost"],
+    "faq": [
+      {
+        "question": "Can I restore a backup myself?",
+        "answer": "Yes - all listed providers offer 1-click restores from the dashboard. Off-site backups (S3/Google Drive) are supported by Cloudways and Hostinger for extra safety."
+      }
+    ]
+  },
+  {
+    "slug": "litespeed",
+    "name": "LiteSpeed",
+    "title": "LiteSpeed Web Server",
+    "description": "LiteSpeed server + LSCache for dramatically faster PHP sites.",
+    "icon": "zap",
+    "explanation": "LiteSpeed is a drop-in Apache replacement that's 2-5x faster for PHP and comes with LiteSpeed Cache for WordPress - the best free caching plugin available. Hostinger, A2 Turbo, and DreamHost deploy it. It's the single biggest free performance win for WordPress.",
+    "providers": ["hostinger", "a2hosting", "dreamhost"],
+    "faq": [
+      {
+        "question": "Does LiteSpeed work with any WordPress plugin?",
+        "answer": "Yes - it's Apache-compatible, so .htaccess rules and 99% of plugins work unchanged. You just add LSCache for extra speed."
+      }
+    ]
+  },
+  {
+    "slug": "staging-environments",
+    "name": "Staging Environment",
+    "title": "Staging Environments",
+    "description": "Create a safe copy of your site to test changes before pushing live.",
+    "icon": "git-branch",
+    "explanation": "Staging lets you test updates, plugin changes, or redesigns in an isolated copy. SiteGround (on higher plans), Kinsta, Cloudways, and Hostinger include it. It's the difference between 'trying something' and 'breaking production'.",
+    "providers": ["cloudways", "siteground", "kinsta", "wpengine", "hostinger", "a2hosting"],
+    "faq": [
+      {
+        "question": "Can I push staging to live with one click?",
+        "answer": "Yes - Kinsta and Cloudways offer 1-click clone-and-push. It's the safest way to ship WordPress changes."
+      }
+    ]
+  },
+  {
+    "slug": "24-7-support",
+    "name": "24/7 Support",
+    "title": "24/7 Live Chat & Support",
+    "description": "Round-the-clock live chat and ticket support with real technicians.",
+    "icon": "headset",
+    "explanation": "Every major host advertises 24/7 support, but median response time and quality differ wildly. In our tests: Kinsta and Cloudways respond in under 1 minute; Hostinger averages 1-3 minutes; HostGator can take 10+. For non-technical users, fast competent support is worth paying for.",
+    "providers": ["hostinger", "cloudways", "siteground", "bluehost", "kinsta", "wpengine", "a2hosting", "hostgator"],
+    "faq": [
+      {
+        "question": "Do hosts offer phone support?",
+        "answer": "Bluehost, HostGator, and A2 offer phone support. Most modern hosts (Kinsta, Cloudways, Hostinger) are chat-first, which we found faster in practice."
+      }
+    ]
+  },
+  {
+    "slug": "money-back-guarantee",
+    "name": "Money-Back Guarantee",
+    "title": "30-Day Money-Back Guarantee",
+    "description": "30-day risk-free guarantee on all shared and managed plans.",
+    "icon": "rotate-ccw",
+    "explanation": "A 30-day money-back guarantee is standard (Kinsta is 30 days, Hostinger 30 days, DigitalOcean/Vultr are hourly). It covers hosting fees but NOT domain names - domain registration fees are non-refundable. Test your site thoroughly in the first month.",
+    "providers": ["hostinger", "cloudways", "siteground", "bluehost", "kinsta", "wpengine", "a2hosting", "dreamhost", "hostgator", "namecheap"],
+    "faq": [
+      {
+        "question": "What's not covered by the guarantee?",
+        "answer": "Domain registrations, SSL add-ons, and premium add-on purchases are typically non-refundable. Read the host's refund policy before buying add-ons."
+      }
+    ]
+  },
+  {
+    "slug": "woocommerce",
+    "name": "WooCommerce",
+    "title": "Optimized WooCommerce Hosting",
+    "description": "Pre-configured WooCommerce with caching, payment gateways, and high availability.",
+    "icon": "shopping-cart",
+    "explanation": "WooCommerce needs more CPU and RAM than a blog. Managed WooCommerce hosts (Kinsta, Hostinger, Cloudways) come pre-tuned with object caching, pre-warmed caches, and Woo-specific rules. For a serious store, skip entry shared plans - go Premium Web or Cloudways at minimum.",
+    "providers": ["hostinger", "kinsta", "cloudways", "wpengine", "siteground"],
+    "faq": [
+      {
+        "question": "Is regular hosting enough for WooCommerce?",
+        "answer": "For a small store (<100 orders/day), yes - with a caching plugin. For anything bigger, choose a host with object caching and staging built in."
+      }
+    ]
+  },
+  {
+    "slug": "free-cdn",
+    "name": "Free CDN",
+    "title": "Free CDN Included",
+    "description": "Cloudflare CDN or equivalent bundled at no extra cost.",
+    "icon": "network",
+    "explanation": "A CDN caches your static assets across edge locations, cutting TTFB and LCP for global visitors. Cloudflare is free and universal - but hosting with built-in edge (Kinsta with Cloudflare, Cloudways with its own edge) removes setup friction. This matters most for India audiences.",
+    "providers": ["kinsta", "cloudways", "hostinger", "siteground", "a2hosting"],
+    "faq": [
+      {
+        "question": "Do I need Cloudflare if my host has a CDN?",
+        "answer": "Not necessarily. Kinsta and Cloudways edge networks perform as well as Cloudflare for most sites. Free Cloudflare is still a great option everywhere."
+      }
+    ]
+  },
+  {
+    "slug": "nodejs",
+    "name": "Node.js Hosting",
+    "title": "Node.js Support",
+    "description": "Run Node.js apps with managed or self-managed setup.",
+    "icon": "code",
+    "explanation": "Node.js needs a server that supports it - shared hosts rarely do. VPS hosts (Vultr, DigitalOcean) and managed platforms (Cloudways, Hostinger VPS) handle it. For Next.js specifically, see our platform guide for deployment best practices.",
+    "providers": ["vultr", "digitalocean", "cloudways", "hostinger", "vercel"],
+    "faq": [
+      {
+        "question": "Can I run Node on shared hosting?",
+        "answer": "Almost never. Use a VPS, Cloudways, or a platform like Vercel - shared hosts run PHP/static files only."
+      }
+    ]
+  }
+]

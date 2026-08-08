@@ -1,0 +1,73 @@
+---
+title: "Speed Up WordPress: TTFB, Caching, and CDN (2026 Guide)"
+description: "Measure and fix slow WordPress: cut TTFB, enable page and object caching, add a CDN, and optimize images. Includes before/after test methodology."
+datePublished: "2026-03-05"
+dateModified: "2026-07-20"
+readingTime: "10 min read"
+tags: [wordpress, performance, caching, cdn, optimization]
+categories: [wordpress-hosting]
+comparisons: [cloudways-vs-siteground]
+steps:
+  - title: "Measure your baseline"
+    text: "Run a Lighthouse report plus TTFB and LCP tests from India, USA, and UK before changing anything."
+  - title: "Enable page caching"
+    text: "Install LiteSpeed Cache (or WP Rocket) and enable full-page caching with the default advanced settings."
+  - title: "Enable object caching"
+    text: "On Redis-capable hosts, enable Redis object caching to eliminate expensive database queries on repeat visits."
+  - title: "Serve static assets from a CDN"
+    text: "Point Cloudflare or the host's edge network at your domain to cut load time for visitors far from your server."
+  - title: "Optimize images and fonts"
+    text: "Convert images to WebP/AVIF, lazy-load below-the-fold media, and self-host fonts with font-display swap."
+  - title: "Re-test and compare"
+    text: "Run the same benchmarks and compare before/after. Document the numbers so improvements are measurable."
+---
+
+## Measure first, optimize second
+
+Every performance guide starts with a measurement. A **median TTFB over 800ms** means the server is the bottleneck; **LCP over 2.5s** with a fast TTFB points to rendering or images.
+
+Use our methodology: 12 global test locations, 3 runs each, report the median. The same numbers we use in every [benchmark](/benchmarks) on this site.
+
+## Cut TTFB
+
+TTFB is dominated by server config, not caching plugins:
+
+1. **Pick NVMe hosting** — disk I/O is the #1 TTFB bottleneck on shared plans.
+2. **Enable LiteSpeed / PHP OPcache** — doubles PHP throughput on most hosts.
+3. **Move PHP to PHP 8.3** — WordPress core runs ~3x faster than PHP 7.4.
+4. **Use a regionally close server** — for India traffic, a Mumbai or Singapore data center beats a US one by 100-150ms.
+
+After these, expect **TTFB 150-300ms** on good shared NVMe plans.
+
+## Enable page caching
+
+- **LiteSpeed Cache** (free, best on Hostinger/A2/DreamHost): enable Page Cache → Cache All, and let the plugin manage `.htaccess`.
+- **WP Rocket** (premium): the `Optimize Delivery` and `Combined Files` settings are safe defaults.
+
+## Add object caching with Redis
+
+On Cloudways or a VPS, run Redis:
+
+```bash
+# on a VPS
+docker run -d --name redis --restart unless-stopped -p 6379:6379 redis:7-alpine
+```
+
+Install the **Redis Object Cache** plugin, connect to `127.0.0.1:6379`, and verify the status says *Connected*. Repeat-visit page build time typically drops 40-70%.
+
+## CDN: static assets at the edge
+
+A CDN doesn't speed up your origin's TTFB, but it dramatically improves **LCP and load time** for static assets:
+
+- Cloudflare free: set your nameservers to Cloudflare, enable **Cache Static Assets** and **Browser Cache TTL**.
+- Managed edge: Kinsta and Cloudways route assets through their own edge networks with zero config.
+
+## Images and fonts
+
+- Convert to **WebP** (or AVIF for browsers that support it) — typically 30-60% smaller than JPEG.
+- Add `loading="lazy"` and `fetchpriority="high"` on the hero image only.
+- Self-host fonts: preconnect to `fonts.gstatic.com` if you must use Google Fonts, or self-host with `font-display: swap`.
+
+## Re-test
+
+Re-run the exact same tests. A good result: **LCP < 2.0s**, **CLS < 0.1**, and **TTFB < 300ms**. If TTFB stays high after all this, the bottleneck is the host — time to compare [Cloudways vs SiteGround](/comparisons/cloudways-vs-siteground) or check our [WordPress hosting rankings](/best/wordpress-hosting).

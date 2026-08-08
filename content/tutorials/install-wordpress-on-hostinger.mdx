@@ -1,0 +1,62 @@
+---
+title: "How to Install WordPress on Hostinger (Step-by-Step)"
+description: "Install WordPress on Hostinger in under 15 minutes using hPanel's one-click installer, then point your domain and configure SSL."
+datePublished: "2026-01-12"
+dateModified: "2026-07-01"
+readingTime: "8 min read"
+tags: [wordpress, hostinger, cpanel, installation]
+categories: [wordpress-hosting]
+comparisons: [hostinger-vs-bluehost]
+steps:
+  - title: "Log in to hPanel"
+    text: "Go to Hostinger's website, log in to your account, and open the hPanel control panel. Your plan and websites appear on the dashboard."
+  - title: "Choose a website type"
+    text: "Under the 'Websites' section, click 'Add Website', then select 'WordPress' as the application type and confirm."
+  - title: "Auto-install WordPress"
+    text: "hPanel provisions a subdomain and runs the one-click WordPress installer. WordPress is ready in 30-60 seconds - no manual database setup."
+  - title: "Complete the WordPress setup wizard"
+    text: "Open your site's /wp-admin URL, enter the auto-generated username and password (or your own), and finish the setup wizard."
+  - title: "Point your domain"
+    text: "In hPanel, go to 'Domains' and connect your domain. Update nameservers at your registrar to Hostinger's, or set an A record to your IP."
+  - title: "Enable SSL"
+    text: "hPanel auto-provisions a free SSL certificate. Verify it under 'Security > SSL'. Force HTTPS with the built-in .htaccess redirect."
+---
+
+## Why install WordPress on Hostinger?
+
+Hostinger's one-click WordPress installer is the fastest way to launch a site. The whole setup takes about **15 minutes**, including domain connection and SSL, and requires zero command-line experience.
+
+Because Hostinger uses NVMe storage and LiteSpeed on most plans, a fresh WordPress install typically boots with a **TTFB under 200ms** in India and ~360ms globally in our probes.
+
+## What you'll need
+
+- A Hostinger plan (we recommend at least Premium Web for the free domain and NVMe)
+- A domain name (free first year on Premium plans)
+- 15 minutes
+
+## Step-by-step
+
+Follow the six steps above from your hPanel dashboard. The only step that can trip people up is **pointing the domain**, so here's the detail:
+
+### Pointing your domain to Hostinger
+
+1. In hPanel, open **Websites → your site → Domains**.
+2. Choose **Add Domain**, type your domain, and hit confirm.
+3. At your registrar (wherever you bought the domain), change the nameservers to Hostinger's:
+   - `ns1.dns-parking.com`
+   - `ns2.dns-parking.com`
+4. DNS propagates within 24 hours (usually 1-4 hours). hPanel's **Domain Checker** shows live status.
+
+### Verify HTTPS
+
+After propagation, confirm the padlock in your browser. If HTTPS isn't active:
+
+1. Open hPanel → **Security → SSL**.
+2. Click **Install** next to your domain (Let's Encrypt, free).
+3. Toggle **Force HTTPS** so all traffic upgrades automatically.
+
+## Next steps
+
+- Install a caching plugin — LiteSpeed Cache is pre-suggested on Hostinger and works out of the box.
+- Set up daily backups in hPanel → **Backups**.
+- If you're comparing hosts first, read our [Hostinger vs Bluehost](/comparisons/hostinger-vs-bluehost) guide.

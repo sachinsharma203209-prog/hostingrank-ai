@@ -1,0 +1,103 @@
+---
+title: "How to Harden an Ubuntu VPS (fail2ban, UFW, SSH, Auto-Updates)"
+description: "Production-grade security for a fresh Ubuntu VPS: SSH keys, UFW, fail2ban, unattended upgrades, and Docker isolation."
+datePublished: "2026-04-09"
+dateModified: "2026-07-18"
+readingTime: "9 min read"
+tags: [vps, security, ubuntu, ssh, fail2ban]
+categories: [vps-hosting]
+comparisons: [digitalocean-vs-vultr]
+steps:
+  - title: "Create a sudo user"
+    text: "Add a non-root user with sudo privileges and copy your SSH public key into its authorized_keys."
+  - title: "Lock down SSH"
+    text: "Disable password and root login in /etc/ssh/sshd_config, then restart sshd."
+  - title: "Configure UFW"
+    text: "Allow only SSH, HTTP, HTTPS and the ports your app needs, then enable the firewall."
+  - title: "Install and enable fail2ban"
+    text: "Set up fail2ban to ban repeated SSH brute-force attempts and monitor your web server logs."
+  - title: "Enable automatic security updates"
+    text: "Install unattended-upgrades and configure it for security updates only."
+  - title: "Run services in Docker"
+    text: "Use the docker group instead of root for containers, and avoid mapping ports to 0.0.0.0 where possible."
+---
+
+## The 30-minute hardening checklist
+
+A fresh Ubuntu VPS from DigitalOcean, Vultr, or Hostinger is exposed to the internet the moment it boots. This checklist closes the standard attack surface in about 30 minutes.
+
+## 1. Create a sudo user
+
+```bash
+adduser deploy
+usermod -aG sudo deploy
+su - deploy
+mkdir -p ~/.ssh
+echo "PASTE-YOUR-PUBLIC-KEY" >> ~/.ssh/authorized_keys
+chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys
+```
+
+## 2. Lock down SSH
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Set:
+
+```ini
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+```
+
+Then restart: `sudo systemctl restart sshd`. Test from a **second terminal** before closing the first — a typo here locks you out.
+
+## 3. UFW firewall
+
+```bash
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow OpenSSH
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw enable
+```
+
+Only add ports your app genuinely needs (e.g. 3000 for Next.js behind a proxy — but better to bind to localhost).
+
+## 4. fail2ban
+
+```bash
+sudo apt install fail2ban -y
+sudo systemctl enable --now fail2ban
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sudo systemctl restart fail2ban
+```
+
+`sshd` jail is enabled by default; add `nginx-http-auth` or `postfix` jails for your stack.
+
+## 5. Auto security updates
+
+```bash
+sudo apt install unattended-upgrades -y
+sudo dpkg-reconfigure --priority=low unattended-upgrades
+```
+
+Choose **Yes** for automatic security updates. Point the mail option at your inbox so you get a summary.
+
+## 6. Docker isolation
+
+- Add the user to the `docker` group instead of using `sudo docker`: `sudo usermod -aG docker deploy`.
+- Run each service in its own container with `--restart=unless-stopped`.
+- Never expose a database port publicly — bind it to `127.0.0.1`.
+
+## Verification
+
+```bash
+sudo ufw status verbose
+sudo fail2ban-client status sshd
+sudo unattended-upgrades --dry-run --debug
+```
+
+For the platform tradeoffs behind choosing a VPS in the first place, see [DigitalOcean vs Vultr](/comparisons/digitalocean-vs-vultr) or deploy a real app with our [Next.js on VPS guide](/tutorials/deploy-nextjs-on-vps).
