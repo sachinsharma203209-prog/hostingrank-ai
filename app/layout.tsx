@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [...siteConfig.keywords],
+  verification: {
+    google: "EpoFTXlDtSDHz9SfCzkA60HjJQ9e6YuZV6fURIzV7RM",
+  },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
