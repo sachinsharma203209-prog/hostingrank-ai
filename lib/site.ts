@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "HostingRank AI",
   shortName: "HostingRank",
-  url: "https://hostingranks.in",
+  url: "https://hostingrank-ai.pages.dev",
   description:
     "Precision hosting benchmarks, in-depth provider reviews, and data-driven comparisons. We test real TTFB, uptime, latency, and value across the world's leading web hosting providers.",
   tagline: "Technical precision in hosting reviews.",
