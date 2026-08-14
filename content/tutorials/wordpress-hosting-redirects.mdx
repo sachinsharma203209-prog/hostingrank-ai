@@ -1,0 +1,83 @@
+---
+title: "WordPress Redirects: 301s, www, and Domain Changes (2026)"
+description: "Set up WordPress redirects correctly: 301 vs 302, www and HTTPS, changing domains, and how redirects protect your SEO."
+datePublished: "2026-08-19"
+dateModified: "2026-08-19"
+readingTime: "6 min read"
+tags: [wordpress-redirects, 301-redirect, wordpress-domain-change]
+categories: [wordpress-hosting]
+steps:
+  - title: "Choose 301 vs 302"
+    text: "Permanent moves get 301s (passing SEO value); temporary pages get 302s."
+  - title: "Standardize www, HTTPS, and trailing slashes"
+    text: "Pick one canonical version and redirect everything else to it."
+  - title: "Redirect after domain or URL changes"
+    text: "Map old URLs to new ones and redirect each — never leave a broken 404."
+  - title: "Verify and monitor"
+    text: "Test the redirects and check for 404s with your monitoring setup."
+---
+
+## Why redirects matter
+
+A redirect sends a visitor (and search engines) from one URL to another. Get them right and nothing breaks when URLs change. Get them wrong and you lose traffic, rankings, and trust. Redirects are a core part of [WordPress hosting and SEO](/tutorials/wordpress-hosting-and-seo) — a 301 passes the old page's ranking value to the new one.
+
+## 301 vs 302
+
+- **301 (permanent)** — the page moved for good. Search engines pass ranking value. Use for: domain changes, URL structure changes, http→https, www→non-www
+- **302 (temporary)** — the page is temporarily elsewhere. No ranking value passes. Use for: maintenance pages, seasonal offers, testing
+
+For almost everything WordPress hosting-related — [migrations](/tutorials/wordpress-hosting-migration), [HTTPS](/tutorials/wordpress-hosting-and-https), domain changes — you want **301s**.
+
+## The three standard redirects every site needs
+
+### 1. HTTPS (http → https)
+After installing SSL, redirect all HTTP traffic to HTTPS. Most hosts have a **Force HTTPS** toggle; alternatively your cache plugin or `.htaccess` writes it. See [HTTPS guide](/tutorials/wordpress-hosting-and-https).
+
+### 2. www vs non-www
+Pick one canonical hostname (yourdomain.com or www.yourdomain.com) and redirect the other. WordPress does this via the **Site Address** setting — set it once and use it consistently.
+
+### 3. Trailing slashes
+WordPress permalinks normally handle this, but confirm `/page` and `/page/` resolve to the same content. WordPress's [post name permalinks](/tutorials/wordpress-hosting-and-https) do this automatically.
+
+## Redirecting after a URL or domain change
+
+When you change domains or restructure URLs ([migration guide](/tutorials/wordpress-hosting-migration)):
+
+1. **Map old → new** — list every old URL and its new destination. Old URLs should redirect to the *matching* new page, not the homepage
+2. **Use a redirect plugin** — **Redirection** (free) is the standard: it logs 404s and lets you create 301s with regex support
+3. **Or use `.htaccess`** — for a handful of redirects:
+
+```apache
+Redirect 301 /old-page/ https://yourdomain.com/new-page/
+```
+
+4. **Keep the domain's old hostname alive** briefly — `olddomain.com` needs to keep redirecting to `newdomain.com` even after the move, or your backlinks point at 404s
+
+## When WordPress redirects silently break
+
+- **Mixed http/https** — a page set to HTTP in the database breaks after HTTPS enforcement. Fix the Site Address and clean up stored URLs ([HTTPS guide](/tutorials/wordpress-hosting-and-https))
+- **Migration URL mismatch** — old domain strings left in the database. The [move WordPress guide](/tutorials/move-wordpress-to-new-host) covers the find-and-replace
+- **Trailing redirect loops** — www↔non-www rules conflicting. Keep exactly one redirect chain: request → canonical, and stop
+
+## Verifying your redirects
+
+- **Check one by one** — every old URL returns a 301 to the new one (use a redirect checker)
+- **Monitor 404s** — the Redirection plugin logs 404s; your [monitoring setup](/tutorials/wordpress-hosting-monitoring) should alert on a spike
+- **After a migration** — re-run your [speed test](/tutorials/wordpress-hosting-speed-testing); redirects add a request, so keep chains to one hop
+
+## Frequently asked questions
+
+**What is the difference between 301 and 302 redirects?**
+301 is permanent and passes SEO value; 302 is temporary and doesn't. Use 301 for domain and URL changes, 302 only for temporary pages.
+
+**How do I redirect http to https in WordPress?**
+Enable your host's Force HTTPS toggle, or add a redirect via your cache plugin or `.htaccess`. Full walkthrough: [HTTPS guide](/tutorials/wordpress-hosting-and-https).
+
+**Do I need to redirect www to non-www?**
+Yes — pick one canonical hostname so search engines don't treat the two versions as duplicate sites. Set it in WordPress Settings → General.
+
+**What happens to SEO when I change domains?**
+301 each old URL to its matching new page and the ranking value transfers. Miss the redirects and you lose it. See [hosting and SEO](/tutorials/wordpress-hosting-and-seo).
+
+**What is the best WordPress redirect plugin?**
+Redirection (free) — 301s, regex support, and a 404 log to catch what you missed. `.htaccess` works for a handful of redirects without a plugin.

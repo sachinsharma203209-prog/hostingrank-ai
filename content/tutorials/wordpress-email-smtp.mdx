@@ -1,0 +1,87 @@
+---
+title: "WordPress SMTP Setup: Stop WordPress Emails Going to Spam (2026)"
+description: "Set up SMTP for WordPress with WP Mail SMTP and a real service (Mailgun, SendGrid, Postmark, or your host). Fix password resets and order emails in 10 minutes."
+datePublished: "2026-08-15"
+dateModified: "2026-08-15"
+readingTime: "6 min read"
+tags: [wordpress-smtp, wp-mail-smtp, transactional-email, wordpress-email]
+categories: [wordpress-hosting]
+steps:
+  - title: "Choose an SMTP service"
+    text: "Pick a transactional provider (Mailgun, SendGrid, Postmark) or your host's SMTP server for low volume."
+  - title: "Install an SMTP plugin"
+    text: "Install and activate WP Mail SMTP, then connect it to your chosen provider."
+  - title: "Send a test email"
+    text: "Use the plugin's built-in test to confirm delivery, and fix any TLS/port errors."
+  - title: "Check authentication and warm up"
+    text: "Publish SPF/DKIM records for the sending domain and ramp volume gradually."
+---
+
+## Why WordPress email fails
+
+By default, WordPress sends mail through PHP's `mail()` function — which has no authentication, no retry, and a terrible spam reputation. Result: password resets, WooCommerce order notifications, and contact form submissions silently vanish into spam folders.
+
+The fix is **SMTP**: routing WordPress mail through a real mail server that authenticates with your domain. This guide covers both options:
+
+- **A transactional service** (Mailgun, SendGrid, Postmark) — best for anything with real volume
+- **Your host's SMTP server** — fine for low-volume site mail on shared hosting
+
+## Step 1: Choose an SMTP service
+
+| Service | Free tier | Best for |
+| --- | --- | --- |
+| Mailgun | 100 emails/day | General transactional mail |
+| SendGrid | 100 emails/day | High volume, Deliverability reports |
+| Postmark | 100 emails/month | Order/receipt email, max deliverability |
+| Host SMTP | Free with plan | Tiny volumes on shared hosting |
+
+For a typical small business site, **any of these works** — pick the one with the clearest dashboard. If you already have [domain email](/tutorials/wordpress-email-setup) on your host, you can also use the host's SMTP server (often `smtp.yourhost.com`, port 465) with a mailbox account.
+
+## Step 2: Install and configure an SMTP plugin
+
+The standard is **WP Mail SMTP** (free version covers one mailer):
+
+1. Install **WP Mail SMTP** from the WordPress plugin directory and activate
+2. Go to **WP Mail SMTP → Settings**
+3. Choose your mailer (Mailgun, SendGrid, Postmark, or **Other SMTP** for your host)
+4. Paste the API key or credentials from your provider
+5. Set **From Email** to a real address on your domain
+6. Save
+
+If you chose **Other SMTP**, you'll also set:
+- SMTP host (e.g. `smtp.mailgun.org`) and port (`587` or `465`)
+- Encryption (**TLS** for 587, **SSL** for 465)
+- Authentication + your SMTP username/password
+
+## Step 3: Send a test email
+
+WP Mail SMTP includes a test tool under **Settings → Email Test**:
+
+1. Enter any address and send
+2. A successful send shows a green checkmark and the mailer used
+3. If it fails, the error message names the problem — usually a wrong port, missing TLS, or a bad key
+
+Confirm the test mail actually arrives (not in spam), then also test from your WooCommerce/contact form to see the real message path.
+
+## Step 4: Verify authentication
+
+Transactional services give you SPF and DKIM records to publish for your **sending domain** (see [email deliverability](/tutorials/wordpress-email-deliverability)). For Mailgun, publish their MX record too, so bounces return to them instead of failing. After DNS propagates, the service dashboard shows "verified" and your deliverability score rises.
+
+Then **warm up**: start at low volume and scale over 1–2 weeks if your domain is new. Ramping gradually is what keeps inboxes from filtering you.
+
+## Frequently asked questions
+
+**Why are my WordPress emails going to spam?**
+Almost always because of PHP `mail()` (no authentication) or missing SPF/DKIM. Switching to SMTP with an authenticated service fixes both.
+
+**Is WP Mail SMTP free?**
+Yes — the free version supports one mailer and is enough for most sites. The Pro version adds multiple mailers, white-labeling, and backup connections.
+
+**Can I use my host's SMTP server?**
+Yes, on shared hosting (Hostinger, SiteGround, Bluehost) use the host's SMTP hostname with a mailbox account. It works for low volume; use a transactional service if you send more.
+
+**Mailgun or SendGrid or Postmark for WordPress?**
+All three. Mailgun and SendGrid suit general volume; Postmark is best for transactional-only sites (orders, receipts) with strict deliverability needs.
+
+**Does SMTP work with WooCommerce emails?**
+Yes — WooCommerce uses WordPress's mailer, so once SMTP is configured every order email goes through it. Our [WooCommerce hosting](/tutorials/woocommerce-hosting) guide covers the full store setup.

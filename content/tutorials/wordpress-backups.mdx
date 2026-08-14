@@ -1,0 +1,96 @@
+---
+title: "WordPress Backups: A Complete Guide to Backing Up Your Site (2026)"
+description: "Back up WordPress the right way: host-level backups, plugin backups, the 3-2-1 rule, and how to restore when something breaks."
+datePublished: "2026-08-15"
+dateModified: "2026-08-15"
+readingTime: "7 min read"
+tags: [wordpress-backups, backup-wordpress, restore-wordpress]
+categories: [wordpress-hosting, managed-hosting]
+steps:
+  - title: "Enable host-level backups"
+    text: "Turn on your host's automatic daily backups — most shared and managed plans include them."
+  - title: "Add a plugin backup to cloud storage"
+    text: "Use UpdraftPlus or BackupBuddy to send copies to Google Drive, Dropbox, or S3."
+  - title: "Verify your backups"
+    text: "Test-restore a backup on staging at least monthly — a backup you never tested is a hope, not a plan."
+  - title: "Document your restore plan"
+    text: "Write down the one-click restore path for your host and the plugin restore path as a fallback."
+---
+
+## Why backups are non-negotiable
+
+Every WordPress site is one bad plugin update, one hack, or one server failure away from losing everything. Backups are the difference between a 10-minute restore and rebuilding your site from scratch.
+
+A **real** backup is:
+
+- **Automatic** — happens without you remembering
+- **Off-server** — not on the same machine as the site
+- **Tested** — you've actually restored from it at least once
+
+This guide covers the three layers: host backups, plugin backups, and the restore drill. Security and recovery go hand-in-hand — pair this with [WordPress hosting security](/tutorials/wordpress-hosting-security).
+
+## What a WordPress backup contains
+
+A complete backup has two parts:
+
+1. **Files** — themes, plugins, uploads, `wp-config.php`
+2. **Database** — every post, page, setting, order, and user
+
+Backing up only files, or only the database, isn't a backup. Both are required for a full restore.
+
+## Layer 1: Host-level backups
+
+The easiest layer is often already paid for:
+
+- **SiteGround** — daily backups free, plus an on-demand backup button
+- **Hostinger** — weekly free backups, daily on higher tiers
+- **Bluehost** — daily (older) / weekly (newer) depending on plan
+- **Kinsta, WP Engine, Cloudways** — automatic daily backups with one-click restore
+
+Check your host's control panel and enable the automatic backup schedule if it's off by default. Managed plans run on [managed WordPress hosting](/tutorials/managed-wordpress-hosting) usually include them — that's part of what you pay for.
+
+## Layer 2: Plugin backups to the cloud
+
+Host backups can fail (and they're usually on the same infrastructure). The industry rule is the **3-2-1 rule**: 3 copies, 2 media types, 1 off-site.
+
+The standard plugin is **UpdraftPlus** (free tier is genuinely useful):
+
+1. Install **UpdraftPlus** and open **Settings → UpdraftPlus Backups**
+2. Under **Settings**, add a remote storage destination (Google Drive, Dropbox, or S3)
+3. Set a **backup schedule** — daily files + database for active sites
+4. Click **Backup Now**
+
+**BackupBuddy** (paid) and **Jetpack VaultPress** (paid) are the main alternatives if you want premium scheduling or one-click restores from the plugin itself.
+
+## Layer 3: The restore drill
+
+A backup you've never tested is a hope. Monthly:
+
+1. On your host, create a **staging** copy of the site (see [staging environments](/tutorials/wordpress-staging-environment))
+2. Delete something harmless (a draft post or a test plugin)
+3. Restore from backup into staging and confirm it returns
+
+When a real disaster hits, restoration paths in order of preference:
+
+1. **Host one-click restore** — Kinsta/WP Engine/Cloudways/SiteGround dashboard restore
+2. **Plugin restore** — UpdraftPlus/BlogVault restore from cloud storage
+3. **Manual restore** — import the database via phpMyAdmin and upload files via FTP (the slow route)
+
+If you're moving hosts rather than recovering, use our [migration guide](/tutorials/wordpress-hosting-migration) instead.
+
+## Frequently asked questions
+
+**How often should I back up WordPress?**
+Daily minimum; nightly for stores or actively-updated sites. Weekly is only acceptable for a static, rarely-changed site.
+
+**Are host backups enough?**
+Not alone — a host outage or account issue can take backups with the site. Add an off-site plugin backup to cloud storage for the 3-2-1 rule.
+
+**What is the best free WordPress backup plugin?**
+UpdraftPlus — free cloud backups with scheduling, plus restore from the plugin. The paid version adds incremental backups and clones.
+
+**How do I restore WordPress from a backup?**
+Most hosts have one-click restore in the dashboard (the fastest route). Otherwise restore via your backup plugin. Full walkthrough: our [move WordPress guide](/tutorials/move-wordpress-to-new-host) covers the file+DB restore mechanics.
+
+**Do managed hosts back up WordPress automatically?**
+Yes — Kinsta, WP Engine, and Cloudways all include automatic daily backups and one-click restore in every plan. See [managed WordPress hosting](/tutorials/managed-wordpress-hosting).

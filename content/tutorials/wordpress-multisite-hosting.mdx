@@ -1,0 +1,108 @@
+---
+title: "WordPress Multisite Hosting: Setup, Requirements, and Best Hosts (2026)"
+description: "WordPress Multisite hosting explained: what it is, which hosts support it, and how to run a network of sites from one install."
+datePublished: "2026-08-15"
+dateModified: "2026-08-15"
+readingTime: "7 min read"
+tags: [wordpress-multisite, multisite-hosting, wordpress-network]
+categories: [wordpress-hosting, managed-hosting]
+steps:
+  - title: "Choose a multisite-friendly host"
+    text: "Pick a host with wildcard SSL, enough resources, and managed-multisite support if needed."
+  - title: "Enable the network"
+    text: "Add the multisite constant to wp-config.php and run the Network Setup installer."
+  - title: "Configure subdomains or subdirectories"
+    text: "Create the wildcard DNS record for subdomains, or keep sites in subdirectories."
+  - title: "Move sites in and manage"
+    text: "Migrate each site in, then use super admin tools for plugins, themes, and updates."
+---
+
+## What WordPress Multisite is
+
+WordPress Multisite (formerly WP Network) runs **many sites from a single WordPress install** — one core, one database, one admin network. Each site gets its own URL and content, but you update plugins and themes once for the whole network.
+
+It's built for:
+
+- **Agencies** running many client sites on shared infrastructure
+- **Franchises / branches** — one site per location
+- **SaaS and multi-product companies** — docs, blog, and app sites on one install
+- **Networks of blogs** — newsrooms, university departments
+
+If that's not your situation, Multisite adds complexity for little gain — a single site on good [WordPress hosting](/tutorials/what-is-wordpress-hosting) is usually enough.
+
+## Multisite vs multiple single installs
+
+| | Multisite | Separate installs |
+| --- | --- | --- |
+| Updates | Once for the network | Per site |
+| Plugins | One install, network-managed | Managed per site |
+| Resource isolation | Shared — one bad plugin affects all | Isolated |
+| Maintenance | One dashboard | N dashboards |
+| Backups | Whole network | Per site |
+
+**The rule:** Multisite wins when sites share plugins and you want central management. Separate installs win when sites need isolation, different plugins, or different security postures.
+
+## Multisite hosting requirements
+
+Most hosts can run Multisite, but check three things:
+
+1. **Wildcard SSL** — for subdomain networks (`site1.example.com`), you need a wildcard certificate covering all subdomains
+2. **Resources** — every site shares one install's PHP/DB; a busy network needs a beefier plan than a single site
+3. **Managed support** — Kinsta, WP Engine, and Cloudways support Multisite explicitly; some shared hosts impose plugin/load limits
+
+Managed hosts handle the SSL, caching, and backups for a network out of the box — one of the strongest arguments for [managed WordPress hosting](/tutorials/managed-wordpress-hosting) when you go multisite.
+
+## Step 1: Choose your host
+
+- **Kinsta / WP Engine** — first-class Multisite support, network-level caching, free migration
+- **Cloudways** — Multisite-friendly with staging and auto-SSL for subdomains
+- **SiteGround / Hostinger** — workable on shared plans for small networks
+
+Budget shared plans can run small Multisite networks, but plugin/theme limits on entry tiers can bite. Use the [best WordPress hosting](/best/wordpress-hosting) list and pick a plan that allows the plugins you need.
+
+## Step 2: Enable the network
+
+1. Back up everything first (see [WordPress backups](/tutorials/wordpress-backups))
+2. Add to `wp-config.php`:
+
+```php
+define('WP_ALLOW_MULTISITE', true);
+```
+
+3. In wp-admin, go to **Tools → Network Setup**
+4. Choose **subdomains** (`site1.example.com`) or **subdirectories** (`example.com/site1`)
+5. Follow the prompt: WordPress gives you new constants and rules to paste into `wp-config.php` and `.htaccess`
+6. Re-login — you'll now see a **My Sites** menu with a Super Admin network panel
+
+## Step 3: Configure DNS and SSL
+
+- **Subdomain networks:** create a wildcard DNS record `*.example.com` pointing at your server, then request/install a **wildcard SSL**
+- **Subdirectory networks:** nothing extra — the main domain and cert cover everything
+
+Your host's panel handles wildcard SSL for you on managed plans; on shared hosting you may need to request it under SSL/TLS.
+
+## Step 4: Add sites and manage
+
+- **Add sites:** Super Admin → **Sites → Add New** (name, address, admin email)
+- **Themes/plugins:** network-enable them so every site can use them; update once network-wide
+- **Per-site control:** each site's admin can add users and content but not change network settings
+- **Users:** one user across the whole network; roles are per-site
+
+Plan carefully before enabling — converting an existing install to Multisite is straightforward, but switching back is not.
+
+## Frequently asked questions
+
+**Does WordPress Multisite need special hosting?**
+Not strictly, but subdomain networks need wildcard SSL and busy networks need more resources. Managed hosts (Kinsta, WP Engine, Cloudways) make it dramatically easier.
+
+**Is Multisite faster than separate sites?**
+Often yes at the shared-plugin level (one cached core), but a heavy site can slow the whole network. For mixed workloads, isolated installs are safer.
+
+**Can I use Multisite for an agency's client sites?**
+It's one option — you get one update dashboard and central control. The trade-off is no isolation between clients. Our [agency hosting guide](/tutorials/wordpress-hosting-for-agencies) compares the approaches.
+
+**Is Multisite good for WooCommerce?**
+Only for identical stores sharing infrastructure. Each store adds heavy DB load to the shared network. Most serious stores run isolated installs.
+
+**What is the best host for WordPress Multisite?**
+Kinsta and WP Engine for managed networks; Cloudways for value. SiteGround works for smaller networks on shared plans. Rankings: [managed WordPress hosting](/best/managed-hosting).

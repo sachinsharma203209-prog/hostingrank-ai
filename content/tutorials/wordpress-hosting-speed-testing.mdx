@@ -1,0 +1,94 @@
+---
+title: "How to Test WordPress Hosting Speed: TTFB, Uptime, and Real Benchmarks (2026)"
+description: "Test WordPress hosting speed properly: TTFB, load time, uptime, and latency. The exact tools and method we use for every host we review."
+datePublished: "2026-08-17"
+dateModified: "2026-08-17"
+readingTime: "7 min read"
+tags: [test-wordpress-speed, hosting-benchmarks, wordpress-ttfb]
+categories: [wordpress-hosting]
+steps:
+  - title: "Measure TTFB from multiple locations"
+    text: "Run TTFB tests from your audience's regions — it's the best single host signal."
+  - title: "Measure load time and Core Web Vitals"
+    text: "Use PageSpeed Insights and WebPageTest for LCP, INP, and full page load."
+  - title: "Monitor uptime over time"
+    text: "Set up continuous uptime monitoring — one test proves nothing."
+---
+
+## Why you should test, not trust
+
+Every host advertises speed and uptime. Advertising is not data. The honest way to evaluate a host is to measure it yourself — which is exactly the method behind every [provider review](/reviews) and the [benchmarks](/benchmarks) on this site. This guide teaches you that method in about 20 minutes.
+
+The three things to measure:
+
+1. **TTFB** — how fast the server responds (the host's true signal)
+2. **Load time / Core Web Vitals** — what visitors experience
+3. **Uptime** — reliability over time
+
+## Test 1: TTFB from multiple locations
+
+TTFB (time to first byte) is the single most host-specific metric — caching and front-end tricks barely touch it. A slow TTFB means a slow server, full stop.
+
+**Tools:**
+- **WebPageTest** — pick test locations (e.g. Mumbai, London, Virginia) and read the TTFB in the waterfall
+- **KeyCDN performance test** — free, tests 14 locations at once
+- **curl** (for techies): `curl -w "TTFB: %{time_starttransfer}s\n" -o /dev/null -s https://yourdomain.com`
+
+**The numbers:** under 200ms is excellent, under 400ms acceptable, above 600ms is a hosting problem. Our measured medians: Kinsta 98ms, Cloudways 124ms, Hostinger 142ms, SiteGround 185ms — see the [benchmarks](/benchmarks).
+
+## Test 2: Load time and Core Web Vitals
+
+TTFB tells you about the server; load time and Core Web Vitals tell you what visitors feel:
+
+- **PageSpeed Insights** (pagespeed.web.dev) — LCP, INP, CLS scores with lab data
+- **WebPageTest** — full waterfall: where every millisecond goes
+
+Run 3 tests and take the **median** (spikes skew averages). Watch:
+- **LCP under 2.5s** — the hero/content load
+- **INP under 200ms** — interactivity
+- **CLS under 0.1** — layout stability
+
+If TTFB is fast but LCP is slow, the bottleneck is front-end (images, CSS, scripts) — fix that with our [speed guide](/tutorials/speed-up-wordpress). If TTFB is slow, no front-end work saves you.
+
+## Test 3: Uptime over time
+
+One uptime check is a snapshot. Real reliability needs time:
+
+- **UptimeRobot** (free) — checks every minute, 2+ locations
+- **Better Stack / Pingdom** — history and SLA-style reports
+- Run for **30 days minimum** before trusting a host
+
+Track both hard downtime and slow responses — a site that responds in 30 seconds is down in practice. Full guide: [WordPress uptime](/tutorials/wordpress-hosting-uptime).
+
+## The complete method (what we do)
+
+1. Create a **fresh WordPress site** on the host (no optimized theme)
+2. Run **TTFB tests from 12 global locations**, 3 runs each, median
+3. Run **PageSpeed** + **WebPageTest** for Core Web Vitals
+4. **Monitor uptime** continuously for 30+ days
+5. Repeat after a traffic spike to catch throttling
+
+This is the exact methodology published on our [methodology](/methodology) page — you can reproduce it on any host you're considering.
+
+## Reading the results
+
+- **TTFB sub-200ms + uptime 99.9%+** → the host is genuinely good. Compare against the [best WordPress hosting](/best/wordpress-hosting) list.
+- **TTFB 400ms+** → look elsewhere or fix your own setup first (region, PHP version — see [PHP versions](/tutorials/wordpress-hosting-php-versions)).
+- **Slow only from one region** → consider a [CDN](/tutorials/wordpress-hosting-cdn) or a nearer data center rather than switching hosts.
+
+## Frequently asked questions
+
+**What is a good TTFB?**
+Under 200ms is excellent (Kinsta, Cloudways, Hostinger territory); under 400ms is acceptable; above 600ms indicates a slow host or misconfiguration.
+
+**Is TTFB the most important hosting metric?**
+Yes — it's the most host-specific. A slow TTFB cannot be fixed by caching plugins; only the host (or your server config) can.
+
+**How long should I test hosting before trusting it?**
+30 days minimum for uptime. Speed can be measured in a day, but reliability needs a month of continuous monitoring.
+
+**Do I need to pay for speed testing tools?**
+No — WebPageTest, PageSpeed Insights, UptimeRobot, and KeyCDN's free test cover the whole method.
+
+**How do I test my WordPress site's TTFB?**
+Use WebPageTest (choose locations and read TTFB in the waterfall), KeyCDN's free multi-location test, or `curl -w` from your terminal.

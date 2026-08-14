@@ -1,0 +1,91 @@
+---
+title: "How to Install WordPress: The 15-Minute Setup (2026)"
+description: "Install WordPress on any host in about 15 minutes: one-click installers, manual installs, and what to configure after login."
+datePublished: "2026-08-16"
+dateModified: "2026-08-16"
+readingTime: "6 min read"
+tags: [install-wordpress, how-to-install-wordpress, wordpress-setup]
+categories: [wordpress-hosting, shared-hosting]
+steps:
+  - title: "Get hosting and a domain"
+    text: "Sign up for WordPress-friendly hosting and point your domain at it."
+  - title: "Run the one-click installer"
+    text: "In your host's control panel, find the WordPress installer and enter site details."
+  - title: "Complete the WordPress install"
+    text: "Set the admin username, email, and password, then log in to your dashboard."
+  - title: "Configure the essentials"
+    text: "Change permalinks, install SSL, and enable backups before publishing."
+---
+
+## Before you install
+
+You need two things:
+
+1. **WordPress-friendly hosting** — shared hosting from the [best WordPress hosting](/best/wordpress-hosting) list all offer one-click WordPress installs
+2. **A domain** — yours, pointed at the host (see [domains and hosting](/tutorials/wordpress-hosting-and-domain))
+
+The whole flow takes about 15 minutes. There's also a Hostinger-specific walkthrough in our [install WordPress on Hostinger](/tutorials/install-wordpress-on-hostinger) guide.
+
+## Step 1: Use the one-click installer
+
+Every major host bundles a WordPress installer. In cPanel it's under **WordPress** (or **Softaculous**); in hPanel it's the **WordPress** entry in the left menu; SiteGround uses **Site Tools → WordPress**.
+
+1. Click **Install** / **Add Website**
+2. Choose your domain (or the temporary host domain if yours is still propagating)
+3. Set site name and description
+4. Create an **admin username and password** — make them strong, not "admin"
+5. Select a language and hit **Install**
+
+Most installers finish in under a minute and email you the login URL.
+
+## Step 2: Complete the install manually (if needed)
+
+If your host lacks a one-click installer (some VPS setups), the manual route:
+
+1. Download WordPress from wordpress.org and upload `wp-content` and `wp-config-sample.php` to `public_html` via FTP
+2. Create a **database** in your host's MySQL panel (cPanel → MySQL Databases) and a user with all privileges on it
+3. Rename `wp-config-sample.php` to `wp-config.php` and paste your DB name, user, and password
+4. Visit `yourdomain.com/wp-admin` — the famous 5-minute install screen appears, enter your site details, and done
+
+For a VPS you can skip FTP and use `wp-cli` — covered in our [WordPress VPS hosting](/tutorials/wordpress-vps-hosting) guide.
+
+## Step 3: Log in and verify
+
+Visit `yourdomain.com/wp-admin` and log in. You should see the WordPress dashboard. Immediately check:
+
+- **Settings → General** — Site Address is `https://` (after SSL is on)
+- **Permalinks** — set to **Post name** (`/sample-post/`), the SEO-friendly default
+- **Users** — your admin account is the only user so far
+
+## Step 4: Configure the essentials
+
+Before publishing anything:
+
+1. **Install SSL** — free Let's Encrypt in your host panel, then force HTTPS. Full walkthrough: [email & SSL setup](/tutorials/setup-email-ssl)
+2. **Enable backups** — turn on your host's daily backups or add UpdraftPlus. [Backup guide](/tutorials/wordpress-backups)
+3. **Install a cache plugin** — LiteSpeed Cache on LiteSpeed hosts (Hostinger, A2) or a caching option. See [speed up WordPress](/tutorials/speed-up-wordpress)
+4. **Pick a theme** — install a theme and customize
+5. **Set up a professional email** — `you@yourdomain.com` if you haven't: [email setup](/tutorials/wordpress-email-setup)
+
+## What's next after install
+
+- Read [WordPress hosting for beginners](/tutorials/wordpress-hosting-for-beginners) — the first week of ownership
+- Run the [security checklist](/tutorials/wordpress-hosting-security) — 2FA and updates before launch
+- Set up [maintenance](/tutorials/wordpress-hosting-maintenance) — updates, backups, and uptime checks
+
+## Frequently asked questions
+
+**How long does it take to install WordPress?**
+About 5 minutes with a one-click installer, 15–20 manually. Hosting signup and domain setup add time but are separate steps.
+
+**Is WordPress really free?**
+The software is free and open-source. You pay for hosting ($3/mo+) and a domain (~$10/yr). See [WordPress.com vs WordPress.org](/tutorials/wordpress-com-vs-wordpress-org) for the difference.
+
+**Can I install WordPress on any host?**
+Yes — any host with PHP and MySQL runs it. Quality differs enormously, which is why the [host rankings](/best/wordpress-hosting) exist.
+
+**What is the WordPress admin URL?**
+`yourdomain.com/wp-admin` — your login page and dashboard entry.
+
+**How do I install WordPress locally to practice?**
+Use Local (by WP Engine) or DevKinsta — a one-click local WordPress environment. Everything works the same as on a host, without paying for one yet.

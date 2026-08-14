@@ -1,0 +1,87 @@
+---
+title: "WordPress Hosting with Email: What You Need to Know (2026)"
+description: "WordPress hosting and email: whether your host's mail is good enough, how to set up a custom domain inbox, and when to use Google Workspace."
+datePublished: "2026-08-15"
+dateModified: "2026-08-15"
+readingTime: "6 min read"
+tags: [wordpress-hosting-and-email, wordpress-email-hosting, custom-domain-email]
+categories: [wordpress-hosting]
+---
+
+## Does your WordPress host include email?
+
+Most WordPress hosting plans include email accounts: Hostinger, SiteGround, Bluehost, and A2 Hosting all bundle mailboxes with their shared plans. The hosting and email usually come together — but "included" isn't the same as "good."
+
+The honest version: **shared hosting email works for light use**. If email is mission-critical (a business sending and receiving hundreds of messages a day, or doing cold outreach), your host's mail will eventually cause deliverability problems.
+
+## Included email vs dedicated email services
+
+| | Host email (shared) | Google Workspace / Microsoft 365 |
+| --- | --- | --- |
+| Cost | Free with plan | $6–12/mo per mailbox |
+| Reliability | Good enough | Excellent |
+| Deliverability | Variable | Best-in-class |
+| Spam filtering | Basic | Strong |
+| Downtime | Tied to server | Rare |
+| Storage | 5–20GB | 30GB+ |
+
+The rule of thumb: **receive with included email, send with a dedicated service.** Your custom domain inbox (you@yourdomain.com) is the professional must-have; the question is just where it lives.
+
+## Setting up email on your WordPress host
+
+**With most shared hosts:**
+
+1. Create the mailbox in your control panel (hPanel/cPanel — usually under "Email")
+2. Set your domain's MX records to the host's mail server (the panel often does this for you)
+3. Add the account to Gmail/Outlook/Apple Mail
+4. Optionally configure SPF, DKIM, and DMARC so your mail doesn't land in spam
+
+The MX record step is where most setup goes wrong. Your host's setup wizard usually handles it automatically — see [how to set up a custom domain email](/tutorials/wordpress-email-setup) for the full walkthrough.
+
+## The modern approach: separate email from hosting
+
+More and more, WordPress users keep hosting and email separate:
+
+- **Google Workspace** ($6/user/mo) — the standard for small business email
+- **Microsoft 365** ($6/user/mo) — better for heavy Outlook users
+- **Zoho Mail** — free tier up to 5 mailboxes, then $1/user/mo
+- **Hostinger email** — solid bundled option, easier migration between Hostinger plans
+
+The advantage: your email never goes down with your website, and deliverability improves. This matters most if you send a lot of mail — newsletters, order confirmations, client correspondence.
+
+## Spam and deliverability basics
+
+If your mail lands in spam, check these in order:
+
+1. **SPF** — declares which servers may send mail for your domain
+2. **DKIM** — cryptographically signs outgoing mail
+3. **DMARC** — tells receiving servers what to do with forged mail
+4. **Warm-up** — a brand-new domain/address sending volume needs a ramp-up period
+
+Most hosts set SPF/DKIM automatically. Our [email deliverability tutorial](/tutorials/wordpress-email-deliverability) walks through verification and fixes.
+
+## Transactional email: separate from inboxes
+
+If WordPress sends emails to your users (password resets, WooCommerce order notifications, form submissions), that's **transactional email** — a different thing from mailboxes. Server PHP mail is unreliable; use a service instead:
+
+- **Mailgun / SendGrid / Postmark** — free tiers for modest volume
+- **SMTP plugin** (e.g., WP Mail SMTP) to route WordPress through the service
+
+This keeps your important site mail out of spam and off your server. More in [WordPress email delivery setup](/tutorials/wordpress-email-smtp).
+
+## Frequently asked questions
+
+**Does WordPress hosting include email?**
+Most shared hosts do — Hostinger, SiteGround, Bluehost, and A2 bundle mailboxes with their plans. Managed and VPS tiers (Cloudways, Kinsta, WP Engine) don't include mailboxes.
+
+**Can I use my domain for email without hosting?**
+Yes — buy the domain anywhere and point MX records at a dedicated email service like Google Workspace or Zoho. No hosting required.
+
+**Should I get email from my web host or Google Workspace?**
+For light use, host email is fine and free. For professional reliability and deliverability, Google Workspace at $6/mo per mailbox is worth it.
+
+**What is the best free email for a custom domain?**
+Zoho Mail — free for up to 5 mailboxes with your own domain. See [free WordPress hosting](/tutorials/free-wordpress-hosting) for the full budget stack.
+
+**Does email affect WordPress hosting performance?**
+Shared hosting email shares the server with your site. High-volume sending can degrade site speed — another reason to offload heavy email to a dedicated service.

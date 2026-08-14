@@ -1,0 +1,77 @@
+---
+title: "WordPress and PHP Versions: Which One Should You Use? (2026)"
+description: "PHP versions for WordPress explained: why PHP 8.3+ matters, how to change your PHP version, and which hosts make it painless."
+datePublished: "2026-08-16"
+dateModified: "2026-08-16"
+readingTime: "6 min read"
+tags: [wordpress-php-version, php-8, wordpress-php]
+categories: [wordpress-hosting]
+steps:
+  - title: "Check your current PHP version"
+    text: "Find it in your host's panel or via a Site Health report in wp-admin."
+  - title: "Verify compatibility"
+    text: "Check that your theme and plugins support the target PHP version."
+  - title: "Switch the PHP version"
+    text: "Change it in your host's panel, then re-test your site and logs."
+---
+
+## Why PHP version matters
+
+WordPress is written in PHP, and the version your server runs has a **direct effect on speed and security**:
+
+- **PHP 7.4 (end of life, Nov 2022)** — unsupported, no security patches, ~2-3x slower than modern PHP
+- **PHP 8.0/8.1** — faster, but 8.0 is EOL and 8.1 nears it
+- **PHP 8.2** — a safe, widely compatible current option
+- **PHP 8.3 / 8.4** — fastest and most secure; recommended for new sites
+
+WordPress core runs **roughly 3x faster on PHP 8.3 than 7.4**. For a shared-hosting site, that single change can cut TTFB more than any caching plugin. Benchmark data lives on our [benchmarks](/benchmarks) page.
+
+## The current recommendation
+
+Run the **latest PHP 8.3 (or 8.4 once your plugins support it)**. Rules of thumb:
+
+- New site: start on PHP 8.3
+- Existing site on 8.1: upgrade to 8.2/8.3 after a staging test
+- Anything on 7.4 or 8.0: upgrade now — it's unsupported and a security risk (see [WordPress security](/tutorials/wordpress-hosting-security))
+
+## How to check your PHP version
+
+1. **Host panel** — most hosts show the active PHP version on the site's details page
+2. **WordPress dashboard** — **Tools → Site Health → Info → Server**, or install any PHP version display plugin
+3. **Terminal** — `php -v` on a VPS
+
+## How to change it
+
+**Shared hosting:** your host's control panel has a **PHP version selector** (cPanel → Select PHP Version, or hPanel → PHP Configuration). Pick the version, apply, and it takes effect within minutes.
+
+**Managed hosts (Kinsta, Cloudways, WP Engine):** the dashboard has a PHP selector per environment. Kinsta and Cloudways let you switch and roll back instantly.
+
+**VPS:** update your PHP packages and reconfigure the PHP-FPM pool — our [secure Ubuntu VPS](/tutorials/secure-ubuntu-vps) guide covers the setup.
+
+## Before you switch
+
+1. **Test on staging first** — create a staging copy (see [staging environments](/tutorials/wordpress-staging-environment))
+2. **Check plugin compatibility** — PHP 8.x removed old functions; an outdated plugin may throw deprecation warnings. Most popular plugins are PHP 8.3-ready by now
+3. **Back up** — take a [backup](/tutorials/wordpress-backups) before any server change
+4. **Watch logs** after switching — your host panel shows PHP error logs; if a plugin breaks, roll back the version
+
+## Does WordPress require a minimum PHP version?
+
+WordPress.org requires **PHP 7.2.24+** minimum, but running the minimum is like driving a car with the check-engine light on. The practical floor for a fast, secure site is PHP 8.1+, with 8.3 as the target.
+
+## Frequently asked questions
+
+**What PHP version should I use for WordPress in 2026?**
+PHP 8.3 — fastest and most secure with broad plugin compatibility. Upgrade to 8.4 once your plugins and host support it cleanly.
+
+**How do I change my WordPress PHP version?**
+In your host's panel via the PHP version selector (cPanel, hPanel, or the managed dashboard). Test on staging first, then switch and monitor logs.
+
+**Will upgrading PHP break my site?**
+Possibly, if you run outdated plugins or themes — which is exactly why you test on staging and back up first. Popular plugins are PHP 8.x-compatible.
+
+**Why is my WordPress slow on PHP 7.4?**
+PHP 7.4 is more than 3x slower than 8.3 for WordPress workloads and receives no security patches. Upgrading is the single best free performance and security fix. See [speed up WordPress](/tutorials/speed-up-wordpress).
+
+**Which hosts let me change PHP versions easily?**
+All of the hosts in our rankings do — Hostinger (hPanel), SiteGround (Site Tools), Kinsta/Cloudways (dashboard selectors). Compare them in the [best WordPress hosting](/best/wordpress-hosting) list.

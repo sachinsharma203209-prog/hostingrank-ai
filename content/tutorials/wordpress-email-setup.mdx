@@ -1,0 +1,92 @@
+---
+title: "How to Set Up Email for Your Domain: Step-by-Step (2026)"
+description: "Set up a professional email address at your own domain. Compare host email vs Google Workspace vs Zoho, then get you@yourdomain.com working in minutes."
+datePublished: "2026-08-15"
+dateModified: "2026-08-15"
+readingTime: "6 min read"
+tags: [wordpress-email-setup, custom-domain-email, professional-email]
+categories: [wordpress-hosting, shared-hosting]
+steps:
+  - title: "Decide where your email lives"
+    text: "Choose host-included mailboxes (free, tied to your server) or a dedicated service like Google Workspace or Zoho (reliable, from $0-6/mo)."
+  - title: "Create the mailbox"
+    text: "Add your address in your host's control panel or in the email provider's admin console."
+  - title: "Update MX records"
+    text: "Point your domain's MX records at your email provider, and add SPF, DKIM, and DMARC so your mail isn't filtered as spam."
+  - title: "Connect your mail client"
+    text: "Add the account to Gmail, Outlook, or Apple Mail using IMAP/SMTP settings from your provider."
+---
+
+## Why you need a custom domain email
+
+`you@yourdomain.com` is the professional baseline. It builds trust with customers, and it delivers better than free addresses — Gmail and Outlook treat mail from free domains more aggressively. The good news: it's cheap or free, and it works alongside your [WordPress hosting](/tutorials/what-is-wordpress-hosting).
+
+You have two paths:
+
+1. **Host-included email** — free with most shared plans (Hostinger, SiteGround, Bluehost, A2)
+2. **Dedicated email service** — Google Workspace, Microsoft 365, or Zoho from $0–6/mo
+
+## Host email vs Google Workspace vs Zoho
+
+| Option | Cost | Best for |
+| --- | --- | --- |
+| Host-included email | Free | A few inboxes, light use |
+| Zoho Mail | Free (5 mailboxes) → $1/mo | Budget professional email |
+| Google Workspace | $6/user/mo | Businesses that live in Gmail |
+| Microsoft 365 | $6/user/mo | Outlook-centric teams |
+
+**Our rule of thumb:** start with host-included email for a personal site or side project. Switch to Google Workspace or Zoho when email becomes critical — a business domain that can't lose mail. See [WordPress hosting and email](/tutorials/wordpress-hosting-and-email) for the full trade-off.
+
+## Step 1: Decide where your email lives
+
+If you're on a shared host, your plan almost certainly includes mailboxes — check your control panel before paying for anything. The detailed setup for host mailboxes is in our [email & SSL setup](/tutorials/setup-email-ssl) guide.
+
+If you choose a dedicated service:
+
+- **Google Workspace** — sign up at workspace.google.com with your domain
+- **Zoho Mail** — zoho.com/mail, verify your domain and add users free
+- **Microsoft 365** — admin.microsoft.com, add your domain under Setup
+
+## Step 2: Create the mailbox
+
+**On your host:** control panel → **Email → Email Accounts** → add `you@yourdomain.com`, set a password.
+
+**On Google Workspace/Zoho:** create the user in the admin console and assign the mailbox license. The service will prompt you to verify domain ownership with a TXT record.
+
+## Step 3: Update MX and auth records
+
+This is the step that makes email actually work. In your DNS panel (usually at your domain registrar or host):
+
+1. **MX records** — point at your email provider (your provider's docs list the exact values and priority)
+2. **SPF** — a TXT record declaring which servers may send for your domain
+3. **DKIM** — your provider gives you a key to publish; this signs your outgoing mail
+4. **DMARC** — tells receiving servers what to do with mail that fails SPF/DKIM
+
+Get all three right and your mail won't land in spam. The full walkthrough is in [email deliverability](/tutorials/wordpress-email-deliverability).
+
+## Step 4: Connect your mail client
+
+Add the account to the app you actually use:
+
+- **Gmail** → Settings → Accounts → **Add another email address** (or "Check mail from other accounts")
+- **Outlook** → File → Add Account
+- **Apple Mail** → Mail → Settings → Accounts → Add
+
+Use the provider's IMAP/SMTP settings (typically `imap.provider.com` and `smtp.provider.com`, ports 993/465 with SSL). When in doubt, the provider's setup page auto-configures most clients.
+
+## Frequently asked questions
+
+**Can I set up email without hosting?**
+Yes — buy the domain anywhere and point its MX records at Google Workspace, Zoho, or Microsoft 365. No web hosting required.
+
+**What is the cheapest professional email for my domain?**
+Zoho's free tier covers up to 5 mailboxes with your own domain. Google Workspace is $6/user/mo.
+
+**Do I need a separate email host if I use Hostinger?**
+Hostinger's shared plans include email, so no. Their own email product is a good middle ground if you want more reliability than shared mail.
+
+**Why is my custom email going to spam?**
+Usually missing SPF/DKIM/DMARC, or a brand-new domain sending too much too fast. Fix the records, then send small volumes and warm up. Full guide: [email deliverability](/tutorials/wordpress-email-deliverability).
+
+**What about transactional mail from my WordPress site?**
+Password resets and order notifications should go through an SMTP service, not your mailbox. See [WordPress SMTP setup](/tutorials/wordpress-email-smtp).

@@ -1,0 +1,89 @@
+---
+title: "WordPress Database Optimization: Clean Up and Speed Up (2026)"
+description: "Optimize the WordPress database: clean up revisions, spam, and transients, optimize tables, and add Redis object caching for real speed."
+datePublished: "2026-08-17"
+dateModified: "2026-08-17"
+readingTime: "7 min read"
+tags: [wordpress-database-optimization, optimize-wordpress-db, wordpress-database]
+categories: [wordpress-hosting]
+steps:
+  - title: "Clean up what bloats the database"
+    text: "Remove post revisions, spam comments, orphaned data, and expired transients."
+  - title: "Optimize the tables"
+    text: "Run OPTIMIZE TABLE or use a plugin's built-in optimizer to rebuild fragmented tables."
+  - title: "Add object caching"
+    text: "Enable Redis or persistent object caching to cut database queries on repeat visits."
+---
+
+## Why database size matters
+
+WordPress hides a growing pile of junk in its database. Post **revisions** (every auto-save), **spam comments**, **expired transients**, and **orphaned plugin data** accumulate for years. Symptoms:
+
+- Slower page loads (larger tables = slower queries)
+- Bloated backups (see [WordPress backups](/tutorials/wordpress-backups))
+- Database connection errors on busy sites
+
+A site with 10 years of revisions can carry a **hundred times more data than it needs** — and every visit pays for it.
+
+## Step 1: Clean up the database
+
+The easy route is a maintenance plugin. **WP-Optimize** (free) covers everything below in one dashboard:
+
+- **Post revisions** — keep only the last few (or none)
+- **Spam/trash comments** — purge them
+- **Transients** — expired cached data that never got cleaned
+- **Orphaned metadata** — rows pointing at deleted content
+- **Pingbacks/trackbacks** — almost always safe to delete
+
+Run the cleanup, then confirm the site still works (spot-check posts, comments, and pages).
+
+## Step 2: Optimize the tables
+
+Optimizing rebuilds fragmented tables — MySQL's version of defragmenting a disk.
+
+- **WP-Optimize** has an "Optimize Tables" button (runs `OPTIMIZE TABLE`)
+- **phpMyAdmin** (in your host panel) → select your database → **Check All** → **Optimize Table**
+- **On a VPS:** `mysqlcheck -o --all-databases`
+
+Do this after a major cleanup, not every week — it's maintenance, not a daily task.
+
+## Step 3: Add object caching
+
+The biggest speed lever. WordPress queries the database on every request; **object caching** stores those query results in memory. Redis is the standard:
+
+- **Shared hosts:** LiteSpeed Cache's object cache feature on LiteSpeed servers (Hostinger, A2). Enable it in the plugin settings.
+- **Cloudways/Kinsta:** Redis is built in — enable it in the dashboard or with the Redis Object Cache plugin.
+- **VPS:** run a Redis container — see the setup in [WordPress VPS hosting](/tutorials/wordpress-vps-hosting).
+
+Repeat-visit page build time typically drops **40–70%** with object caching enabled.
+
+## What NOT to do
+
+- **Don't delete every revision** if you rely on them for editing history — keep the last 3–5
+- **Don't optimize during peak traffic** — table locks can slow the site
+- **Don't use sketchy "optimize everything" plugins** — stick to WP-Optimize or the host's tools
+- **Don't skip the backup** — [back up](/tutorials/wordpress-backups) before any database surgery
+
+## Database hosting: when to go bigger
+
+Shared databases are fine to a point. When you outgrow them — heavy WooCommerce, high traffic — move to:
+
+- **Managed database** (DigitalOcean Managed DB, Cloud SQL) — isolated, scaled, backed up
+- **A better host tier** with more database resources — see [when to upgrade hosting](/tutorials/wordpress-hosting-when-to-upgrade)
+
+## Frequently asked questions
+
+**How do I optimize the WordPress database?**
+Use WP-Optimize for cleanup (revisions, spam, transients), run table optimization via the plugin or phpMyAdmin, and enable Redis object caching for the biggest speed gain.
+
+**What is the best WordPress database optimization plugin?**
+WP-Optimize is the standard free choice — cleanup, table optimization, and caching in one tool. Avoid all-in-one "cleaner" plugins from unknown developers.
+
+**Does cleaning the database speed up WordPress?**
+It helps — smaller tables mean faster queries, and clearing junk prevents errors. The larger gain comes from object caching, which avoids the queries entirely.
+
+**Are WordPress post revisions bad?**
+Unlimited revisions are bloat — every auto-save stores a full post copy. Keep the last few or disable revisions entirely with `define('WP_POST_REVISIONS', 3);` in `wp-config.php`.
+
+**How do I know if my WordPress database needs optimizing?**
+If the site feels slow despite caching, backups are growing fast, or you see DB connection errors. Check database size in your host panel and run the cleanup.

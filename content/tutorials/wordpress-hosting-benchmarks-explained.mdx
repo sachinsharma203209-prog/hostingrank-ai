@@ -1,0 +1,79 @@
+---
+title: "WordPress Hosting Benchmarks Explained: How to Read the Numbers (2026)"
+description: "What TTFB, uptime, LCP, and performance scores actually mean. How we benchmark every host and how to interpret the data."
+datePublished: "2026-08-19"
+dateModified: "2026-08-19"
+readingTime: "7 min read"
+tags: [wordpress-benchmarks, wordpress-ttfb-explained, hosting-performance]
+categories: [wordpress-hosting]
+---
+
+## Why benchmarks matter
+
+Every host claims to be fast. Benchmarks are the difference between marketing and measurement — real numbers from real tests. This site's [benchmarks](/benchmarks) page and every [provider review](/reviews) are built from one method: a fresh WordPress install on each host, tested over 30+ days. This guide explains what each number means and how to read them.
+
+## The metrics, decoded
+
+### TTFB (time to first byte)
+The time from request until the server's first byte arrives. **The most host-specific metric** — caching and front-end tricks barely touch it.
+
+- Under 200ms: excellent (Kinsta 98ms, Cloudways 124ms, Hostinger 142ms)
+- 200–400ms: acceptable
+- 400ms+: slow — a hosting problem
+
+### Load time
+The time until the page finishes loading. Visitor-facing, and affected by the front end as much as the server. The gap between TTFB and load time is your theme, images, and scripts — fixable with the [speed guide](/tutorials/speed-up-wordpress).
+
+### Uptime
+Percentage of time the site was reachable. 99.99% ≈ 53 min/year down; 99.9% ≈ 8.7 hours/year. The numbers live in the [uptime guide](/tutorials/wordpress-hosting-uptime).
+
+### Performance score
+Our composite of TTFB, load time, and Core Web Vitals — a single 0–100 view. A score above 90 means the host is genuinely fast in practice.
+
+### Latency by region
+TTFB measured per test location (India, US, UK). This reveals **location dependence** — a host that's 98ms from US-East may be 250ms from Mumbai. The [data center guide](/tutorials/wordpress-hosting-data-centers) explains the why.
+
+## Our test method (reproduce it yourself)
+
+1. **Fresh WordPress install** — default theme, no optimization, so the numbers reflect the host alone
+2. **12 global test locations** — India, US, UK, and more
+3. **3 runs each, median reported** — median kills outlier spikes
+4. **30+ days continuous** — uptime needs a month to be meaningful
+5. **Re-test after traffic spikes** — to catch throttling
+
+The full methodology is published on the [methodology](/methodology) page. You can run the same test on any host with our [speed testing guide](/tutorials/wordpress-hosting-speed-testing).
+
+## How to use the numbers
+
+**Comparing hosts:** don't compare different numbers from different reviewers — compare hosts tested the *same way* on the same page. Our [benchmarks](/benchmarks) table does exactly that.
+
+**Choosing a host:**
+- TTFB under 200ms from *your* audience's region (see [data centers](/tutorials/wordpress-hosting-data-centers))
+- Uptime 99.9%+ (99.99% is the managed tier's norm)
+- Performance score above 85–90
+
+**Noting the caveats:**
+- Median, not average — averages hide the spike behavior
+- Default setup, not your optimized site — your results will differ after [optimization](/tutorials/speed-up-wordpress)
+- Region-dependent — always read your region's latency, not just the global average
+
+## The benchmarks in context
+
+The leaders hold a clear order: Kinsta (98ms) → Cloudways (124ms) → Hostinger (142ms) → SiteGround (185ms) → WP Engine (170ms in US). The budget tier splits hard: Hostinger/Namecheap are fast; Bluehost (680ms) and HostGator (410ms) are not. That split is why the [best WordPress hosting](/best/wordpress-hosting) ranking looks the way it does.
+
+## Frequently asked questions
+
+**What is a good TTFB for WordPress?**
+Under 200ms from your audience's region. 200–400ms is acceptable; above 400ms, the host is the bottleneck.
+
+**What does a performance score of 95 mean?**
+A composite of speed metrics — 90+ means the host performs like the premium tier in practice, not just on paper.
+
+**How is uptime measured in benchmarks?**
+Continuous probes from multiple locations over 30+ days. One-day measurements are meaningless — that's why our tests run for a month. See [uptime guide](/tutorials/wordpress-hosting-uptime).
+
+**Why is my site slower than the benchmark?**
+Benchmarks use a default WordPress install. Your theme, plugins, and images add load — run the [speed guide](/tutorials/speed-up-wordpress) to close the gap.
+
+**How do I benchmark my own host?**
+Use the same method: fresh install, 12 locations, 3 runs each, median. The full steps are in [how to test hosting speed](/tutorials/wordpress-hosting-speed-testing).

@@ -1,0 +1,72 @@
+---
+title: "WordPress Hosting Migration Checklist: Before, During, After (2026)"
+description: "The complete WordPress hosting migration checklist: backups, DNS, emails, testing, and the mistakes that break migrations."
+datePublished: "2026-08-18"
+dateModified: "2026-08-18"
+readingTime: "6 min read"
+tags: [wordpress-migration-checklist, change-hosting, wordpress-move]
+categories: [wordpress-hosting]
+steps:
+  - title: "Back up everything"
+    text: "Full files + database backup, verified, stored off-site before touching anything."
+  - title: "Move files and database"
+    text: "Use the host's free migration or a plugin — then check the site on the new host."
+  - title: "Switch DNS"
+    text: "Point the domain at the new host and wait out propagation."
+  - title: "Verify and clean up"
+    text: "Test email, SSL, and pages; then cancel the old host after the dust settles."
+---
+
+## Before you start
+
+A migration is only stressful if you skip the prep. The full how-to is in [WordPress migration](/tutorials/wordpress-hosting-migration) — this is the checklist that makes it safe. Tick every box.
+
+### The pre-flight checklist
+
+- [ ] **Back up** — full files + database, stored off-site, *tested*. [Backup guide](/tutorials/wordpress-backups)
+- [ ] **Export email** — download mailboxes or switch to a new email provider first. [Email setup](/tutorials/wordpress-email-setup)
+- [ ] **List your DNS records** — MX (email), SPF/DKIM/DMARC, subdomains, and any third-party services pointing at your domain. [Deliverability guide](/tutorials/wordpress-email-deliverability)
+- [ ] **Check the new host's limits** — PHP version, storage, email, and whether your plugins are allowed
+- [ ] **Pick a quiet window** — a low-traffic time; never mid-sale or mid-launch
+- [ ] **Note your renewal/refund window** on the old host. [Refunds guide](/tutorials/wordpress-hosting-refunds)
+
+## During the move
+
+- [ ] **Move files + database** — via your host's free migration service (Kinsta, Cloudways, SiteGround, WP Engine all include one) or a migration plugin
+- [ ] **Update URLs** — if the domain changed, update the Site Address and run a find-and-replace. The [move WordPress guide](/tutorials/move-wordpress-to-new-host) shows the safe method
+- [ ] **Test on the new host before switching DNS** — load pages, log in, run a [speed test](/tutorials/wordpress-hosting-speed-testing), check forms and payment callbacks
+- [ ] **Keep the old host live** — never cancel it until the new one is proven
+- [ ] **Point the domain** — change nameservers or A records at your registrar. [Domains guide](/tutorials/wordpress-hosting-and-domain)
+
+## After the switch
+
+- [ ] **Wait for DNS propagation** — up to a few hours (usually minutes). Test from another network/device
+- [ ] **Force HTTPS** — confirm the SSL provisioned and the padlock works on every page. [HTTPS guide](/tutorials/wordpress-hosting-and-https)
+- [ ] **Test email** — MX records switched, SPF/DKIM updated, send a test to two addresses
+- [ ] **Re-enable caching** — configure the new host's cache (LiteSpeed/Redis) and re-run the [speed guide](/tutorials/speed-up-wordpress)
+- [ ] **Check integrations** — cron jobs, webhooks, payment callbacks, third-party services pointing at old IPs
+- [ ] **Keep monitoring** — run [uptime monitoring](/tutorials/wordpress-hosting-uptime) for a week on the new host
+- [ ] **Cancel the old host** — only after a week of stability, and within the [refund window](/tutorials/wordpress-hosting-refunds) if you can
+
+## The three mistakes that break migrations
+
+1. **Canceling the old host too early** — until DNS settles and you've tested, the old host is your safety net
+2. **Forgetting DNS is more than A records** — MX and SPF/DKIM are how email breaks silently after a move
+3. **Skipping the post-move test** — a site that "loads" can still have broken forms, images, or payment webhooks
+
+## Frequently asked questions
+
+**How long does a WordPress migration take?**
+The move itself is 30–60 minutes; DNS propagation adds minutes to hours. Budget a quiet evening so you're not racing.
+
+**What is the safest way to migrate WordPress?**
+Host-provided free migration (managed hosts) or a backup plugin like All-in-One WP Migration — plus keeping the old host live until the new one is verified.
+
+**Do I need to change DNS when changing hosts?**
+Yes — point your domain at the new host (nameservers or A records). Email also moves if you're changing email providers — don't forget MX and SPF/DKIM. [Deliverability guide](/tutorials/wordpress-email-deliverability).
+
+**Will migration affect my SEO?**
+Not if you keep the same domain and HTTPS, and use proper redirects if URLs change. Downtime during the switch is the main risk — that's why you prepare. See [hosting and SEO](/tutorials/wordpress-hosting-and-seo).
+
+**Can I migrate without downtime?**
+Effectively yes — migrate the site, test it on the new host, then flip DNS. Visitors see no gap because both hosts are live during the switch.

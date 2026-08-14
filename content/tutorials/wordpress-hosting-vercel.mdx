@@ -1,0 +1,73 @@
+---
+title: "Hosting WordPress on Vercel: What Works and What Doesn't (2026)"
+description: "Can you host WordPress on Vercel? The honest answer: static exports and headless WordPress work great; classic PHP WordPress doesn't. Here's how."
+datePublished: "2026-08-14"
+dateModified: "2026-08-14"
+readingTime: "6 min read"
+tags: [hosting-wordpress-on-vercel, wordpress-hosting-vercel, vercel]
+categories: [wordpress-hosting]
+---
+
+## The short answer
+
+**You cannot run classic WordPress on Vercel.** WordPress is a PHP + MySQL application, and Vercel is a JavaScript/edge platform — it has no PHP runtime and no persistent database. But "hosting WordPress on Vercel" is still a real thing in two forms:
+
+1. **Static WordPress export** — build your site once, deploy the HTML to Vercel
+2. **Headless WordPress** — WordPress as a CMS/API, Vercel rendering the frontend
+
+Both are legit, and both get Vercel's famous performance: **32ms TTFB** from its edge network (see the [Vercel review](/reviews/vercel-review)). But you trade away most of WordPress's dynamic features to get there.
+
+## Option 1: Static WordPress export on Vercel
+
+The simplest route. If your WordPress site is a blog or brochure site, you can export it as static files:
+
+1. Install **Simply Static** or **WP2Static** on your WordPress site
+2. Generate the full static export (HTML, CSS, JS, images)
+3. Push it to a git repo or upload via Vercel CLI
+4. Vercel deploys it globally with preview URLs, ISR-style caching, and free SSL
+
+What you lose: WordPress logins, comments, search, forms, and any dynamic behavior — unless you rebuild them with JavaScript.
+
+## Option 2: Headless WordPress + Vercel frontend
+
+The modern route used by agencies:
+
+1. WordPress stays on a host (the **CMS + REST/GraphQL API**)
+2. A **Next.js** frontend on Vercel pulls content from WordPress via its API
+3. Vercel's edge network serves the site at 32ms TTFB
+
+This gives you the WordPress editing experience with Vercel performance. It's more setup than classic WordPress but powerful. It's also exactly the architecture this site's [Next.js hosting guides](/best/hosting-for-nextjs) cover.
+
+## What works, what doesn't
+
+| Feature | Classic WordPress host | WordPress on Vercel |
+| --- | --- | --- |
+| Plugins | Yes | No (static) / limited (headless) |
+| Themes | Yes | Build from scratch |
+| Comments/search | Built-in | Rebuild in JS |
+| Speed | 100–600ms TTFB | 32ms TTFB |
+| Cost | $3–35/mo | Free tier available |
+| Setup effort | 15 minutes | Significant |
+
+## Vercel vs a real WordPress host
+
+If your goal is **"I want WordPress"**, Vercel is the wrong tool — a classic host like [Hostinger](/reviews/hostinger-review) installs WordPress in a minute at $2.99/mo with 142ms TTFB, and [Kinsta](/reviews/kinsta-review) offers premium managed WordPress at 98ms.
+
+If your goal is **"I want a blazing-fast site and am happy to learn Next.js"**, then WordPress-on-Vercel (headless) is genuinely compelling. But note that in our benchmarks, the [fastest WordPress hosting](/best/wordpress-hosting) already gets under 100ms — the Vercel advantage is mainly for server-side complexity, not raw WordPress.
+
+## Frequently asked questions
+
+**Can I host WordPress on Vercel for free?**
+Static WordPress exports and headless WordPress frontends run on Vercel's free tier. Classic WordPress cannot run on Vercel at all.
+
+**Is WordPress on Vercel fast?**
+Yes — 32ms TTFB from the edge, faster than any PHP host. The catch is that dynamic WordPress features (plugins, comments, forms) must be rebuilt in JavaScript.
+
+**WordPress on Vercel vs Hostinger?**
+If you want actual WordPress, Hostinger — one-click install, 142ms TTFB, $2.99/mo. Vercel only makes sense for headless or static WordPress architectures.
+
+**How do I deploy WordPress to Vercel?**
+You don't deploy WordPress itself — you export it to static files (Simply Static/WP2Static) or build a Next.js frontend that consumes WordPress's API, then deploy that to Vercel.
+
+**What is the best hosting for headless WordPress?**
+A managed WordPress host for the CMS (Kinsta, WP Engine) plus Vercel for the frontend. Both are covered in the [managed WordPress hosting](/tutorials/managed-wordpress-hosting) guide.

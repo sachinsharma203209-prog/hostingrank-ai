@@ -1,0 +1,82 @@
+---
+title: "WordPress Hosting and Domains: Buy Them Together or Separate? (2026)"
+description: "Should you buy hosting and your domain from the same company? The pros, cons, and best practices for WordPress domain management."
+datePublished: "2026-08-16"
+dateModified: "2026-08-16"
+readingTime: "6 min read"
+tags: [wordpress-hosting-domain, buy-domain-hosting, domain-management]
+categories: [wordpress-hosting]
+steps:
+  - title: "Decide where to register your domain"
+    text: "Use a dedicated registrar (Namecheap, Cloudflare, Google Domains) to keep the domain portable."
+  - title: "Point the domain at your host"
+    text: "Set the A record (and www CNAME) at your registrar to your host's server IP, then add the domain in the host panel."
+  - title: "Connect email and SSL"
+    text: "Point MX records at your email provider and install a free SSL for the domain."
+---
+
+## The one-line answer
+
+**Register the domain at a dedicated registrar, host the website wherever you like.** Separate them. Here's why, and what happens when you bundle.
+
+## Why people buy them together
+
+- **One invoice** and one dashboard
+- **Auto-setup** — the host connects your domain automatically
+- **Free domain** on many plans (Hostinger, Bluehost, SiteGround include one for year one)
+
+It's genuinely convenient — and completely fine *if you never switch hosts*.
+
+## Why separating is the safer default
+
+- **You control the domain** — if a host dispute, account issue, or host shutdown happens, your domain isn't collateral. The domain is your most valuable asset.
+- **Domain renewal prices** are often cheaper at registrars (a `.com` is ~$10–12/yr at Namecheap/Cloudflare vs. premium at some hosts).
+- **Free first-year domains renew at full price** — that "free" domain becomes $15–20/yr.
+- **Switching hosts is 5 minutes** — change one A record instead of migrating a domain between registrars. See our [migration guide](/tutorials/wordpress-hosting-migration).
+
+The horror story in one sentence: buy domain + hosting together, the host's billing glitches, your account is suspended, and your domain stops resolving — support doesn't care about your domain because they're a hosting company.
+
+## Recommended setup
+
+| Asset | Where | Why |
+| --- | --- | --- |
+| Domain (`.com` etc.) | Namecheap, Cloudflare, Google Domains | Portable, cheap renewals, never hostage |
+| WordPress hosting | Your chosen host | Pick on performance, not bundling |
+| Email | Host email or Google Workspace | See [email setup](/tutorials/wordpress-email-setup) |
+
+**Cloudflare** is a standout registrar choice for WordPress sites: it registers domains at cost (~$10/yr) and bundles free DNS, SSL, and CDN. Pair it with any host from the [best WordPress hosting](/best/wordpress-hosting) list.
+
+## How to point your domain at your host
+
+Once the domain is at the registrar and your site is live on the host (see [how to install WordPress](/tutorials/how-to-install-wordpress)):
+
+1. **Get your host's nameservers or IP** — usually in the host panel under "Add Domain" or the welcome email
+2. **At the registrar, set the A record** — `@` (or `yourdomain.com`) → your host's IP; add a `www` CNAME → `yourdomain.com`
+3. **In your host panel, add the domain** — most hosts then auto-configure the site and SSL
+4. **Propagation** — DNS changes take minutes to a few hours; don't panic if it's not instant
+
+Some hosts give you nameservers instead of an IP — then you replace the registrar's nameservers with the host's (ns1/ns2). Either method works; nameservers are simpler, A records keep the registrar's DNS features (like Cloudflare's).
+
+## Keep your domain safe
+
+- **Enable registrar lock** (prevents unauthorized transfers)
+- **Turn on two-factor authentication** at the registrar — domain theft is real
+- **Use a payment method you monitor** — expiry is the #1 way people lose domains
+- **Auto-renew** the domain even if you cancel hosting
+
+## Frequently asked questions
+
+**Is it better to buy hosting and domain together?**
+For setup convenience, yes. For safety and long-term cost, no — register the domain at a dedicated registrar and keep hosting separate.
+
+**Which domain registrar is best for WordPress?**
+Namecheap and Cloudflare for cheap renewals and clean management. Cloudflare adds free DNS/SSL/CDN, which pairs well with [Cloudflare-based WordPress hosting](/tutorials/wordpress-hosting-cloudflare).
+
+**What happens to my free domain if I change hosts?**
+It stays at the old host (it's registered there), and you'd either transfer it or point it at the new host. Both are possible — transfer is cleaner. Our [migration guide](/tutorials/wordpress-hosting-migration) covers it.
+
+**Can I use a domain I already own with any host?**
+Yes — every host lets you point an external domain at your site. That's the setup above, and it's how the separate approach works in practice.
+
+**Does Hostinger include a free domain?**
+On many plans, for the first year. Renewals cost full price, and the domain lives with Hostinger — see our [Hostinger review](/reviews/hostinger-review) for the details.

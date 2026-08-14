@@ -1,0 +1,122 @@
+---
+title: "WordPress Hosting Troubleshooting: The 10 Most Common Problems (2026)"
+description: "Fix common WordPress hosting problems: 500 errors, slow loading, white screens, email issues, and more. A practical troubleshooting guide."
+datePublished: "2026-08-17"
+dateModified: "2026-08-17"
+readingTime: "8 min read"
+tags: [wordpress-troubleshooting, wordpress-hosting-errors, fix-wordpress]
+categories: [wordpress-hosting]
+steps:
+  - title: "Check the basics first"
+    text: "Clear caches, confirm the domain resolves, and test with another device before deeper debugging."
+  - title: "Diagnose with error logs"
+    text: "Read PHP error logs and the Site Health report — they name the failing plugin or file."
+  - title: "Apply the common fixes"
+    text: "Disable plugins, switch themes, or raise limits — one of these resolves most incidents."
+  - title: "Escalate the right way"
+    text: "Give support logs, steps to reproduce, and screenshots to get fast resolution."
+---
+
+## The 10 problems, and the fixes
+
+Most WordPress hosting incidents are one of ten things. Work through them in this order — 90% of sites are fixed before you ever contact support.
+
+## 1. 500 Internal Server Error
+
+The generic failure — a plugin, theme, or server config problem.
+
+- Check the **PHP error log** (cPanel/hPanel → Error Logs) — it names the culprit
+- Temporarily rename `/wp-content/plugins` to disable all plugins
+- If that fixes it, re-enable plugins one by one to find the offender
+- Still broken? **Increase PHP memory limit** — see [PHP versions](/tutorials/wordpress-hosting-php-versions)
+
+## 2. White screen of death
+
+A blank page usually means a fatal PHP error.
+
+- Set `WP_DEBUG` to true in `wp-config.php` to show the error message
+- Disable plugins via the plugins folder rename (as above)
+- Switch themes by renaming `/wp-content/themes/[theme]`
+- Restore from your [backup](/tutorials/wordpress-backups) if you need a clean slate
+
+## 3. Slow site / high TTFB
+
+- First, [test where the slowness is](/tutorials/wordpress-hosting-speed-testing) — TTFB vs load time point to different fixes
+- Enable page caching (LiteSpeed Cache or similar) — see [speed up WordPress](/tutorials/speed-up-wordpress)
+- Check PHP version (8.3 is ~3x faster than 7.4)
+- Confirm you're not on an oversold entry plan — that's a [hosting upgrade](/tutorials/wordpress-hosting-when-to-upgrade) conversation
+
+## 4. Error establishing a database connection
+
+The database is down or credentials are wrong.
+
+- Check the DB name/user/password in `wp-config.php`
+- Verify the database exists in your host panel (cPanel → MySQL)
+- Contact your host — this often means a MySQL outage on their side
+
+## 5. "404" on every page (except home)
+
+The permalink rewrite is broken.
+
+- wp-admin → Settings → Permalinks → click **Save** (this rebuilds rules)
+- Confirm `.htaccess` is writable
+- If on a new host, your server may need the WordPress rewrite enabled — see [cPanel hosting](/tutorials/wordpress-hosting-cpanel)
+
+## 6. Emails not being delivered
+
+- WordPress site mail (resets, orders) failing = PHP mail() problem. Switch to SMTP: [WordPress SMTP setup](/tutorials/wordpress-email-smtp)
+- Business mail in spam = missing SPF/DKIM/DMARC: [email deliverability](/tutorials/wordpress-email-deliverability)
+- Check mailbox storage is under quota
+
+## 7. "Cannot modify header information" warnings
+
+Harmless but noisy — usually a plugin echoing whitespace.
+
+- Fix the offending plugin (the warning names the file)
+- Or suppress with error-reporting settings in `wp-config.php`
+
+## 8. Site is fine but HTTPS shows a warning
+
+- Mixed content — some assets still load over HTTP
+- Update your WordPress **Site Address** to `https://`
+- Install an SSL-insecure-content fixer plugin, or re-scan after forcing HTTPS. See [email & SSL setup](/tutorials/setup-email-ssl)
+
+## 9. Malware / hacked warnings
+
+- Scan with a security plugin (Wordfence)
+- Check for unknown admin users and files in uploads
+- Restore a clean [backup](/tutorials/wordpress-backups), then harden: [security checklist](/tutorials/wordpress-hosting-security)
+
+## 10. Host says "up" but the site is down for you
+
+- Clear DNS cache and test from another network/device
+- Confirm your domain points at your host's nameservers (see [domains and hosting](/tutorials/wordpress-hosting-and-domain))
+- Check Cloudflare settings if you use it — a bad rule can 525/error the site ([Cloudflare hosting](/tutorials/wordpress-hosting-cloudflare))
+
+## How to escalate to support fast
+
+When you do contact support (see [which hosts have great support](/best/wordpress-hosting)):
+
+1. **Screenshot the exact error** (not a paraphrase)
+2. **Include the PHP error log lines**
+3. **Note when it started** and what changed before (an update? a plugin?)
+4. **Test on another device** so you can say "it's every network, not just mine"
+
+The faster you give them reproduction steps, the faster you get a fix.
+
+## Frequently asked questions
+
+**Why does my WordPress site keep getting 500 errors?**
+Usually a plugin/theme conflict or PHP memory limit. Check error logs, disable plugins one by one, and raise the memory limit. The full flow is above.
+
+**Why is my WordPress site slow even on good hosting?**
+Caching off, old PHP version, or unoptimized images/scripts. Run the [speed guide](/tutorials/speed-up-wordpress) — most sites gain 40%+ just from caching.
+
+**What should I do before contacting hosting support?**
+Collect the error message, error log lines, the timeline, and repro steps. That's the difference between a 5-minute and 5-day fix.
+
+**How do I fix a database connection error?**
+Verify credentials in `wp-config.php`, confirm the DB exists, then check with your host — a MySQL outage is on their side.
+
+**Should I restore from backup when something breaks?**
+If you can't identify the cause in ~15 minutes, yes — restore a recent [backup](/tutorials/wordpress-backups) rather than debugging for hours. Then troubleshoot the root cause on a [staging copy](/tutorials/wordpress-staging-environment).

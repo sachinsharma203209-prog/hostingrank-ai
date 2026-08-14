@@ -1,0 +1,118 @@
+---
+title: "WordPress Hosting Security: The 9 Checks That Actually Matter (2026)"
+description: "Secure your WordPress site: what your host handles, what you must do yourself, and the checklist that stops 95% of hacks."
+datePublished: "2026-08-15"
+dateModified: "2026-08-15"
+readingTime: "7 min read"
+tags: [wordpress-security, wordpress-hosting-security, harden-wordpress]
+categories: [wordpress-hosting, managed-hosting]
+steps:
+  - title: "Harden your login"
+    text: "Use strong unique passwords, two-factor authentication, and limit login attempts."
+  - title: "Keep everything updated"
+    text: "Enable automatic updates for core, themes, and plugins — or pick a managed host that does it."
+  - title: "Enable HTTPS and a WAF"
+    text: "Force SSL everywhere and put your site behind a web application firewall."
+  - title: "Back up and monitor"
+    text: "Schedule off-server backups and add uptime/security monitoring."
+---
+
+## Who is responsible for WordPress security?
+
+Security on a WordPress site is shared between you and your host. Roughly:
+
+- **The host owns:** server patching, account isolation, DDoS protection, network monitoring, and often a firewall layer
+- **You own:** WordPress core/plugin updates, passwords, file permissions, and anything running inside your site
+
+Shared hosting handles the server layer but not the WordPress layer — that's why most WordPress hacks are plugin vulnerabilities and weak logins, not server breaches. The checklist below closes the WordPress layer. For deeper infrastructure hardening, see our [secure Ubuntu VPS guide](/tutorials/secure-ubuntu-vps).
+
+## 1. Use strong, unique credentials
+
+Most WordPress compromises start with a brute-forced admin login:
+
+- A unique password for your WordPress admin, FTP, database, and host — no reuse
+- A password manager so "unique" is realistic
+- Change any default `admin` username
+- Never reuse the database user password
+
+## 2. Turn on two-factor authentication (2FA)
+
+Password alone shouldn't be the only door. Free plugins like **WP 2FA** or **Wordfence** add TOTP codes. With 2FA, a stolen password is a nuisance, not a breach.
+
+## 3. Limit login attempts
+
+Plugins like **Limit Login Attempts Reloaded** or **Wordfence** lock out IPs after repeated failures. This alone stops most brute-force bots. Consider Cloudflare's free rate-limiting too — [WordPress hosting with Cloudflare](/tutorials/wordpress-hosting-cloudflare) shows how to layer it.
+
+## 4. Keep WordPress, themes, and plugins updated
+
+- Enable automatic updates for core, themes, and plugins (Settings → Automatic Updates)
+- Delete unused themes and plugins — every leftover is an attack surface
+- Managed hosts (Kinsta, WP Engine, Cloudways) update the WordPress layer for you. See [managed WordPress hosting](/tutorials/managed-wordpress-hosting)
+
+Outdated plugins cause roughly 90% of WordPress hacks.
+
+## 5. Force HTTPS everywhere
+
+Free SSL is standard on every host in our [best WordPress hosting](/best/wordpress-hosting) list. Then force it:
+
+- Set the WordPress **Site Address** to `https://`
+- Enable your host's "Force HTTPS" toggle (writes the redirect for you)
+- Ensure every plugin/asset URL is HTTPS
+
+HTTPS encrypts logins, and modern browsers flag HTTP sites as insecure.
+
+## 6. Add a web application firewall
+
+A WAF blocks exploit traffic before it reaches WordPress:
+
+- **Cloudflare Free** — free plan includes a basic WAF and hides your origin IP
+- **Wordfence** — file scanning plus a WAF with the free plugin
+- **Host-level WAF** — Kinsta, WP Engine, and SiteGround include one
+
+Even on the free tier, a WAF stops most automated exploit attempts at the edge.
+
+## 7. Harden file permissions
+
+On cPanel/hPanel (or over SSH):
+
+```text
+find /path/to/wordpress -type d -exec chmod 755 {} \;
+find /path/to/wordpress -type f -exec chmod 644 {} \;
+```
+
+Protect `wp-config.php` specifically (`chmod 600`). These permissions prevent write-injection via compromised plugins. If this looks foreign, the easy path is managed hosting where hardening ships by default.
+
+## 8. Disable file editing and hide critical files
+
+Add to `wp-config.php`:
+
+```php
+define('DISALLOW_FILE_EDIT', true);
+```
+
+This blocks the theme/plugin editor in wp-admin — a common post-hack escalation route. Also verify `.htaccess` and `wp-config.php` are backed up (see [WordPress backups](/tutorials/wordpress-backups)).
+
+## 9. Back up and monitor
+
+Even bulletproof sites get hit — recoverability is the real test:
+
+- **Daily backups off-server** (your host's or UpdraftPlus to cloud storage)
+- **Uptime + security monitoring** — alert you the minute something changes
+- **Security scanner** (Wordfence) flags injected files before they spread
+
+## Frequently asked questions
+
+**What is the most secure WordPress hosting?**
+Kinsta, WP Engine, and Cloudways ship hardened stacks with WAFs, monitoring, and automatic updates. SiteGround is the strongest shared-host option. Rankings: [managed WordPress hosting](/best/managed-hosting).
+
+**Do I need a security plugin like Wordfence?**
+On shared hosting, yes — it covers 2FA, WAF, and scanning for free. On managed hosts it's redundant since the host handles that layer.
+
+**What is the most common WordPress hack?**
+Outdated plugins with known vulnerabilities, followed by brute-forced admin logins. This checklist addresses both at the top.
+
+**Is shared hosting secure for WordPress?**
+Yes, with account isolation (Linux containers). Choose a modern host — the [best shared hosting](/best/shared-hosting) list favors hosts that isolate accounts properly.
+
+**How often should I back up WordPress?**
+Daily at minimum; nightly is better for stores or active sites. Keep copies off-server. Our [backup guide](/tutorials/wordpress-backups) shows how.

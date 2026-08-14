@@ -1,0 +1,77 @@
+---
+title: "WordPress Hosting and SEO: How Your Host Affects Rankings (2026)"
+description: "How WordPress hosting affects SEO: TTFB and Core Web Vitals, uptime, SSL, and location. The hosting decisions that move your rankings."
+datePublished: "2026-08-17"
+dateModified: "2026-08-17"
+readingTime: "7 min read"
+tags: [wordpress-hosting-seo, hosting-affects-seo, wordpress-seo]
+categories: [wordpress-hosting]
+---
+
+## Does hosting matter for SEO?
+
+Yes — directly. Three of the four Core Web Vitals that Google uses as ranking signals are **infrastructure dependent**:
+
+- **LCP** (loading) — a slow TTFB delays everything that follows
+- **INP** (interactivity) — server response time under load
+- **CLS** (layout) — mostly front-end, but slow rendering worsens it
+
+On top of that: **uptime** (Google penalizes sites it can't crawl reliably), **HTTPS** (a hard requirement since 2014), and **location** (server distance to your audience). Your host doesn't just host your site — it sets a performance ceiling your SEO can never exceed.
+
+## The numbers that matter
+
+| Metric | Good | Poor |
+| --- | --- | --- |
+| TTFB | Under 200ms | Over 500ms |
+| Uptime | 99.9%+ | Below 99.9% |
+| SSL | Force-HTTPS | HTTP mixed content |
+| Server location | Near your audience | Far from your audience |
+
+The best hosts in our [benchmarks](/benchmarks) hit **sub-200ms TTFB** (Hostinger 142ms, Cloudways 124ms, Kinsta 98ms). The worst shared hosts run 400–700ms — and Google treats that as slow regardless of how well you optimize your content.
+
+## How to check your site's speed signals
+
+1. **PageSpeed Insights** (pagespeed.web.dev) — your Core Web Vitals, especially LCP
+2. **WebPageTest** — waterfall view showing exactly where the delay is
+3. **Chrome DevTools Network tab** — check the server's TTFB for a document request
+
+If **TTFB is the red bar**, your hosting is the problem — not images, not plugins. That's the single most common finding on slow sites. Our [speed guide](/tutorials/speed-up-wordpress) shows how to isolate it.
+
+## The hosting decisions that help SEO
+
+### 1. Pick a fast stack
+LiteSpeed + NVMe beats Apache + HDD every time. This is the difference between the [best WordPress hosting](/best/wordpress-hosting) plans and the bargain bins. 142ms vs 680ms TTFB isn't a minor difference — it's a different class of site.
+
+### 2. Serve close to your audience
+Choose a data center in (or near) your audience's country. An India site on a Mumbai server beats one on a US server by 100–150ms of latency. Our [best hosting by country](/best/hosting-india) guides cover this.
+
+### 3. Add HTTPS and force it
+Free SSL is standard everywhere now — set it up (see [email & SSL setup](/tutorials/setup-email-ssl)) and make sure your WordPress **Site Address** uses `https://`. Mixed-content warnings are both a user-experience and ranking problem.
+
+### 4. Add a CDN for global visitors
+A CDN (see [WordPress CDN](/tutorials/wordpress-hosting-cdn)) serves static assets from the edge, cutting LCP for visitors far from your server. It won't fix a slow origin, but it's the right second layer.
+
+### 5. Maintain uptime and backups
+Google crawls when it crawls. Consistent 99.9%+ uptime (see [uptime guide](/tutorials/wordpress-hosting-uptime)) plus regular [backups](/tutorials/wordpress-backups) means no 404-walls and no losing indexed pages.
+
+## What doesn't matter for SEO
+
+- **Premium hosting ≠ better rankings automatically** — a fast budget host outranks a slow managed host. Only pay for managed ([managed hosting](/tutorials/managed-wordpress-hosting)) if you value the convenience too.
+- **Your host's "SEO tools"** — built-in SEO feature blobs are marketing. Real SEO is speed, content, and technical correctness, not a host dashboard tab.
+
+## Frequently asked questions
+
+**Does hosting speed affect Google rankings?**
+Yes — TTFB and Core Web Vitals are ranking factors. Sub-200ms TTFB is the standard the top hosts in our benchmarks deliver; slower hosts cap your ceiling.
+
+**Is cheap hosting bad for SEO?**
+Not inherently — Hostinger at $2.99/mo posts 142ms TTFB. Cheap hosting is only bad for SEO when it's slow or flaky. See [cheap WordPress hosting](/tutorials/cheap-wordpress-hosting).
+
+**Does the location of the server matter for SEO?**
+For crawl and delivery speed to your audience, yes. Choose a data center near your users, or use a CDN to compensate.
+
+**Can I improve SEO by switching hosts?**
+Often dramatically — a 500ms TTFB drop plus stable uptime is a genuine Core Web Vitals improvement. Use our [migration guide](/tutorials/wordpress-hosting-migration) to switch without losing rankings.
+
+**What is a good TTFB for SEO?**
+Under 200ms is excellent, under 400ms acceptable. Above 600ms you should move or fix your stack. All our [provider reviews](/reviews) publish measured TTFB.

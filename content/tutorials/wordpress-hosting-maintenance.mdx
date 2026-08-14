@@ -1,0 +1,92 @@
+---
+title: "WordPress Hosting and Maintenance: Keep Your Site Fast, Secure, and Up (2026)"
+description: "WordPress hosting and maintenance checklist: updates, backups, security, performance, and when to outsource. What a maintenance plan should cover."
+datePublished: "2026-08-14"
+dateModified: "2026-08-14"
+readingTime: "7 min read"
+tags: [wordpress-hosting-and-maintenance, wordpress-maintenance, wordpress-hosting-services]
+categories: [wordpress-hosting]
+comparisons: [cloudways-vs-siteground]
+---
+
+## Hosting is only half the job
+
+Buying WordPress hosting gets you a server. **Maintenance** is everything that keeps that site fast, secure, and online — and most of it is not the host's job. A neglected WordPress site gets slower, vulnerable, and eventually hacked regardless of how good the host is.
+
+Here's the complete maintenance checklist, what you can automate, and when to outsource.
+
+## The weekly maintenance checklist
+
+### 1. Updates
+- **WordPress core** — always update (minor updates auto-apply)
+- **Plugins** — update weekly; test on staging first if the plugin is critical
+- **Themes** — update and remove unused themes entirely (they're an attack vector)
+
+### 2. Backups
+- **Enable the host's backups** — most hosts include daily or weekly
+- **Add an off-site backup** — UpdraftPlus to Google Drive/Dropbox, so one host outage can't lose your data
+- **Test a restore** — quarterly, restore a backup on a staging site to confirm it works
+
+### 3. Security
+- **Use strong admin passwords** and 2FA on `wp-admin`
+- **Limit login attempts** — free plugins (Limit Login Attempts, Wordfence)
+- **Keep plugins minimal** — every extra plugin is attack surface
+- **Enable a WAF/CDN** — Cloudflare free tier or your host's WAF
+- **Scan for malware** — Wordfence or your host's scanner, monthly
+
+### 4. Performance
+- **Monitor TTFB and LCP** — our [speed up WordPress](/tutorials/speed-up-wordpress) guide covers measurement
+- **Audit plugins** — deactivate anything unused; plugin count is the #1 performance killer
+- **Check caching** — page cache, object cache (Redis), and image optimization
+- **Review the database** — delete spam, transients, and old revisions monthly
+
+### 5. Uptime monitoring
+- **Set up uptime alerts** — free (UptimeRobot, Better Stack)
+- **Check the host's status page** for maintenance windows
+- **Keep contact info current** — you need the host's alerts to reach you
+
+## Maintenance plans by hosting type
+
+| Hosting | You handle | Host handles |
+| --- | --- | --- |
+| Shared (Hostinger, Bluehost) | Updates, security, backups | Server uptime, hardware |
+| Managed (Kinsta, WP Engine) | Content, plugins (mostly) | Updates, security, backups, speed |
+| VPS/Cloud (DO, AWS) | Everything | Bare infrastructure |
+
+Managed hosts remove most of the work — that's the value in the [managed WordPress hosting](/tutorials/managed-wordpress-hosting) guide. On raw cloud ([AWS](/tutorials/wordpress-hosting-aws), DigitalOcean), you're the entire IT department.
+
+## When to outsource WordPress maintenance
+
+Consider a **maintenance service** (many agencies bundle them with hosting) when:
+
+- You don't have time for weekly updates
+- Your site handles payments or customer data
+- An outage or breach would hurt your business
+- You want someone accountable for uptime
+
+Typical pricing: **$50–200/mo** for updates + backups + monitoring + a monthly security/performance check. Compare that to the cost of one hacked site.
+
+## The maintenance schedule at a glance
+
+- **Daily** — automatic backups (host)
+- **Weekly** — plugin/theme updates, uptime check
+- **Monthly** — security scan, database cleanup, performance review
+- **Quarterly** — test a backup restore, audit plugins and user accounts
+- **Annually** — reassess your host and plan; see [best WordPress hosting](/best/wordpress-hosting) when you do
+
+## Frequently asked questions
+
+**What is WordPress hosting and maintenance?**
+WordPress hosting is the server your site runs on. WordPress maintenance is the ongoing work — updates, backups, security, performance — that keeps it fast and safe. Many agencies bundle both as a monthly service.
+
+**How much does WordPress maintenance cost?**
+DIY: your time. Managed hosting: $20–35/mo includes most of it. Full maintenance services: $50–200/mo for updates, backups, monitoring, and support.
+
+**Is WordPress maintenance necessary?**
+Yes — outdated WordPress sites are the most common hacking target, and neglected sites slow down. The minimum safe routine is updates, backups, and login security.
+
+**Does managed WordPress hosting include maintenance?**
+Mostly — Kinsta and WP Engine handle updates, security, backups, and performance as part of the plan. Content and plugin choices stay yours. See [managed WordPress hosting](/tutorials/managed-wordpress-hosting).
+
+**How do I start a maintenance routine?**
+Enable host backups, set up uptime alerts, update everything, and run our [speed-up WordPress](/tutorials/speed-up-wordpress) checklist once. That covers 80% of the value.

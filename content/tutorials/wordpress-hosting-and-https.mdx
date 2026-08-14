@@ -1,0 +1,86 @@
+---
+title: "HTTPS and SSL for WordPress: Get the Padlock Working (2026)"
+description: "Set up SSL and force HTTPS on WordPress: free certificates, mixed-content fixes, and why HTTP sites lose rankings and trust."
+datePublished: "2026-08-18"
+dateModified: "2026-08-18"
+readingTime: "6 min read"
+tags: [wordpress-ssl, wordpress-https, ssl-certificate]
+categories: [wordpress-hosting]
+steps:
+  - title: "Install a free SSL certificate"
+    text: "Provision Let's Encrypt (or your host's auto-SSL) for your domain and subdomains."
+  - title: "Force HTTPS across the site"
+    text: "Update the WordPress Site Address and enable the permanent redirect."
+  - title: "Fix mixed content"
+    text: "Rescan the site and update any assets still loading over HTTP."
+  - title: "Verify the padlock"
+    text: "Test the main domain, www, and deep pages with SSL checkers."
+---
+
+## Why HTTPS is mandatory
+
+HTTPS is not optional in 2026:
+
+- **Security** — it encrypts logins and customer data in transit
+- **Trust** — Chrome marks HTTP sites "Not secure"
+- **SEO** — Google treats HTTPS as a ranking factor (see [WordPress hosting and SEO](/tutorials/wordpress-hosting-and-seo))
+- **Payments** — every payment gateway requires HTTPS
+
+The good news: **free SSL is standard** on every host in the [best WordPress hosting](/best/wordpress-hosting) list. There is no reason to pay for a certificate anymore.
+
+## Step 1: Install a free SSL certificate
+
+Every major host provisions **Let's Encrypt** (or its own auto-SSL) in the control panel:
+
+- **Hostinger (hPanel):** Security → SSL → install for your domain
+- **SiteGround (Site Tools):** Security → SSL Manager → let it auto-provision
+- **cPanel hosts:** SSL/TLS → Let's Encrypt → issue
+- **Managed hosts (Kinsta, Cloudways):** SSL is automatic — nothing to do
+- **Cloudflare:** free Universal SSL once you add the domain ([Cloudflare hosting](/tutorials/wordpress-hosting-cloudflare))
+
+Install the cert, wait a few minutes for it to propagate, then re-check `https://yourdomain.com`.
+
+## Step 2: Force HTTPS everywhere
+
+Having the cert installed isn't enough — your site must *serve* HTTPS:
+
+1. **WordPress settings:** Settings → General → set both Site Address and WordPress Address to `https://`
+2. **Force redirect:** most hosts have a "Force HTTPS" toggle that writes the redirect; otherwise your cache plugin or `.htaccess` handles it
+3. **Confirm:** visit `http://yourdomain.com` — it should bounce to `https://`
+
+This is covered step-by-step with email/SSL in our [setup guide](/tutorials/setup-email-ssl).
+
+## Step 3: Fix mixed content
+
+"Mixed content" is when your page loads over HTTPS but references assets over HTTP — images, scripts, iframes. Browsers block the insecure ones, breaking layouts.
+
+- Update your **Site Address** (step 2) — this fixes most internal links
+- **Rescan:** use a tool like *Why No Padlock* or an SSL-checker to find remaining HTTP URLs
+- **Fix:** update the hard-coded URLs in content, or use a "SSL insecure content fixer" plugin that rewrites them
+- **Databases:** if URLs are stored as HTTP, the [migration guide](/tutorials/wordpress-hosting-migration) shows the safe find-and-replace approach
+
+## Step 4: Verify the padlock
+
+1. Visit your homepage and confirm the **padlock** in the address bar
+2. Check `https://www.yourdomain.com` too — www and non-www should both work
+3. Open a few deep pages (a post, a checkout if you have one)
+4. Use **SSL Labs** or an online SSL checker for certificate validity
+
+Done — your site is encrypted, trusted, and ranking-ready.
+
+## Frequently asked questions
+
+**Is SSL free for WordPress?**
+Yes — Let's Encrypt or host auto-SSL is free on every major host. Only premium paid certs (OV/EV) cost money, and almost no WordPress site needs one.
+
+**Why is my WordPress site not showing the padlock?**
+Usually mixed content — assets still loading over HTTP. Fix your Site Address, rescan for insecure URLs, and update them. See step 3.
+
+**Do I need HTTPS for an ecommerce store?**
+Absolutely — payment gateways require it and customers check for it. See [ecommerce hosting](/tutorials/wordpress-hosting-for-ecommerce).
+
+**What is the difference between SSL and HTTPS?**
+SSL is the certificate that enables HTTPS — the encrypted protocol. Install the cert, and HTTPS becomes available; you then force it.
+
+**Can I have free SSL with any WordPress host?**
+Every host we rank includes free SSL. If a host tries to charge you for a certificate, that's a red flag — see the [best WordPress hosting](/best/wordpress-hosting) list.

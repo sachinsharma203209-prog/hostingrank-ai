@@ -1,0 +1,94 @@
+---
+title: "Website Monitoring for WordPress: Uptime, Speed, and Security Alerts (2026)"
+description: "Set up WordPress website monitoring: uptime checks, performance tracking, and security alerts. The tools and alert thresholds that matter."
+datePublished: "2026-08-19"
+dateModified: "2026-08-19"
+readingTime: "6 min read"
+tags: [wordpress-monitoring, website-monitoring, uptime-alerts]
+categories: [wordpress-hosting]
+steps:
+  - title: "Set up uptime monitoring"
+    text: "Add your site to a free uptime monitor with checks from two locations."
+  - title: "Add performance and security monitoring"
+    text: "Track TTFB trends and add a security scanner to catch changes."
+  - title: "Configure alerts"
+    text: "Set email/push thresholds so you know before customers do."
+---
+
+## Why monitoring matters
+
+A site that breaks silently is a site that's broken *for your customers*. Monitoring is the early-warning system: uptime checks catch outages, performance tracking catches the slow creep, and security scanning catches injections before they spread.
+
+This guide covers the three layers — the [uptime guide](/tutorials/wordpress-hosting-uptime) explains what the numbers mean; this one sets up the alerts.
+
+## Layer 1: Uptime monitoring
+
+The basics — is the site up, and is it responding fast enough?
+
+- **UptimeRobot** — free, checks every minute from up to 50 locations, email/SMS/webhook alerts
+- **Better Stack / Pingdom** — richer reports, status pages, more history
+- **Host-integrated alerts** — Kinsta and Cloudways notify you of host-level incidents
+
+**Setup:**
+1. Add `https://yourdomain.com`
+2. Set the check interval (1–5 minutes is plenty)
+3. Add **two locations** — your audience's regions
+4. Set a **slow-response alert** (e.g., warn if TTFB exceeds 800ms) — an up-but-slow site is down in practice
+
+## Layer 2: Performance monitoring
+
+Uptime says "online"; performance says "fast". Track over time:
+
+- **TTFB trend** — if your host's response time creeps up over weeks, that's throttling or overloading. The [speed testing guide](/tutorials/wordpress-hosting-speed-testing) shows the measurement method
+- **Core Web Vitals** — LCP, INP, CLS via CrUX (real user data) and Lighthouse (lab)
+- **PageSpeed Insights API** — automate weekly scores
+
+A performance baseline after your [speed optimization](/tutorials/speed-up-wordpress) gives you a number to defend.
+
+## Layer 3: Security monitoring
+
+Watching for the things that don't show up as outages:
+
+- **Wordfence** — free scanning for malware, changed core files, and suspicious logins (see [security checklist](/tutorials/wordpress-hosting-security))
+- **Changed-file alerts** — catch a hacked theme file before it serves malware
+- **UptimeRobot's keyword/status checks** — alert if your page no longer contains expected text
+- **Google Search Console** — alerts you if Google flags the site as hacked
+
+Security monitoring pairs with a recovery plan — see [malware recovery](/tutorials/wordpress-hosting-malware-recovery).
+
+## Alert settings that work
+
+The difference between useful and annoying alerts:
+
+- **Alert on real outages** — 1–2 missed checks, not a single blip
+- **Page yourself on slow TTFB** — sustained, not one spike
+- **Use different channels** — email for info, push/SMS for emergencies
+- **Include the failing URL** in the alert so you can act without logging in
+- **Review alerts monthly** — silence what's become noise
+
+## The 10-minute monitoring setup
+
+1. UptimeRobot account → add your site, two locations, 1-minute interval (5 minutes)
+2. Set a slow-TTFB keyword or response-time alert
+3. Install Wordfence with email alerts enabled
+4. Connect Google Search Console if not already
+5. Test an alert by temporarily pausing your site — confirm it fires
+
+Total cost: $0. Total time: under 15 minutes. That's the cheapest insurance a WordPress site can buy.
+
+## Frequently asked questions
+
+**What is the best free website monitoring tool?**
+UptimeRobot — free minute-level checks from multiple locations. Better Stack and Pingdom add richer reporting on paid tiers.
+
+**How often should I monitor my WordPress site?**
+Every 1–5 minutes for uptime. Performance should be tracked weekly; security scanning continuously via a plugin like Wordfence.
+
+**What should a monitoring alert threshold be?**
+Alert on outages after 1–2 missed checks, and on sustained TTFB above ~800ms. Single spikes aren't worth paging yourself over.
+
+**Does my host monitor my site?**
+Hosts monitor their servers, not your site specifically — and they usually notify after the fact. Independent monitoring is yours to add. See [uptime](/tutorials/wordpress-hosting-uptime).
+
+**How do I monitor a WordPress site without paying?**
+UptimeRobot for uptime, PageSpeed Insights for performance, Wordfence for security — all free. Full setup is in this guide.

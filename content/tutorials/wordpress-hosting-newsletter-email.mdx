@@ -1,0 +1,85 @@
+---
+title: "Email Newsletters on WordPress: Which Service and How to Connect (2026)"
+description: "Send email newsletters from WordPress: Mailchimp, Brevo, MailerLite, or self-hosted. Costs, deliverability, and connection setup."
+datePublished: "2026-08-19"
+dateModified: "2026-08-19"
+readingTime: "7 min read"
+tags: [wordpress-newsletter, email-newsletter, wordpress-email-marketing]
+categories: [wordpress-hosting]
+steps:
+  - title: "Pick a newsletter service"
+    text: "MailerLite, Brevo, or Mailchimp for hosted lists — never send bulk mail from your hosting server."
+  - title: "Connect it to WordPress"
+    text: "Use the service's plugin or an integration like MC4WP for Mailchimp."
+  - title: "Add signup forms to your site"
+    text: "Place opt-in forms on posts, pages, and the sidebar."
+  - title: "Warm up and monitor deliverability"
+    text: "Start with a small send, then scale — and watch spam rates."
+---
+
+## Why you shouldn't send newsletters from hosting
+
+Your [WordPress hosting](/tutorials/what-is-wordpress-hosting) is for your website — not for sending thousands of emails. Servers that blast newsletters get flagged by spam engines within days, and shared hosting ISPs block bulk sending outright. The rules:
+
+- **Transactional mail** (password resets, order notifications) → SMTP service. [SMTP guide](/tutorials/wordpress-email-smtp)
+- **Bulk mail** (newsletters) → an email marketing platform
+
+For your business mailbox, see the [domain email setup](/tutorials/wordpress-email-setup). Newsletters are a separate lane.
+
+## The best newsletter services for WordPress
+
+| Service | Free tier | Best for |
+| --- | --- | --- |
+| MailerLite | 1,000 subs, 12k emails/mo | Best free tier, simple forms |
+| Brevo (Sendinblue) | 300 emails/day | High volume, good pricing |
+| Mailchimp | 500 contacts, 1k sends/mo | The familiar name, app ecosystem |
+| MailPoet | 500 subs (WordPress-native) | Everything inside WordPress |
+
+For WordPress sites, **MailerLite** and **Brevo** offer the best free plans; **MailPoet** is the one that runs entirely inside your dashboard (it still sends via a delivery service, so deliverability stays good).
+
+## How to connect a newsletter service
+
+### 1. Create the service account
+Sign up at the provider, create your list, and confirm your **sending domain** (they'll give you SPF/DKIM records to publish — see [deliverability](/tutorials/wordpress-email-deliverability)).
+
+### 2. Install the integration
+- **Mailchimp:** the official Mailchimp plugin, or **MC4WP: Mailchimp for WordPress** (free, better forms)
+- **MailerLite:** the official MailerLite plugin
+- **Brevo:** the official Brevo (Sendinblue) plugin
+- **MailPoet:** the plugin *is* the newsletter service — add your signup form as a block
+
+### 3. Add opt-in forms
+Place forms where readers actually subscribe:
+- After content (the most effective spot)
+- Sidebar and footer widgets
+- A dedicated landing page
+- Popup on exit intent (some services include this free)
+
+### 4. Test the double opt-in
+Enable **double opt-in** — a confirmation email protects your list quality and your sender reputation. Confirm the confirmation email lands in the inbox (not spam) before going live.
+
+## Deliverability for newsletters
+
+Newsletter success is a deliverability game:
+
+- **Warm up** — start with small sends to engaged subscribers, then scale. A cold new domain blasting 50k emails is a fast path to blocklists
+- **Clean your list** — remove bounces and non-openers; engagement is the #1 spam filter signal
+- **Watch spam rate** — above 0.1% triggers flags. Providers report this in your dashboard
+- **Publish SPF/DKIM/DMARC** — the [deliverability guide](/tutorials/wordpress-email-deliverability) has the full setup
+
+## Frequently asked questions
+
+**Can I send newsletters from my WordPress hosting?**
+Technically some shared hosts allow it, but don't — bulk sends from hosting servers get flagged as spam and hurt your domain reputation. Use a newsletter service.
+
+**What is the best free newsletter service for WordPress?**
+MailerLite (1,000 subs free) and Brevo (300 emails/day free) lead. MailPoet if you want everything inside WordPress. Full guide above.
+
+**Mailchimp or Brevo for WordPress?**
+Mailchimp for its ecosystem and plugin support; Brevo for cheaper high-volume sending. Both integrate cleanly with WordPress plugins.
+
+**How do I add a newsletter signup form to WordPress?**
+Install the service's plugin (or MC4WP for Mailchimp) and add the form block to posts, widgets, or a landing page. The setup is in this guide.
+
+**Why is my newsletter going to spam?**
+Usually missing SPF/DKIM/DMARC, a new domain sending too much too fast, or a dirty list. Fix the records ([guide](/tutorials/wordpress-email-deliverability)), warm up, and clean your list.

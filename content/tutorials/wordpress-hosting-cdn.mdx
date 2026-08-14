@@ -1,0 +1,80 @@
+---
+title: "CDN for WordPress: What It Does, Which to Choose (2026)"
+description: "A CDN for WordPress explained: what it speeds up, what it doesn't, the best free and managed options, and how to set one up."
+datePublished: "2026-08-16"
+dateModified: "2026-08-16"
+readingTime: "6 min read"
+tags: [wordpress-cdn, cdn-for-wordpress, cloudflare-wordpress]
+categories: [wordpress-hosting, managed-hosting]
+steps:
+  - title: "Understand what a CDN fixes"
+    text: "A CDN caches static files at the edge — it improves load time, not origin TTFB."
+  - title: "Choose a CDN"
+    text: "Cloudflare for free, your host's managed edge, or a premium network."
+  - title: "Connect and test"
+    text: "Point DNS at the CDN, enable caching, and re-run performance tests."
+---
+
+## What a CDN actually does
+
+A CDN (content delivery network) serves your site's **static files** — images, CSS, JavaScript, fonts — from servers near your visitor, instead of your hosting server. For a global audience, that's the difference between a 200ms image load and a 800ms one.
+
+Crucially, a CDN does **not** fix your origin's TTFB — the server response time. It caches *copies*; the first request still hits your host. If your host is slow (600ms TTFB), a CDN helps visitors far away but won't make your home server fast. That's a [hosting problem](/tutorials/speed-up-wordpress), not a CDN problem.
+
+## What a CDN is for
+
+- **Global visitors** — an India-based site serving US/UK readers (see the [best hosting by region](/best/wordpress-hosting) angle)
+- **Image-heavy sites** — stores, portfolios, photography blogs
+- **DDoS protection** — Cloudflare's free plan absorbs attacks before they reach your host
+- **Offloading your server** — cached assets never hit your origin
+
+## The best WordPress CDN options
+
+### Cloudflare — best free option
+Cloudflare's free plan gives you CDN + DNS + SSL + basic WAF. Set your nameservers to Cloudflare and static caching starts working immediately. It's the default choice for WordPress — detailed setup in our [WordPress hosting on Cloudflare](/tutorials/wordpress-hosting-cloudflare) guide.
+
+### Managed hosts with built-in CDN
+- **Kinsta** — Cloudflare edge caching included in every plan, zero config
+- **Cloudways** — edge network (Cloudflare Enterprise on higher tiers)
+- **WP Engine** — Global Edge Security (CDN + WAF)
+
+If you're on these hosts, the CDN is already part of the product — check [managed WordPress hosting](/tutorials/managed-wordpress-hosting).
+
+### Premium CDNs (heavy loads)
+- **Cloudflare Enterprise / Pro** — for high-traffic sites needing advanced rules
+- **StackPath, Fastly** — edge-heavy workloads
+
+## Does the CDN hurt WordPress?
+
+One catch: WordPress is dynamic. If the CDN caches pages naively, logged-in users and carts break. Modern setups handle this:
+
+- **Cloudflare** caches static assets only unless you add rules to cache HTML for anonymous visitors
+- **WordPress cache plugins** (LiteSpeed Cache, WP Rocket) integrate with Cloudflare to purge caches on publish — a publish instantly invalidates the old cached page
+- **Hosted edges** (Kinsta, Cloudways) handle cache purging automatically
+
+Purge behavior is why plugins and CDN must talk — see the caching setup in [speed up WordPress](/tutorials/speed-up-wordpress).
+
+## Setting up Cloudflare in 5 minutes
+
+1. Create a free Cloudflare account
+2. **Add your domain** — Cloudflare scans your DNS records
+3. Change your domain's **nameservers** at the registrar to Cloudflare's two (keeps your domain safe — see [domains and hosting](/tutorials/wordpress-hosting-and-domain))
+4. Wait for activation, then under **Caching** enable **Standard** and set **Browser Cache TTL**
+5. Install a WordPress caching plugin with Cloudflare integration to purge on publish
+
+## Frequently asked questions
+
+**Does WordPress need a CDN?**
+If your audience is global or your site is image-heavy, yes. For a local, mostly-text site, a fast host alone is usually enough.
+
+**Is Cloudflare free for WordPress?**
+Yes — the free plan includes CDN, DNS, SSL, and basic DDoS protection. Upgrades cost extra but are rarely needed early on.
+
+**Does a CDN make my site faster in Google's rankings?**
+It improves load time, which is a ranking factor — but only meaningfully if latency was your bottleneck. A CDN can't fix slow hosting. Rankings: [best WordPress hosting](/best/wordpress-hosting).
+
+**Will a CDN break my WordPress admin?**
+Not if configured correctly — cached static assets with purge-on-publish leave wp-admin and logged-in sessions untouched. Managed hosts handle this automatically.
+
+**What is the best CDN for WordPress?**
+Cloudflare free for most sites; Kinsta and Cloudways include enterprise CDN with their plans; Cloudflare Enterprise for high traffic. See the [Kinsta review](/reviews/kinsta-review) for the managed-edge approach.

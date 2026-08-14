@@ -1,0 +1,71 @@
+---
+title: "Hosting WordPress on Cloudflare: The Fastest Edge for Your Site (2026)"
+description: "How to host WordPress on Cloudflare: the free plan, edge caching, and CDN setup. What Cloudflare can and can't do for a WordPress site."
+datePublished: "2026-08-14"
+dateModified: "2026-08-14"
+readingTime: "6 min read"
+tags: [hosting-wordpress-on-cloudflare, wordpress-hosting-cloudflare, cloudflare]
+categories: [wordpress-hosting]
+---
+
+## What "hosting WordPress on Cloudflare" actually means
+
+There are two very different things people mean by this:
+
+1. **Cloudflare as a CDN/firewall in front of your existing WordPress host** — the common case, and free
+2. **Cloudflare Pages / Workers as the actual host** — an edge platform that can't run classic PHP WordPress on its own
+
+Cloudflare is famous for **28ms global TTFB** and a shockingly generous free tier (see the [Cloudflare Pages review](/reviews/cloudflare-pages-review)), but it's an edge network, not a PHP application host. Classic WordPress needs a PHP + MySQL server; Cloudflare optimizes the delivery of it.
+
+## The practical setup: Cloudflare in front of WordPress
+
+The setup nearly every WordPress site should have — free, and takes about 15 minutes:
+
+1. **Point your domain's nameservers at Cloudflare** (free plan)
+2. Cloudflare proxies your DNS and serves **edge-cached static assets** (HTML, CSS, JS, images) from 330+ cities
+3. Enable the free **SSL/TLS**, **Broader caching** for static files, and **Bot Fight Mode** for security
+4. Keep WordPress itself on any host — Cloudflare sits in front, not behind
+
+The result: your **origin TTFB stays the same**, but **LCP and load time drop dramatically** because static assets are served from the edge nearest the visitor. Our [speed up WordPress](/tutorials/speed-up-wordpress) guide covers exactly how to configure this.
+
+## What Cloudflare can't do for WordPress
+
+- **Run PHP/MySQL** — Pages/Workers can't execute WordPress core; you still need a host
+- **Faster origin TTFB** — a CDN doesn't make your server respond faster, only closer
+- **Replace a host** — Cloudflare is delivery + security, not infrastructure
+
+## Hosting WordPress on Cloudflare Pages (the headless route)
+
+If you truly want WordPress **on** Cloudflare's edge, the route is:
+
+1. Run WordPress where PHP lives (any host or a small VPS)
+2. Export the site as **static HTML** with a plugin (Simply Static, WP2Static)
+3. Deploy the static export to **Cloudflare Pages** — free, unlimited bandwidth
+
+You lose dynamic features (logins, comments, search) unless you rebuild them as Workers or use headless approaches. It's a niche but legitimate setup for brochure sites. The [Cloudflare Pages review](/reviews/cloudflare-pages-review) has the platform details.
+
+## WordPress + Cloudflare, combined with the right host
+
+The strongest combination is Cloudflare in front of a fast origin:
+
+- **Origin:** [Hostinger](/reviews/hostinger-review) (142ms TTFB) or [Kinsta](/reviews/kinsta-review) (98ms TTFB, Cloudflare edge already built in)
+- **Edge:** Cloudflare free tier — static caching, SSL, DDoS protection
+
+Kinsta actually bundles Cloudflare edge caching, and Cloudways integrates Cloudflare Enterprise via add-on. For budget sites, the free Cloudflare tier on top of Hostinger is unbeatable.
+
+## Frequently asked questions
+
+**Can I host WordPress on Cloudflare for free?**
+Classic WordPress, no — Cloudflare runs edge delivery, not PHP/MySQL. But you can put the **free Cloudflare plan in front of any WordPress host**, or deploy a static WordPress export to Cloudflare Pages for free.
+
+**Is Cloudflare good for WordPress?**
+Yes — as a CDN and security layer it's the best free add-on for any WordPress site. It cuts LCP/load time and absorbs attacks without touching your origin.
+
+**Does Cloudflare speed up WordPress?**
+It speeds up delivery of static assets (images, CSS, JS) from the edge, which improves LCP and load time. It doesn't improve origin TTFB — that's the server's job.
+
+**Cloudflare or Cloudflare Pages for WordPress?**
+Cloudflare (the CDN) for classic WordPress. Cloudflare Pages only for static or headless WordPress exports.
+
+**What is the best hosting to pair with Cloudflare?**
+Hostinger for budget, Kinsta for premium (Cloudflare edge included). Both have reviews: [Hostinger](/reviews/hostinger-review) and [Kinsta](/reviews/kinsta-review).

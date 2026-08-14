@@ -1,0 +1,79 @@
+---
+title: "WordPress Hosting on AWS: Options, Cost, and Step-by-Step Setup (2026)"
+description: "How to host WordPress on AWS: Lightsail vs EC2 vs S3, what each costs, and the fastest way to launch. Includes free tier details and a setup walkthrough."
+datePublished: "2026-07-31"
+dateModified: "2026-08-13"
+readingTime: "9 min read"
+tags: [wordpress-hosting-aws, aws-wordpress-hosting, hosting-wordpress-on-aws]
+categories: [wordpress-hosting]
+---
+
+## WordPress on AWS, three ways
+
+Hosting WordPress on AWS means choosing between a few very different services:
+
+1. **AWS Lightsail** — a simple VPS-style instance, the easiest AWS route
+2. **Amazon EC2** — full control over a virtual machine, the classic route
+3. **AWS Marketplace AMI** — a pre-baked WordPress image you launch as-is
+
+There's also **AWS S3 + CloudFront** for a static export of your WordPress site, and **Amazon RDS** if you want a managed database. Which one you pick changes the cost, the control, and the maintenance burden dramatically.
+
+## Which AWS option is right for WordPress?
+
+| Option | Price/mo | Best for | Managed? |
+| --- | --- | --- | --- |
+| Lightsail | $5–10 | Most WordPress users on AWS | Panel included |
+| EC2 t4g.micro | ~$7–14 | Full control, dev/test | No |
+| Marketplace AMI | $15+ | Launch-and-go | Partially |
+| S3 + CloudFront | $0–5 | Static/headless WordPress | No |
+
+**Lightsail is the pragmatic pick for most people.** It bundles a public IP, SSD, and bandwidth with a management panel, and you can click-launch a WordPress image that includes Bitnami's tooling. EC2 gives you more control but you manage PHP, MySQL, SSL, and updates yourself.
+
+## Hosting WordPress on AWS Lightsail (step by step)
+
+1. **Sign up for AWS** and open the **Lightsail console**.
+2. Click **Create instance**, choose **WordPress** as the blueprint.
+3. Pick a location near your audience and the $5 or $10 plan.
+4. Wait ~2 minutes, then click **Connect** to get the SSH window.
+5. The instance shows your temporary WordPress admin URL and password in the welcome banner.
+6. Point your domain at the instance IP, then run the `sudo /opt/bitnami/bncert-tool` command to install a free SSL.
+
+That's the whole launch. If you'd rather run WordPress on a more traditional stack first, our [install WordPress on Hostinger](/tutorials/install-wordpress-on-hostinger) tutorial covers the managed-shared route, which is faster for most people than AWS.
+
+## WordPress on EC2
+
+EC2 is for when you want maximum control — custom AMIs, autoscaling, or integration with other AWS services like RDS, S3, and CloudFront. Expect to configure the whole LAMP/LEMP stack:
+
+1. Launch an **Ubuntu** instance (t3.micro or t4g.small is fine to start).
+2. Install Nginx/Apache, PHP 8.x, and MariaDB.
+3. Create a database and import WordPress.
+4. Configure `wp-config.php` and point DNS at the instance.
+
+We have a [deploy Next.js on a VPS](/tutorials/deploy-nextjs-on-vps) tutorial that shows the same server setup patterns — swap the Node part for WordPress and it's the same flow.
+
+## AWS Free Tier for WordPress
+
+New AWS accounts get **12 months of the free tier**: 750 hours/month of a t3.micro/t4g.small instance. That's enough to run a small WordPress site for a year at ~$0 — the same deal our [free WordPress hosting](/tutorials/free-wordpress-hosting) guide covers. Budget for the domain (~$12/yr), the snapshot after the free tier, and S3/bandwidth if you scale.
+
+## AWS WordPress hosting cost compared
+
+- **Lightsail $5** — fine for a small blog
+- **EC2 t4g.micro on-demand** — ~$7–14/mo plus data transfer
+- **Reserved instances** — cut EC2 cost ~40% with 1–3 year commitments
+- **S3 + CloudFront** — pennies for a static site; a real managed WordPress can't live here without a builder service
+
+Compare those to the flat $2.99/mo for [Hostinger](/reviews/hostinger-review) — AWS gives you full control and ecosystem integration, but you pay with setup time and ongoing admin. For a business WordPress site, a [managed host](/tutorials/managed-wordpress-hosting) is usually the smarter trade.
+
+## Frequently asked questions
+
+**Is AWS good for hosting WordPress?**
+Yes, for developers who want control or need AWS integration. Lightsail is the friendly route; EC2 is the flexible one. For non-technical users, managed WordPress hosting is simpler and often cheaper overall.
+
+**How much does WordPress hosting on AWS cost?**
+From $5/mo on Lightsail, ~$7–14/mo on EC2 (or free for a year on the free tier), plus bandwidth. Managed WordPress alternatives start at $2.99/mo.
+
+**Is WordPress free on AWS?**
+The AWS Free Tier covers a small instance for 12 months. The WordPress software itself is open source and free — you're paying only for infrastructure.
+
+**Can I migrate my WordPress site to AWS?**
+Yes. Most hosts export your site via a plugin (All-in-One WP Migration), and Lightsail has a one-click import tool for it. Our [move WordPress to a new host](/tutorials/move-wordpress-to-new-host) guide covers the general process.

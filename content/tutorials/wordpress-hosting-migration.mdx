@@ -1,0 +1,87 @@
+---
+title: "How to Migrate WordPress to a New Host Without Losing Anything (2026)"
+description: "Migrate WordPress to a new host step by step: plugins, cPanel, and manual methods. What to back up, what breaks, and how to avoid downtime."
+datePublished: "2026-08-14"
+dateModified: "2026-08-14"
+readingTime: "8 min read"
+tags: [wordpress-hosting-migration, move-wordpress-to-new-host, wordpress-migration]
+categories: [wordpress-hosting]
+comparisons: [hostinger-vs-bluehost, cloudways-vs-siteground]
+---
+
+## WordPress migration, done safely
+
+Moving a WordPress site between hosts is routine — and most hosts make it free. The safe version takes 30 minutes and risks nothing. The sloppy version loses images, breaks links, and puts your site offline.
+
+This guide covers the three methods, from easiest to most manual. Our detailed [move WordPress to a new host](/tutorials/move-wordpress-to-new-host) tutorial has the full walkthrough.
+
+## Method 1: Free host migration (easiest)
+
+Many hosts migrate your site for free:
+
+- **Hostinger** — free migration tool or their team does it
+- **SiteGround** — free migration service
+- **Cloudways** — free migration plugin, [walkthrough here](/tutorials/migrate-wordpress-to-cloudways)
+- **Kinsta / WP Engine** — free, done by their team
+
+Process: buy the new plan → request the migration → the host pulls your site from the old server → you switch DNS. You do almost nothing.
+
+## Method 2: Migration plugin (most reliable DIY)
+
+Works with any host pairing. **All-in-One WP Migration** is the standard:
+
+1. **Install the plugin** on the old site
+2. **Export** — choose *Export to file*, get a single `.wpress` file
+3. **Install the plugin** on the new site (fresh WordPress install)
+4. **Import** the file
+5. **Save permalinks** — Settings → Permalinks → Save, to fix link structures
+
+The plugin moves files, database, media, and settings. For WooCommerce, use the paid extension so product data and order metadata import cleanly.
+
+## Method 3: Manual migration (full control)
+
+For developers or sites with custom setups:
+
+1. **Back up files** — zip the `wp-content` folder (and full site if possible) via cPanel File Manager or SFTP
+2. **Export the database** — phpMyAdmin → Export → SQL
+3. **Install WordPress** on the new host
+4. **Restore files** — upload the backup to the new `wp-content`
+5. **Import the database** — phpMyAdmin → Import
+6. **Fix `wp-config.php`** — update the new host's DB name, user, and password
+7. **Search-replace the domain** if it changed (use a plugin like Better Search Replace, never find/replace in a raw editor)
+
+## What breaks during migration (and how to fix it)
+
+| Issue | Fix |
+| --- | --- |
+| Broken images/links | Update permalinks; search-replace old URL with new |
+| 500 error after import | Check file permissions (755 folders, 644 files) and PHP version |
+| Login redirects loop | Clear the `siteurl`/`home` options or use a local config override |
+| Missing media | Ensure `wp-content/uploads` copied fully |
+| SSL warning | Reinstall free SSL on the new host |
+
+## Before you switch DNS
+
+- **Test on the new host** via its temporary URL or hosts-file override
+- **Verify backups** exist on the new host
+- **Keep the old host live** until the new one is confirmed working
+- **Switch DNS (nameservers)** at your registrar and wait for propagation (1–24 hours)
+
+The old host can be cancelled after everything resolves. Most hosts give you a grace period to cancel — use it.
+
+## Frequently asked questions
+
+**Is it safe to migrate WordPress hosting?**
+Yes, if you back up first and test before switching DNS. Managed hosts do it free with zero downtime — that's the safest route of all.
+
+**How long does a WordPress migration take?**
+Most migrations complete in 10–60 minutes; DNS propagation adds up to 24 hours. Free host migrations usually finish within 24–48 hours.
+
+**Do I need to back up before migrating WordPress?**
+Yes, always — a full export (files + database) protects against anything going wrong mid-migration. All-in-One WP Migration is the easiest way.
+
+**Can I migrate WordPress with zero downtime?**
+Mostly yes — build the new site, verify it, then switch DNS. Brief propagation lag (minutes) is normal; actual downtime is avoidable.
+
+**What is the best hosting to migrate to?**
+Hostinger for value, SiteGround for support, Cloudways for managed cloud. See [best WordPress hosting](/best/wordpress-hosting) for the full rankings, and the [Hostinger vs Bluehost](/comparisons/hostinger-vs-bluehost) comparison for the most common move.

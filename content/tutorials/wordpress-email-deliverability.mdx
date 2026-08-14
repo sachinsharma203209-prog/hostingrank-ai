@@ -1,0 +1,97 @@
+---
+title: "Email Deliverability: Fix WordPress Emails Landing in Spam (2026)"
+description: "Stop your WordPress emails going to spam. Set up SPF, DKIM, and DMARC, and diagnose deliverability with free tools."
+datePublished: "2026-08-15"
+dateModified: "2026-08-15"
+readingTime: "7 min read"
+tags: [email-deliverability, spam-fix, spf-dkim-dmarc, wordpress-email]
+categories: [wordpress-hosting]
+steps:
+  - title: "Publish SPF"
+    text: "Add a TXT record listing every server allowed to send mail for your domain."
+  - title: "Publish DKIM"
+    text: "Generate a signing key in your email provider and publish it as a DNS TXT record."
+  - title: "Publish DMARC"
+    text: "Add a policy record that tells receiving servers how to handle forged mail, then monitor reports."
+  - title: "Check your reputation and warm up"
+    text: "Verify with free tools, fix residual issues, and ramp up sending volume gradually."
+---
+
+## Why your emails land in spam
+
+When a WordPress site or business mailbox sends mail that gets filtered, the cause is almost always one of these:
+
+1. **Missing authentication records** — no SPF, DKIM, or DMARC
+2. **Shared server reputation** — noisy neighbors on the same IP
+3. **Content signals** — URLs, attachments, or wording that looks spammy
+4. **Low engagement** — recipients marking your mail as spam drags your reputation down
+5. **Sending from PHP `mail()`** — your WordPress site's default, which fails modern spam checks
+
+Email is trust. The three DNS records below are how your domain proves it's who it says it is. This guide walks through each — the same records you'd set when [setting up domain email](/tutorials/wordpress-email-setup).
+
+## SPF: who may send for your domain
+
+SPF (Sender Policy Framework) is a single DNS TXT record listing every server allowed to send mail for your domain.
+
+```text
+yourdomain.com.  TXT  "v=spf1 include:_spf.yourhost.com ~all"
+```
+
+- `include:` each service you use (your host, Google Workspace, Mailgun — combine multiple `include:` blocks)
+- `~all` soft-fails unknown senders; `-all` hard-fails (use `~all` until you're sure)
+- **Keep it under 10 DNS lookups** or the record is invalidated
+
+Find your value in your provider's docs — Hostinger, SiteGround, Google Workspace, and Zoho all publish their SPF includes.
+
+## DKIM: cryptographically sign your mail
+
+DKIM adds a public key to your DNS and your provider signs each message with the matching private key.
+
+1. In your email provider, generate a DKIM key for your domain
+2. You get a hostname like `default._domainkey.yourdomain.com` and a TXT value
+3. Publish it, wait for propagation, then **enable signing** in the provider
+
+Without DKIM, receiving servers can't verify the mail truly came from you — and big inboxes increasingly treat unsigned mail as suspicious.
+
+## DMARC: tell receivers what to do
+
+DMARC ties SPF and DKIM together and gives you reporting:
+
+```text
+_dmarc.yourdomain.com.  TXT  "v=DMARC1; p=none; rua=mailto:you@yourdomain.com"
+```
+
+1. Start with `p=none` — collect reports without rejecting anything
+2. Review reports (the `rua` mailbox) for legitimate senders you forgot
+3. Move to `p=quarantine`, then `p=reject` once everything's aligned
+
+## How to check your setup
+
+Three free tools that test your records instantly:
+
+- **Google Postmaster Tools** — spam rate, reputation, and delivery errors for your domain
+- **MXToolbox** — SPF/DKIM/DMARC checks and DNS lookups
+- **Mail-tester.com** — sends a test email and scores your configuration out of 10
+
+Run the check, fix anything it flags, then re-test. The troubleshooting loop is usually 20 minutes.
+
+## WordPress transactional mail
+
+If you've done all the DNS work and WordPress **site** mail (resets, orders, forms) still gets filtered, the problem is PHP `mail()`. Route it through a real SMTP service instead — our [WordPress SMTP setup](/tutorials/wordpress-email-smtp) covers Mailgun, SendGrid, and Postmark in detail.
+
+## Frequently asked questions
+
+**How long does SPF/DKIM/DMARC take to work?**
+DNS propagation is usually complete in minutes to a few hours. Mail-tester.com confirms when your records are live.
+
+**Do I need all three records?**
+DMARC is most effective when SPF and DKIM both pass. You can run DMARC with one, but alignment checks require both for best results.
+
+**My host set up email — why is it still in spam?**
+Your domain's records may be correct while the server's shared IP has a bad reputation. Move to Google Workspace or a dedicated email service to fix the IP problem. Compare options in [WordPress hosting and email](/tutorials/wordpress-hosting-and-email).
+
+**Can DMARC break my email?**
+Only if you set `p=reject` before all legitimate senders are aligned. Start at `p=none`, review reports, then escalate.
+
+**What is email warm-up?**
+Gradually increasing send volume from a new domain/address so inboxes build a positive reputation. Relevant when you start cold outreach or newsletters.
